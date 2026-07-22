@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================
    PRELOADER
    ========================================================================== */
-function initPreloader(){
+function initPreloader() {
   const preloader = document.getElementById('preloader');
-  const enterBtn  = document.getElementById('enterBtn');
-  const skipBtn   = document.getElementById('skipBtn');
-  const audio     = document.getElementById('bgAudio');
+  const enterBtn = document.getElementById('enterBtn');
+  const skipBtn = document.getElementById('skipBtn');
+  const audio = document.getElementById('bgAudio');
   if (!preloader) return;
 
   if (audio && audio.load) {
@@ -63,7 +63,7 @@ function initPreloader(){
 /* ==========================================================================
    REVEAL ON SCROLL — any [data-reveal] element fades/rises into place
    ========================================================================== */
-function initRevealOnScroll(){
+function initRevealOnScroll() {
   const targets = document.querySelectorAll('[data-reveal]');
   if (!targets.length) return;
 
@@ -87,10 +87,10 @@ function initRevealOnScroll(){
 /* ==========================================================================
    SCROLL PROGRESS BAR + CHAPTER NAV ACTIVE STATE
    ========================================================================== */
-function initProgressAndNav(){
+function initProgressAndNav() {
   const fill = document.getElementById('progressFill');
   const navLinks = document.querySelectorAll('.chapter-nav a');
-  const sections = ['hero','ch1','ch2','ch3','ch4','ch5','ch6','ch-reveal','ch7','ch8','ch9','ch10','final']
+  const sections = ['hero', 'ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch-reveal', 'ch7', 'ch8', 'ch9', 'ch10', 'final']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -128,7 +128,7 @@ function initProgressAndNav(){
 /* ==========================================================================
    CUSTOM CURSOR GLOW (desktop, fine pointer only)
    ========================================================================== */
-function initCursorGlow(){
+function initCursorGlow() {
   const glow = document.getElementById('cursorGlow');
   if (!glow || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
@@ -144,7 +144,7 @@ function initCursorGlow(){
 /* ==========================================================================
    AMBIENT PARTICLES — soft floating dust / light motes
    ========================================================================== */
-function initParticles(){
+function initParticles() {
   const canvas = document.getElementById('particles');
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
@@ -153,12 +153,12 @@ function initParticles(){
 
   const COUNT = Math.min(46, Math.floor(window.innerWidth / 26));
 
-  function resize(){
+  function resize() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
   }
 
-  function makeParticle(){
+  function makeParticle() {
     return {
       x: Math.random() * w,
       y: Math.random() * h,
@@ -169,12 +169,12 @@ function initParticles(){
     };
   }
 
-  function build(){
+  function build() {
     resize();
     particles = Array.from({ length: COUNT }, makeParticle);
   }
 
-  function tick(){
+  function tick() {
     if (!visible) return;
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '169,129,74';
@@ -205,12 +205,12 @@ function initParticles(){
 /* ==========================================================================
    PARALLAX — elements with [data-parallax="factor"]
    ========================================================================== */
-function initParallax(){
+function initParallax() {
   const els = Array.from(document.querySelectorAll('[data-parallax]'));
   if (!els.length) return;
   let ticking = false;
 
-  function update(){
+  function update() {
     const y = window.scrollY;
     els.forEach(el => {
       const factor = parseFloat(el.dataset.parallax) || 0.1;
@@ -227,7 +227,7 @@ function initParallax(){
 /* ==========================================================================
    CHAPTER 8 — 23 REASONS ENVELOPES
    ========================================================================== */
-function initEnvelopes(){
+function initEnvelopes() {
   const grid = document.getElementById('envelopeGrid');
   if (!grid) return;
 
@@ -294,7 +294,7 @@ function initEnvelopes(){
 /* ==========================================================================
    CHAPTER 5 — MEMORY MATCH MINI GAME
    ========================================================================== */
-function initMemoryGame(){
+function initMemoryGame() {
   const gridEl = document.getElementById('gameGrid');
   const statusEl = document.getElementById('gameStatus');
   const winEl = document.getElementById('gameWin');
@@ -302,12 +302,12 @@ function initMemoryGame(){
   if (!gridEl) return;
 
   const MEMORIES = [
-    { key: 'beach',   label: 'Beach',    icon: '\u{1F30A}' },
-    { key: 'pastry',  label: 'Pastry',   icon: '\u{1F950}' },
-    { key: 'park',    label: 'Park',     icon: '\u{1F333}' },
-    { key: 'biryani', label: 'Biryani',  icon: '\u{1F35B}' },
-    { key: 'ring',    label: 'The Ring', icon: '\u{1F48D}' },
-    { key: 'guitar',  label: 'Guitar',   icon: '\u{1F3B8}' }
+    { key: 'beach', label: 'Beach', icon: '\u{1F30A}' },
+    { key: 'pastry', label: 'Pastry', icon: '\u{1F950}' },
+    { key: 'park', label: 'Park', icon: '\u{1F333}' },
+    { key: 'biryani', label: 'Biryani', icon: '\u{1F35B}' },
+    { key: 'ring', label: 'The Ring', icon: '\u{1F48D}' },
+    { key: 'guitar', label: 'Guitar', icon: '\u{1F3B8}' }
   ];
 
   let moves = 0;
@@ -316,14 +316,14 @@ function initMemoryGame(){
   let first = null;
   let second = null;
 
-  function shuffledDeck(){
+  function shuffledDeck() {
     const deck = [...MEMORIES, ...MEMORIES]
       .map(m => ({ ...m }))
       .sort(() => Math.random() - 0.5);
     return deck;
   }
 
-  function render(){
+  function render() {
     gridEl.innerHTML = '';
     moves = 0; matches = 0; lockBoard = false; first = null; second = null;
     winEl && (winEl.hidden = true);
@@ -360,11 +360,11 @@ function initMemoryGame(){
     gridEl.appendChild(frag);
   }
 
-  function updateStatus(){
+  function updateStatus() {
     if (statusEl) statusEl.textContent = `Moves: ${moves} \u00B7 Matches: ${matches}/6`;
   }
 
-  function handleFlip(card){
+  function handleFlip(card) {
     if (lockBoard) return;
     if (card.classList.contains('is-flipped') || card.classList.contains('is-matched')) return;
 
@@ -396,7 +396,7 @@ function initMemoryGame(){
     }
   }
 
-  function resetTurn(){
+  function resetTurn() {
     first = null; second = null; lockBoard = false;
   }
 
@@ -407,7 +407,7 @@ function initMemoryGame(){
 /* ==========================================================================
    CHAPTER 7 — TIMELINE YEARS (progressive enhancement on <details>)
    ========================================================================== */
-function initTimelineYears(){
+function initTimelineYears() {
   const years = document.querySelectorAll('.year');
   years.forEach(y => {
     y.addEventListener('toggle', () => {
@@ -421,13 +421,13 @@ function initTimelineYears(){
 /* ==========================================================================
    CHAPTER 9 — TREE GROWTH ON SCROLL
    ========================================================================== */
-function initTreeGrowth(){
+function initTreeGrowth() {
   const wrap = document.getElementById('treeWrap');
   const chapter = document.getElementById('ch9');
   const sparkField = document.getElementById('treeSparkles');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function grow(){
+  function grow() {
     wrap.classList.add('is-grown');
     if (!reduceMotion && sparkField && !sparkField.childElementCount) {
       spawnSparkles(sparkField, 10, { starRatio: 0.3 });
@@ -454,7 +454,7 @@ function initTreeGrowth(){
 /* ==========================================================================
    FINAL CHAPTER — THE LETTER
    ========================================================================== */
-function initLetter(){
+function initLetter() {
   const trigger = document.getElementById('letterTrigger');
   const paper = document.getElementById('letterPaper');
   const typeLine = document.getElementById('typewriterLine');
@@ -480,7 +480,7 @@ function initLetter(){
   });
 }
 
-function typewrite(el, text, speed){
+function typewrite(el, text, speed) {
   el.textContent = '';
   el.classList.add('is-typing');
   let i = 0;
@@ -500,7 +500,7 @@ function typewrite(el, text, speed){
    HIDDEN HEART SCAVENGER HUNT — unlocks the two bonus chapters
    Progress is persisted in localStorage so a refresh doesn't wipe it.
    ========================================================================== */
-function initHeartHunt(){
+function initHeartHunt() {
   const hearts = document.querySelectorAll('.hidden-heart');
   const counterEl = document.getElementById('heartCount');
   const counterWrap = document.getElementById('heartCounter');
@@ -512,14 +512,14 @@ function initHeartHunt(){
   /* ---- restore from storage ---- */
   const STORAGE_KEY = '23andthree_hearts_v1';
   let savedRaw = '[]';
-  try { savedRaw = localStorage.getItem(STORAGE_KEY) || '[]'; } catch(e){}
+  try { savedRaw = localStorage.getItem(STORAGE_KEY) || '[]'; } catch (e) { }
   const found = new Set(JSON.parse(savedRaw));
 
-  function saveProgress(){
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...found])); } catch(e){}
+  function saveProgress() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...found])); } catch (e) { }
   }
 
-  function syncUI(){
+  function syncUI() {
     if (counterEl) counterEl.textContent = String(found.size);
     if (gateProgress) gateProgress.textContent = String(found.size);
     hearts.forEach(heart => {
@@ -532,13 +532,13 @@ function initHeartHunt(){
     if (found.size >= 3) revealBonus(false);
   }
 
-  function pulse(){
+  function pulse() {
     if (!counterWrap) return;
     counterWrap.classList.add('is-pulse');
     setTimeout(() => counterWrap.classList.remove('is-pulse'), 300);
   }
 
-  function revealBonus(animate){
+  function revealBonus(animate) {
     if (!bonus || !bonus.hidden) return;
     bonus.hidden = false;
     if (animate) {
@@ -580,7 +580,7 @@ function initHeartHunt(){
 /* ==========================================================================
    AMBIENT SPARKLES — reusable star/dust field generator (hero + tree)
    ========================================================================== */
-function spawnSparkles(container, count, opts){
+function spawnSparkles(container, count, opts) {
   opts = opts || {};
   if (!container) return;
   const starRatio = opts.starRatio || 0.25;
@@ -608,7 +608,7 @@ function spawnSparkles(container, count, opts){
   container.appendChild(frag);
 }
 
-function initHeroStars(){
+function initHeroStars() {
   const field = document.getElementById('heroStars');
   if (!field) return;
   spawnSparkles(field, window.innerWidth < 640 ? 14 : 22, { starRatio: 0.28, avoidCenter: true });
@@ -617,7 +617,7 @@ function initHeroStars(){
 /* ==========================================================================
    TILT — subtle mouse-follow 3D tilt for card-like elements
    ========================================================================== */
-function initTiltEffect(selector, opts){
+function initTiltEffect(selector, opts) {
   opts = opts || {};
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   const els = document.querySelectorAll(selector);
@@ -657,7 +657,7 @@ function initTiltEffect(selector, opts){
 /* ==========================================================================
    MAGNETIC BUTTONS — subtle pull toward the cursor for primary CTAs
    ========================================================================== */
-function initMagneticButtons(selector, opts){
+function initMagneticButtons(selector, opts) {
   opts = opts || {};
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   const els = document.querySelectorAll(selector);
@@ -692,11 +692,11 @@ function initMagneticButtons(selector, opts){
 /* ==========================================================================
    TREE — hover-link a branch and its label so either lights the other up
    ========================================================================== */
-function initTreeHoverLink(){
+function initTreeHoverLink() {
   const wrap = document.getElementById('treeWrap');
   if (!wrap) return;
 
-  function link(a, b){
+  function link(a, b) {
     if (!a || !b) return;
     const on = () => { a.classList.add('is-active'); b.classList.add('is-active'); };
     const off = () => { a.classList.remove('is-active'); b.classList.remove('is-active'); };
@@ -720,7 +720,7 @@ function initTreeHoverLink(){
 /* ==========================================================================
    CELEBRATION BURST — soft confetti/hearts, used on hunt-unlock + game win
    ========================================================================== */
-function burstCelebration(){
+function burstCelebration() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canvas = document.getElementById('confettiCanvas');
   if (!canvas || !canvas.getContext || reduceMotion) return;
@@ -747,7 +747,7 @@ function burstCelebration(){
   const DURATION = 1500;
   let start = null;
 
-  function drawHeart(x, y, size, rot){
+  function drawHeart(x, y, size, rot) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(rot);
@@ -760,7 +760,7 @@ function burstCelebration(){
     ctx.restore();
   }
 
-  function frame(ts){
+  function frame(ts) {
     if (!start) start = ts;
     const elapsed = ts - start;
     ctx.clearRect(0, 0, w, h);
@@ -805,7 +805,7 @@ let freqData = null;
 let audioSourceNode = null;
 let visualizerRAF = null;
 
-function ensureAudioGraph(audioEl){
+function ensureAudioGraph(audioEl) {
   if (audioCtx) return true;
   if (window.location.protocol === 'file:') {
     return false;
@@ -829,7 +829,7 @@ function ensureAudioGraph(audioEl){
   }
 }
 
-function readLevels(count){
+function readLevels(count) {
   const out = new Array(count).fill(0);
   if (analyser && freqData) {
     analyser.getByteFrequencyData(freqData);
@@ -848,7 +848,7 @@ function readLevels(count){
   return out;
 }
 
-function drawViz(ctx, canvas, levels){
+function drawViz(ctx, canvas, levels) {
   const w = canvas.width, h = canvas.height;
   ctx.clearRect(0, 0, w, h);
   const n = levels.length;
@@ -864,7 +864,7 @@ function drawViz(ctx, canvas, levels){
   });
 }
 
-function drawStaticViz(canvas){
+function drawStaticViz(canvas) {
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
   const w = canvas.width, h = canvas.height;
@@ -875,7 +875,7 @@ function drawStaticViz(canvas){
   for (let i = 0; i < n; i++) ctx.fillRect(i * (barW + gap), h - h * 0.42, barW, h * 0.42);
 }
 
-function startVisualizer(){
+function startVisualizer() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const bars = document.querySelectorAll('.music-toggle__bars i');
   const canvas = document.getElementById('bonusViz');
@@ -888,7 +888,7 @@ function startVisualizer(){
 
   const vctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
 
-  function tick(){
+  function tick() {
     const levels = readLevels(Math.max(bars.length, 20));
     bars.forEach((b, i) => {
       const idx = Math.floor(i * levels.length / bars.length);
@@ -901,7 +901,7 @@ function startVisualizer(){
   tick();
 }
 
-function stopVisualizer(){
+function stopVisualizer() {
   cancelAnimationFrame(visualizerRAF);
   visualizerRAF = null;
   document.querySelectorAll('.music-toggle__bars i').forEach(b => { b.style.height = '30%'; });
@@ -909,7 +909,7 @@ function stopVisualizer(){
   if (canvas && canvas.getContext) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function initMusicControls(){
+function initMusicControls() {
   const audio = document.getElementById('bgAudio');
   const toggle = document.getElementById('musicToggle');
   const bonusBtn = document.getElementById('bonusPlayerBtn');
@@ -917,7 +917,7 @@ function initMusicControls(){
   const bonusIconPause = document.getElementById('bonusIconPause');
   if (!audio) return;
 
-  function setPlayingUI(isPlaying){
+  function setPlayingUI(isPlaying) {
     if (toggle) {
       toggle.classList.toggle('is-playing', isPlaying);
       toggle.setAttribute('aria-pressed', String(isPlaying));
@@ -934,11 +934,11 @@ function initMusicControls(){
     if (isPlaying) startVisualizer(); else stopVisualizer();
   }
 
-  function play(){
+  function play() {
     try {
       ensureAudioGraph(audio);
-      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
-    } catch(e) {}
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => { });
+    } catch (e) { }
 
     if (audio.readyState === 0) {
       audio.load();
@@ -954,8 +954,8 @@ function initMusicControls(){
       setPlayingUI(!audio.paused);
     }
   }
-  function pause(){ audio.pause(); }
-  function toggleAudio(){ if (audio.paused) play(); else pause(); }
+  function pause() { audio.pause(); }
+  function toggleAudio() { if (audio.paused) play(); else pause(); }
 
   toggle && toggle.addEventListener('click', toggleAudio);
   bonusBtn && bonusBtn.addEventListener('click', toggleAudio);
@@ -971,7 +971,7 @@ function initMusicControls(){
 /* ==========================================================================
    HERO LUXURY — Full interactive love journal hero
    ========================================================================== */
-function initHeroLuxury(){
+function initHeroLuxury() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   buildHeroMarquee();
@@ -979,7 +979,7 @@ function initHeroLuxury(){
   initHeroLightbox();
   initHeroCTA();
 
-  if(!reduceMotion){
+  if (!reduceMotion) {
     initHeroParticleCanvas();
     initHeroFloatingElements();
     initHeroCursor();
@@ -991,80 +991,80 @@ function initHeroLuxury(){
 
   // Watch for preloader close → start typography reveal
   const obs = new MutationObserver(() => {
-    if(document.body.classList.contains('hero-entered')){
+    if (document.body.classList.contains('hero-entered')) {
       obs.disconnect();
       setTimeout(initHeroTypographyReveal, 120);
     }
   });
-  obs.observe(document.body,{attributes:true,attributeFilter:['class']});
-  if(document.body.classList.contains('hero-entered')) setTimeout(initHeroTypographyReveal,120);
+  obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  if (document.body.classList.contains('hero-entered')) setTimeout(initHeroTypographyReveal, 120);
 }
 
 /* --- Cinematic typography reveal sequence --- */
-function initHeroTypographyReveal(){
+function initHeroTypographyReveal() {
   const seq = [
-    { id:'heroLabel',       delay:200  },
-    { id:'heroHeadingTop',  delay:560  },
-    { id:'heroHeadingName', delay:940  },
-    { id:'heroQuote1',      delay:1420 },
-    { id:'heroQuote2',      delay:1840 },
-    { id:'heroStats',       delay:2360 },
-    { id:'heroMarquee',     delay:2760 },
-    { id:'heroCta',         delay:3260 },
+    { id: 'heroLabel', delay: 200 },
+    { id: 'heroHeadingTop', delay: 560 },
+    { id: 'heroHeadingName', delay: 940 },
+    { id: 'heroQuote1', delay: 1420 },
+    { id: 'heroQuote2', delay: 1840 },
+    { id: 'heroStats', delay: 2360 },
+    { id: 'heroMarquee', delay: 2760 },
+    { id: 'heroCta', delay: 3260 },
   ];
-  seq.forEach(({id,delay}) => {
+  seq.forEach(({ id, delay }) => {
     const el = document.getElementById(id);
-    if(!el) return;
+    if (!el) return;
     setTimeout(() => el.classList.add('is-revealed'), delay);
   });
 }
 
 /* --- Particle canvas: stars, dust, bokeh circles --- */
-function initHeroParticleCanvas(){
+function initHeroParticleCanvas() {
   const canvas = document.getElementById('heroParticleCanvas');
-  if(!canvas || !canvas.getContext) return;
+  if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
   let w, h, particles, raf;
   let pageVisible = true;
 
-  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
 
-  function mkP(){
+  function mkP() {
     const r = Math.random();
-    if(r < 0.14) return { kind:'bokeh', x:Math.random()*100, y:Math.random()*100, rad:18+Math.random()*55, alpha:.05+Math.random()*.08, phase:Math.random()*Math.PI*2, speed:.3+Math.random()*.5 };
-    if(r < 0.34) return { kind:'star',  x:Math.random()*w, y:Math.random()*h, rad:.7+Math.random()*1.5, peakA:.45+Math.random()*.55, phase:Math.random()*Math.PI*2, speed:.5+Math.random()*1.2 };
-    return { kind:'dust', x:Math.random()*w, y:Math.random()*h, rad:.5+Math.random()*1.1, alpha:.07+Math.random()*.16, vx:(Math.random()-.5)*.2, vy:-.04-Math.random()*.24, phase:Math.random()*Math.PI*2 };
+    if (r < 0.14) return { kind: 'bokeh', x: Math.random() * 100, y: Math.random() * 100, rad: 18 + Math.random() * 55, alpha: .05 + Math.random() * .08, phase: Math.random() * Math.PI * 2, speed: .3 + Math.random() * .5 };
+    if (r < 0.34) return { kind: 'star', x: Math.random() * w, y: Math.random() * h, rad: .7 + Math.random() * 1.5, peakA: .45 + Math.random() * .55, phase: Math.random() * Math.PI * 2, speed: .5 + Math.random() * 1.2 };
+    return { kind: 'dust', x: Math.random() * w, y: Math.random() * h, rad: .5 + Math.random() * 1.1, alpha: .07 + Math.random() * .16, vx: (Math.random() - .5) * .2, vy: -.04 - Math.random() * .24, phase: Math.random() * Math.PI * 2 };
   }
 
-  function build(){
+  function build() {
     resize();
-    particles = Array.from({length:Math.min(80,Math.floor(w/16))}, mkP);
+    particles = Array.from({ length: Math.min(80, Math.floor(w / 16)) }, mkP);
   }
 
-  function tick(ts){
-    if(!pageVisible) return;
-    ctx.clearRect(0,0,w,h);
-    const t = (ts||0)/1000;
+  function tick(ts) {
+    if (!pageVisible) return;
+    ctx.clearRect(0, 0, w, h);
+    const t = (ts || 0) / 1000;
     particles.forEach(p => {
-      if(p.kind==='dust'){
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.y<-10){ p.y=h+10; p.x=Math.random()*w; }
-        if(p.x<-10) p.x=w+10; if(p.x>w+10) p.x=-10;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.rad,0,Math.PI*2);
-        ctx.fillStyle=`rgba(208,172,98,${p.alpha})`; ctx.fill();
-      } else if(p.kind==='star'){
-        const a = p.peakA*(0.5+0.5*Math.sin(t*p.speed+p.phase));
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.rad,0,Math.PI*2);
-        ctx.fillStyle=`rgba(238,212,158,${a})`; ctx.fill();
-        const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.rad*4);
-        g.addColorStop(0,`rgba(238,212,158,${a*.28})`); g.addColorStop(1,'transparent');
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.rad*4,0,Math.PI*2);
-        ctx.fillStyle=g; ctx.fill();
+      if (p.kind === 'dust') {
+        p.x += p.vx; p.y += p.vy;
+        if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+        if (p.x < -10) p.x = w + 10; if (p.x > w + 10) p.x = -10;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.rad, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(208,172,98,${p.alpha})`; ctx.fill();
+      } else if (p.kind === 'star') {
+        const a = p.peakA * (0.5 + 0.5 * Math.sin(t * p.speed + p.phase));
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.rad, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(238,212,158,${a})`; ctx.fill();
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.rad * 4);
+        g.addColorStop(0, `rgba(238,212,158,${a * .28})`); g.addColorStop(1, 'transparent');
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.rad * 4, 0, Math.PI * 2);
+        ctx.fillStyle = g; ctx.fill();
       } else {
-        const xp=p.x/100*w, yp=p.y/100*h;
-        const a = p.alpha*(0.6+0.4*Math.sin(t*p.speed+p.phase));
-        ctx.beginPath(); ctx.arc(xp,yp,p.rad,0,Math.PI*2);
-        ctx.strokeStyle=`rgba(212,172,88,${a})`; ctx.lineWidth=.7; ctx.stroke();
+        const xp = p.x / 100 * w, yp = p.y / 100 * h;
+        const a = p.alpha * (0.6 + 0.4 * Math.sin(t * p.speed + p.phase));
+        ctx.beginPath(); ctx.arc(xp, yp, p.rad, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(212,172,88,${a})`; ctx.lineWidth = .7; ctx.stroke();
       }
     });
     raf = requestAnimationFrame(tick);
@@ -1074,81 +1074,81 @@ function initHeroParticleCanvas(){
   window.addEventListener('resize', build);
   document.addEventListener('visibilitychange', () => {
     pageVisible = !document.hidden;
-    if(pageVisible) tick(0); else cancelAnimationFrame(raf);
+    if (pageVisible) tick(0); else cancelAnimationFrame(raf);
   });
 }
 
 /* --- Floating hearts, petals, fireflies, bokeh DOM elements --- */
-function initHeroFloatingElements(){
+function initHeroFloatingElements() {
   const c = document.getElementById('heroFloaters');
-  if(!c) return;
+  if (!c) return;
   const heartSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 20S3.5 14.3 3.5 8.8C3.5 5.6 5.9 4 8.5 4c1.8 0 3.3 1 4 2.4C13.2 5 14.7 4 16.5 4c2.6 0 5 1.6 5 4.8 0 5.5-9.5 11.2-9.5 11.2Z"/></svg>`;
-  const hPos=[[5,20],[12,65],[85,35],[92,70],[48,85],[25,45],[70,18],[38,75],[15,50],[80,55],[55,30],[35,88],[62,60],[8,38],[44,15],[76,80],[20,72],[90,22],[50,50],[32,30],[68,45]];
-  hPos.forEach(([x,y]) => {
-    const el=document.createElement('div'); el.className='hero-heart-float';
-    const sz=10+Math.random()*10;
-    el.style.cssText=`left:${x}%;top:${y}%;--sz:${sz}px;--rot:${(Math.random()-.5)*30}deg;--dur:${10+Math.random()*8}s;--delay:${Math.random()*8}s;--peak:${.38+Math.random()*.22};--travel:-${160+Math.random()*80}px;`;
-    el.innerHTML=heartSVG; c.appendChild(el);
+  const hPos = [[5, 20], [12, 65], [85, 35], [92, 70], [48, 85], [25, 45], [70, 18], [38, 75], [15, 50], [80, 55], [55, 30], [35, 88], [62, 60], [8, 38], [44, 15], [76, 80], [20, 72], [90, 22], [50, 50], [32, 30], [68, 45]];
+  hPos.forEach(([x, y]) => {
+    const el = document.createElement('div'); el.className = 'hero-heart-float';
+    const sz = 10 + Math.random() * 10;
+    el.style.cssText = `left:${x}%;top:${y}%;--sz:${sz}px;--rot:${(Math.random() - .5) * 30}deg;--dur:${10 + Math.random() * 8}s;--delay:${Math.random() * 8}s;--peak:${.38 + Math.random() * .22};--travel:-${160 + Math.random() * 80}px;`;
+    el.innerHTML = heartSVG; c.appendChild(el);
   });
-  for(let i=0;i<15;i++){
-    const el=document.createElement('div'); el.className='hero-petal';
-    el.style.cssText=`left:${Math.random()*100}%;top:${-5+Math.random()*20}%;--dur:${7+Math.random()*6}s;--delay:${Math.random()*10}s;--peak:${.28+Math.random()*.2};--drift:${(Math.random()-.5)*120}px;`;
+  for (let i = 0; i < 15; i++) {
+    const el = document.createElement('div'); el.className = 'hero-petal';
+    el.style.cssText = `left:${Math.random() * 100}%;top:${-5 + Math.random() * 20}%;--dur:${7 + Math.random() * 6}s;--delay:${Math.random() * 10}s;--peak:${.28 + Math.random() * .2};--drift:${(Math.random() - .5) * 120}px;`;
     c.appendChild(el);
   }
-  for(let i=0;i<8;i++){
-    const el=document.createElement('div'); el.className='hero-firefly';
-    el.style.cssText=`left:${10+Math.random()*80}%;top:${20+Math.random()*60}%;--dur:${12+Math.random()*8}s;--delay:${Math.random()*6}s;--dx1:${(Math.random()-.5)*80}px;--dy1:${(Math.random()-.5)*60}px;--dx2:${(Math.random()-.5)*80}px;--dy2:${(Math.random()-.5)*60}px;--dx3:${(Math.random()-.5)*80}px;--dy3:${(Math.random()-.5)*60}px;`;
+  for (let i = 0; i < 8; i++) {
+    const el = document.createElement('div'); el.className = 'hero-firefly';
+    el.style.cssText = `left:${10 + Math.random() * 80}%;top:${20 + Math.random() * 60}%;--dur:${12 + Math.random() * 8}s;--delay:${Math.random() * 6}s;--dx1:${(Math.random() - .5) * 80}px;--dy1:${(Math.random() - .5) * 60}px;--dx2:${(Math.random() - .5) * 80}px;--dy2:${(Math.random() - .5) * 60}px;--dx3:${(Math.random() - .5) * 80}px;--dy3:${(Math.random() - .5) * 60}px;`;
     c.appendChild(el);
   }
-  for(let i=0;i<12;i++){
-    const el=document.createElement('div'); el.className='hero-bokeh';
-    const s=18+Math.random()*82;
-    el.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${s}px;height:${s}px;--dur:${5+Math.random()*8}s;--delay:${Math.random()*5}s;--alpha:${.07+Math.random()*.14};`;
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement('div'); el.className = 'hero-bokeh';
+    const s = 18 + Math.random() * 82;
+    el.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${s}px;height:${s}px;--dur:${5 + Math.random() * 8}s;--delay:${Math.random() * 5}s;--alpha:${.07 + Math.random() * .14};`;
     c.appendChild(el);
   }
 }
 
 /* --- Premium custom cursor with lag ring --- */
-function initHeroCursor(){
-  const hero   = document.getElementById('hero');
+function initHeroCursor() {
+  const hero = document.getElementById('hero');
   const cursor = document.getElementById('heroCursor');
-  const ring   = document.getElementById('heroCursorRing');
-  if(!cursor||!ring||!hero) return;
-  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const ring = document.getElementById('heroCursorRing');
+  if (!cursor || !ring || !hero) return;
+  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
 
-  let mx=0,my=0,rx=0,ry=0,raf=null;
-  function animRing(){
-    rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    raf=requestAnimationFrame(animRing);
+  let mx = 0, my = 0, rx = 0, ry = 0, raf = null;
+  function animRing() {
+    rx += (mx - rx) * .13; ry += (my - ry) * .13;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    raf = requestAnimationFrame(animRing);
   }
 
-  hero.addEventListener('mousemove',e=>{
-    mx=e.clientX; my=e.clientY;
-    cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-    cursor.style.opacity='1'; ring.style.opacity='1';
-    if(!raf) animRing();
-  },{passive:true});
-  hero.addEventListener('mouseleave',()=>{
-    cursor.style.opacity='0'; ring.style.opacity='0';
-    cancelAnimationFrame(raf); raf=null;
+  hero.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    cursor.style.opacity = '1'; ring.style.opacity = '1';
+    if (!raf) animRing();
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0'; ring.style.opacity = '0';
+    cancelAnimationFrame(raf); raf = null;
   });
 
-  hero.querySelectorAll('.hero-btn-primary,.hero-btn-secondary,.marquee-photo,.hero-stat,#heroMoon,.hero-hidden-heart,.hero-hidden-rose').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cursor.classList.add('is-hov');ring.classList.add('is-hov');});
-    el.addEventListener('mouseleave',()=>{cursor.classList.remove('is-hov');ring.classList.remove('is-hov');});
+  hero.querySelectorAll('.hero-btn-primary,.hero-btn-secondary,.marquee-photo,.hero-stat,#heroMoon,.hero-hidden-heart,.hero-hidden-rose').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.classList.add('is-hov'); ring.classList.add('is-hov'); });
+    el.addEventListener('mouseleave', () => { cursor.classList.remove('is-hov'); ring.classList.remove('is-hov'); });
   });
 
-  hero.addEventListener('click',e=>{
-    const h=document.createElement('div');
-    h.className='cursor-click-heart'; h.textContent='\u2665';
-    h.style.left=e.clientX+'px'; h.style.top=e.clientY+'px';
-    document.body.appendChild(h); setTimeout(()=>h.remove(),700);
+  hero.addEventListener('click', e => {
+    const h = document.createElement('div');
+    h.className = 'cursor-click-heart'; h.textContent = '\u2665';
+    h.style.left = e.clientX + 'px'; h.style.top = e.clientY + 'px';
+    document.body.appendChild(h); setTimeout(() => h.remove(), 700);
   });
 }
 
 /* --- Build dual infinite image marquees --- */
-function buildHeroMarquee(){
+function buildHeroMarquee() {
   const allPhotos = [
     { src: 'assets/The Beginning.jpg', cap: 'First Hello' },
     { src: 'assets/College/DSC_0154_1-PHOTO_FRAME.jpg', cap: 'St. Philomena Day' },
@@ -1187,7 +1187,7 @@ function buildHeroMarquee(){
     { src: 'assets/Bangalore/GB Palya.jpg', cap: 'GB Palya Walk' },
     { src: 'assets/Bangalore/GB Palya 2.jpg', cap: 'GB Palya Stroll' },
     { src: 'assets/Bangalore/Bangalore_.jpg', cap: 'City Outing' },
-    { src: 'assets/Bangalore/Near pg.jpg', cap: 'Near PG Night Talks' },
+    { src: 'assets/Bangalore/Near pg.jpg', cap: 'Near PG Morning Talks' },
     { src: 'assets/Bangalore/Marathon_.jpg', cap: 'Marathon 2026 Finish' },
     { src: 'assets/Bangalore/Marathon 2.jpg', cap: 'Marathon Medals' },
     { src: 'assets/Bangalore/Marathon 3.jpg', cap: 'Marathon Energy' },
@@ -1224,7 +1224,7 @@ function buildHeroMarquee(){
   const row1 = allPhotos.slice(0, Math.ceil(allPhotos.length / 2));
   const row2 = allPhotos.slice(Math.ceil(allPhotos.length / 2));
 
-  function makeTrack(photos){
+  function makeTrack(photos) {
     const photos2x = [...photos, ...photos]; // duplicate for seamless -50% infinite loop
     return photos2x.map(p => {
       const fig = document.createElement('figure');
@@ -1238,243 +1238,243 @@ function buildHeroMarquee(){
 
   const t1 = document.getElementById('marqueeTrack1');
   const t2 = document.getElementById('marqueeTrack2');
-  if(t1) makeTrack(row1).forEach(f => t1.appendChild(f));
-  if(t2) makeTrack(row2).forEach(f => t2.appendChild(f));
+  if (t1) makeTrack(row1).forEach(f => t1.appendChild(f));
+  if (t2) makeTrack(row2).forEach(f => t2.appendChild(f));
 }
 
 /* --- Fullscreen lightbox for marquee photos --- */
-function initHeroLightbox(){
-  const lb    =document.getElementById('heroLightbox');
-  const lbImg =document.getElementById('heroLightboxImg');
-  const lbCap =document.getElementById('heroLightboxCaption');
-  const lbX   =document.getElementById('heroLightboxClose');
-  if(!lb) return;
+function initHeroLightbox() {
+  const lb = document.getElementById('heroLightbox');
+  const lbImg = document.getElementById('heroLightboxImg');
+  const lbCap = document.getElementById('heroLightboxCaption');
+  const lbX = document.getElementById('heroLightboxClose');
+  if (!lb) return;
 
-  const open=(src,cap)=>{ lbImg.src=src; lbImg.alt=cap; if(lbCap) lbCap.textContent=cap; lb.classList.add('is-open'); document.body.style.overflow='hidden'; };
-  const close=()=>{ lb.classList.remove('is-open'); document.body.style.overflow=''; lbImg.src=''; };
+  const open = (src, cap) => { lbImg.src = src; lbImg.alt = cap; if (lbCap) lbCap.textContent = cap; lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+  const close = () => { lb.classList.remove('is-open'); document.body.style.overflow = ''; lbImg.src = ''; };
 
-  document.addEventListener('click',e=>{
-    const ph=e.target.closest('.marquee-photo');
-    if(ph){ const img=ph.querySelector('img'); if(img) open(img.src,ph.dataset.caption||''); }
+  document.addEventListener('click', e => {
+    const ph = e.target.closest('.marquee-photo');
+    if (ph) { const img = ph.querySelector('img'); if (img) open(img.src, ph.dataset.caption || ''); }
   });
-  lbX && lbX.addEventListener('click',close);
-  lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&lb.classList.contains('is-open')) close(); });
+  lbX && lbX.addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
 }
 
 /* --- CTA: primary button behaviors --- */
-function initHeroCTA(){
-  const pBtn     =document.getElementById('heroPrimaryBtn');
-  const sBtn     =document.getElementById('heroSkipMusicBtn');
-  const audio    =document.getElementById('bgAudio');
-  const indicator=document.getElementById('heroMusicIndicator');
-  const vinyl    =document.getElementById('heroVinyl');
-  const waveform =document.getElementById('heroWaveform');
+function initHeroCTA() {
+  const pBtn = document.getElementById('heroPrimaryBtn');
+  const sBtn = document.getElementById('heroSkipMusicBtn');
+  const audio = document.getElementById('bgAudio');
+  const indicator = document.getElementById('heroMusicIndicator');
+  const vinyl = document.getElementById('heroVinyl');
+  const waveform = document.getElementById('heroWaveform');
 
-  function showMusicUI(){ if(indicator) indicator.classList.add('is-visible'); if(vinyl) vinyl.classList.add('is-spinning'); if(waveform) waveform.classList.add('is-playing'); }
-  function hideMusicSpinner(){ if(vinyl) vinyl.classList.remove('is-spinning'); if(waveform) waveform.classList.remove('is-playing'); }
+  function showMusicUI() { if (indicator) indicator.classList.add('is-visible'); if (vinyl) vinyl.classList.add('is-spinning'); if (waveform) waveform.classList.add('is-playing'); }
+  function hideMusicSpinner() { if (vinyl) vinyl.classList.remove('is-spinning'); if (waveform) waveform.classList.remove('is-playing'); }
 
   // Recurring glow pulse every 8 s
-  if(pBtn){
-    setInterval(()=>{ pBtn.classList.add('is-pulsing'); setTimeout(()=>pBtn.classList.remove('is-pulsing'),850); },8000);
+  if (pBtn) {
+    setInterval(() => { pBtn.classList.add('is-pulsing'); setTimeout(() => pBtn.classList.remove('is-pulsing'), 850); }, 8000);
 
-    pBtn.addEventListener('click',e=>{
+    pBtn.addEventListener('click', e => {
       // Ripple
-      const rect=pBtn.getBoundingClientRect();
-      const rip=document.createElement('span'); rip.className='hero-btn-ripple';
-      const sz=Math.max(rect.width,rect.height);
-      rip.style.cssText=`width:${sz}px;height:${sz}px;left:${e.clientX-rect.left-sz/2}px;top:${e.clientY-rect.top-sz/2}px;`;
-      pBtn.appendChild(rip); setTimeout(()=>rip.remove(),700);
+      const rect = pBtn.getBoundingClientRect();
+      const rip = document.createElement('span'); rip.className = 'hero-btn-ripple';
+      const sz = Math.max(rect.width, rect.height);
+      rip.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX - rect.left - sz / 2}px;top:${e.clientY - rect.top - sz / 2}px;`;
+      pBtn.appendChild(rip); setTimeout(() => rip.remove(), 700);
       // Heart burst
-      heroHeartBurst(e.clientX,e.clientY,7);
+      heroHeartBurst(e.clientX, e.clientY, 7);
       // Music
-      if(typeof window.__beginWithSound==='function') window.__beginWithSound();
-      setTimeout(showMusicUI,900);
+      if (typeof window.__beginWithSound === 'function') window.__beginWithSound();
+      setTimeout(showMusicUI, 900);
       // Scroll to story
-      setTimeout(()=>{ const ch=document.getElementById('ch1'); if(ch) ch.scrollIntoView({behavior:'smooth',block:'start'}); },1500);
+      setTimeout(() => { const ch = document.getElementById('ch1'); if (ch) ch.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 1500);
     });
 
     // Magnetic hover
-    if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
-      let rect=null,raf=null;
-      pBtn.addEventListener('pointerenter',()=>{rect=pBtn.getBoundingClientRect();});
-      pBtn.addEventListener('pointermove',e=>{
-        if(raf) return;
-        raf=requestAnimationFrame(()=>{
-          raf=null; if(!rect) return;
-          const mx=(e.clientX-rect.left-rect.width/2)*.28;
-          const my=(e.clientY-rect.top-rect.height/2)*.28;
-          pBtn.style.transform=`translate(${mx.toFixed(1)}px,${my.toFixed(1)}px) translateY(-2px)`;
+    if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      let rect = null, raf = null;
+      pBtn.addEventListener('pointerenter', () => { rect = pBtn.getBoundingClientRect(); });
+      pBtn.addEventListener('pointermove', e => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = null; if (!rect) return;
+          const mx = (e.clientX - rect.left - rect.width / 2) * .28;
+          const my = (e.clientY - rect.top - rect.height / 2) * .28;
+          pBtn.style.transform = `translate(${mx.toFixed(1)}px,${my.toFixed(1)}px) translateY(-2px)`;
         });
       });
-      pBtn.addEventListener('pointerleave',()=>{ cancelAnimationFrame(raf); raf=null; pBtn.style.transform=''; });
+      pBtn.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); raf = null; pBtn.style.transform = ''; });
     }
   }
 
-  sBtn && sBtn.addEventListener('click',()=>{ const ch=document.getElementById('ch1'); if(ch) ch.scrollIntoView({behavior:'smooth',block:'start'}); });
+  sBtn && sBtn.addEventListener('click', () => { const ch = document.getElementById('ch1'); if (ch) ch.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 
-  if(audio){
-    audio.addEventListener('play', ()=>showMusicUI());
-    audio.addEventListener('pause',()=>hideMusicSpinner());
+  if (audio) {
+    audio.addEventListener('play', () => showMusicUI());
+    audio.addEventListener('pause', () => hideMusicSpinner());
   }
 }
 
-function heroHeartBurst(x,y,count){
-  for(let i=0;i<count;i++){
-    setTimeout(()=>{
-      const h=document.createElement('div');
-      h.className='cursor-click-heart'; h.textContent='\u2665';
-      h.style.left=(x+(Math.random()-.5)*44)+'px';
-      h.style.top =(y+(Math.random()-.5)*44)+'px';
-      h.style.fontSize=(11+Math.random()*10)+'px';
-      document.body.appendChild(h); setTimeout(()=>h.remove(),700);
-    },i*55);
+function heroHeartBurst(x, y, count) {
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const h = document.createElement('div');
+      h.className = 'cursor-click-heart'; h.textContent = '\u2665';
+      h.style.left = (x + (Math.random() - .5) * 44) + 'px';
+      h.style.top = (y + (Math.random() - .5) * 44) + 'px';
+      h.style.fontSize = (11 + Math.random() * 10) + 'px';
+      document.body.appendChild(h); setTimeout(() => h.remove(), 700);
+    }, i * 55);
   }
 }
 
 /* --- Micro-interactions: sparkles on title hover, petals on HBD --- */
-function initHeroMicroInteractions(){
-  const nameEl=document.getElementById('heroHeadingName');
-  const topEl =document.getElementById('heroHeadingTop');
+function initHeroMicroInteractions() {
+  const nameEl = document.getElementById('heroHeadingName');
+  const topEl = document.getElementById('heroHeadingTop');
 
-  function spawnSparks(el,e){
-    const rect=el.getBoundingClientRect();
-    for(let i=0;i<5;i++){
-      const sp=document.createElement('div');
-      sp.className='hero-title-sparkle';
-      const ox=(e.clientX-rect.left)+(Math.random()-.5)*60;
-      const oy=(e.clientY-rect.top)+(Math.random()-.5)*28;
-      sp.style.cssText=`left:${rect.left+ox}px;top:${rect.top+oy}px;--dx:${(Math.random()-.5)*80}px;--dy:${-18-Math.random()*48}px;`;
-      document.body.appendChild(sp); setTimeout(()=>sp.remove(),700);
+  function spawnSparks(el, e) {
+    const rect = el.getBoundingClientRect();
+    for (let i = 0; i < 5; i++) {
+      const sp = document.createElement('div');
+      sp.className = 'hero-title-sparkle';
+      const ox = (e.clientX - rect.left) + (Math.random() - .5) * 60;
+      const oy = (e.clientY - rect.top) + (Math.random() - .5) * 28;
+      sp.style.cssText = `left:${rect.left + ox}px;top:${rect.top + oy}px;--dx:${(Math.random() - .5) * 80}px;--dy:${-18 - Math.random() * 48}px;`;
+      document.body.appendChild(sp); setTimeout(() => sp.remove(), 700);
     }
   }
 
-  let lastSpark=0;
-  [nameEl,topEl].forEach(el=>{
-    if(!el) return;
-    el.addEventListener('mousemove',e=>{ const now=Date.now(); if(now-lastSpark>110){ lastSpark=now; spawnSparks(el,e); } });
+  let lastSpark = 0;
+  [nameEl, topEl].forEach(el => {
+    if (!el) return;
+    el.addEventListener('mousemove', e => { const now = Date.now(); if (now - lastSpark > 110) { lastSpark = now; spawnSparks(el, e); } });
   });
 
   // HBD line hover → burst petals
-  topEl && topEl.addEventListener('mouseenter',()=>{
-    const rect=topEl.getBoundingClientRect();
-    for(let i=0;i<5;i++){
-      setTimeout(()=>{
-        const p=document.createElement('div');
-        p.className='hero-petal';
-        p.style.cssText=`position:fixed;left:${rect.left+Math.random()*rect.width}px;top:${rect.top}px;--dur:1.6s;--delay:0s;--peak:.65;--drift:${(Math.random()-.5)*90}px;`;
-        document.body.appendChild(p); setTimeout(()=>p.remove(),1800);
-      },i*90);
+  topEl && topEl.addEventListener('mouseenter', () => {
+    const rect = topEl.getBoundingClientRect();
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const p = document.createElement('div');
+        p.className = 'hero-petal';
+        p.style.cssText = `position:fixed;left:${rect.left + Math.random() * rect.width}px;top:${rect.top}px;--dur:1.6s;--delay:0s;--peak:.65;--drift:${(Math.random() - .5) * 90}px;`;
+        document.body.appendChild(p); setTimeout(() => p.remove(), 1800);
+      }, i * 90);
     }
   });
 }
 
 /* --- Easter eggs: 23 hidden hearts + 3 hidden roses --- */
-function buildHeroEasterEggs(){
-  const c=document.getElementById('heroEasterEggs');
-  if(!c) return;
+function buildHeroEasterEggs() {
+  const c = document.getElementById('heroEasterEggs');
+  if (!c) return;
 
-  const hPos=[
-    [8,12],[15,45],[22,78],[30,25],[37,62],[44,88],[51,18],[58,52],[65,82],[72,35],
-    [79,68],[86,15],[93,50],[10,92],[20,38],[33,72],[46,10],[55,48],[63,85],[77,28],
-    [88,62],[4,55],[95,38]
+  const hPos = [
+    [8, 12], [15, 45], [22, 78], [30, 25], [37, 62], [44, 88], [51, 18], [58, 52], [65, 82], [72, 35],
+    [79, 68], [86, 15], [93, 50], [10, 92], [20, 38], [33, 72], [46, 10], [55, 48], [63, 85], [77, 28],
+    [88, 62], [4, 55], [95, 38]
   ];
-  const heartSVG=`<svg viewBox="0 0 24 24"><path d="M12 20S3.5 14.3 3.5 8.8C3.5 5.6 5.9 4 8.5 4c1.8 0 3.3 1 4 2.4C13.2 5 14.7 4 16.5 4c2.6 0 5 1.6 5 4.8 0 5.5-9.5 11.2-9.5 11.2Z"/></svg>`;
+  const heartSVG = `<svg viewBox="0 0 24 24"><path d="M12 20S3.5 14.3 3.5 8.8C3.5 5.6 5.9 4 8.5 4c1.8 0 3.3 1 4 2.4C13.2 5 14.7 4 16.5 4c2.6 0 5 1.6 5 4.8 0 5.5-9.5 11.2-9.5 11.2Z"/></svg>`;
 
-  hPos.forEach(([x,y],i)=>{
-    const btn=document.createElement('button');
-    btn.type='button'; btn.className='hero-hidden-heart';
-    btn.style.cssText=`left:${x}%;top:${y}%;`;
-    btn.setAttribute('aria-label','A tiny hidden heart');
-    btn.innerHTML=heartSVG;
-    btn.addEventListener('click',e=>{
+  hPos.forEach(([x, y], i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'hero-hidden-heart';
+    btn.style.cssText = `left:${x}%;top:${y}%;`;
+    btn.setAttribute('aria-label', 'A tiny hidden heart');
+    btn.innerHTML = heartSVG;
+    btn.addEventListener('click', e => {
       e.stopPropagation();
-      if(btn.classList.contains('is-found')) return;
+      if (btn.classList.contains('is-found')) return;
       btn.classList.add('is-found');
       showHeroLoveMsg();
-      heroHeartBurst(e.clientX,e.clientY,4);
+      heroHeartBurst(e.clientX, e.clientY, 4);
     });
     c.appendChild(btn);
   });
 
-  let rosesFound=0;
-  [[18,28],[72,14],[44,67]].forEach(([x,y])=>{
-    const btn=document.createElement('button');
-    btn.type='button'; btn.className='hero-hidden-rose';
-    btn.style.cssText=`left:${x}%;top:${y}%;`;
-    btn.setAttribute('aria-label','A hidden rose');
-    btn.textContent='\uD83C\uDF39';
-    btn.addEventListener('click',e=>{
+  let rosesFound = 0;
+  [[18, 28], [72, 14], [44, 67]].forEach(([x, y]) => {
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'hero-hidden-rose';
+    btn.style.cssText = `left:${x}%;top:${y}%;`;
+    btn.setAttribute('aria-label', 'A hidden rose');
+    btn.textContent = '\uD83C\uDF39';
+    btn.addEventListener('click', e => {
       e.stopPropagation();
-      if(btn.classList.contains('is-found')) return;
+      if (btn.classList.contains('is-found')) return;
       btn.classList.add('is-found'); rosesFound++;
-      heroHeartBurst(e.clientX,e.clientY,3);
-      if(rosesFound>=3) setTimeout(()=>{ const o=document.getElementById('heroLoveNoteOverlay'); if(o) o.classList.add('is-open'); },550);
+      heroHeartBurst(e.clientX, e.clientY, 3);
+      if (rosesFound >= 3) setTimeout(() => { const o = document.getElementById('heroLoveNoteOverlay'); if (o) o.classList.add('is-open'); }, 550);
     });
     c.appendChild(btn);
   });
 
-  const noteClose=document.getElementById('heroLoveNoteClose');
-  const noteOverlay=document.getElementById('heroLoveNoteOverlay');
-  noteClose&&noteClose.addEventListener('click',()=>noteOverlay&&noteOverlay.classList.remove('is-open'));
-  noteOverlay&&noteOverlay.addEventListener('click',e=>{ if(e.target===noteOverlay) noteOverlay.classList.remove('is-open'); });
+  const noteClose = document.getElementById('heroLoveNoteClose');
+  const noteOverlay = document.getElementById('heroLoveNoteOverlay');
+  noteClose && noteClose.addEventListener('click', () => noteOverlay && noteOverlay.classList.remove('is-open'));
+  noteOverlay && noteOverlay.addEventListener('click', e => { if (e.target === noteOverlay) noteOverlay.classList.remove('is-open'); });
 }
 
-function showHeroLoveMsg(){
-  const msg=document.getElementById('heroLoveMsg');
-  if(!msg||msg.classList.contains('is-showing')) return;
+function showHeroLoveMsg() {
+  const msg = document.getElementById('heroLoveMsg');
+  if (!msg || msg.classList.contains('is-showing')) return;
   msg.classList.add('is-showing');
-  setTimeout(()=>msg.classList.remove('is-showing'),2100);
+  setTimeout(() => msg.classList.remove('is-showing'), 2100);
 }
 
 /* --- Moon easter egg → shooting star --- */
-function initHeroMoonEgg(){
-  const moon=document.getElementById('heroMoon');
-  if(!moon) return;
-  moon.addEventListener('mouseenter',()=>moon.style.opacity='.6');
-  moon.addEventListener('mouseleave',()=>moon.style.opacity='.16');
-  moon.addEventListener('click',e=>{
+function initHeroMoonEgg() {
+  const moon = document.getElementById('heroMoon');
+  if (!moon) return;
+  moon.addEventListener('mouseenter', () => moon.style.opacity = '.6');
+  moon.addEventListener('mouseleave', () => moon.style.opacity = '.16');
+  moon.addEventListener('click', e => {
     e.stopPropagation();
-    const rect=moon.getBoundingClientRect();
-    const star=document.createElement('div');
-    star.className='hero-shooting-star';
-    star.style.left=(rect.left+rect.width/2)+'px';
-    star.style.top =(rect.top+rect.height/2)+'px';
+    const rect = moon.getBoundingClientRect();
+    const star = document.createElement('div');
+    star.className = 'hero-shooting-star';
+    star.style.left = (rect.left + rect.width / 2) + 'px';
+    star.style.top = (rect.top + rect.height / 2) + 'px';
     document.body.appendChild(star);
-    setTimeout(()=>star.remove(),1500);
-    heroHeartBurst(e.clientX,e.clientY,2);
+    setTimeout(() => star.remove(), 1500);
+    heroHeartBurst(e.clientX, e.clientY, 2);
   });
 }
 
 /* --- Long press on hero background → "I'll always choose you." --- */
-function initHeroLongPress(){
-  const hero=document.getElementById('hero');
-  const msg =document.getElementById('heroLongPressMsg');
-  if(!hero||!msg) return;
-  let timer=null;
-  hero.addEventListener('pointerdown',e=>{
-    if(e.target.closest('button,.marquee-photo,a')) return;
-    timer=setTimeout(()=>{ msg.classList.add('is-showing'); setTimeout(()=>msg.classList.remove('is-showing'),2600); },1500);
+function initHeroLongPress() {
+  const hero = document.getElementById('hero');
+  const msg = document.getElementById('heroLongPressMsg');
+  if (!hero || !msg) return;
+  let timer = null;
+  hero.addEventListener('pointerdown', e => {
+    if (e.target.closest('button,.marquee-photo,a')) return;
+    timer = setTimeout(() => { msg.classList.add('is-showing'); setTimeout(() => msg.classList.remove('is-showing'), 2600); }, 1500);
   });
-  ['pointerup','pointerleave','pointermove'].forEach(ev=>hero.addEventListener(ev,()=>clearTimeout(timer)));
+  ['pointerup', 'pointerleave', 'pointermove'].forEach(ev => hero.addEventListener(ev, () => clearTimeout(timer)));
 }
 
 /* --- Scroll parallax: hero zooms out, marquee slows, text fades up --- */
-function initHeroScrollEffect(){
-  const hero    =document.getElementById('hero');
-  const content =document.getElementById('heroContent');
-  const marquee =document.getElementById('heroMarquee');
-  if(!hero||!content) return;
-  let tick=false;
-  window.addEventListener('scroll',()=>{
-    if(tick) return; tick=true;
-    requestAnimationFrame(()=>{
-      const sy=window.scrollY, hh=hero.offsetHeight;
-      const p=Math.min(sy/hh,1);
-      content.style.transform=`scale(${1-p*.05}) translateY(${-p*55}px)`;
-      content.style.opacity=Math.max(0,1-p*2.4);
-      if(marquee){ marquee.style.transform=`translateY(${p*28}px)`; }
-      tick=false;
+function initHeroScrollEffect() {
+  const hero = document.getElementById('hero');
+  const content = document.getElementById('heroContent');
+  const marquee = document.getElementById('heroMarquee');
+  if (!hero || !content) return;
+  let tick = false;
+  window.addEventListener('scroll', () => {
+    if (tick) return; tick = true;
+    requestAnimationFrame(() => {
+      const sy = window.scrollY, hh = hero.offsetHeight;
+      const p = Math.min(sy / hh, 1);
+      content.style.transform = `scale(${1 - p * .05}) translateY(${-p * 55}px)`;
+      content.style.opacity = Math.max(0, 1 - p * 2.4);
+      if (marquee) { marquee.style.transform = `translateY(${p * 28}px)`; }
+      tick = false;
     });
-  },{passive:true});
+  }, { passive: true });
 }

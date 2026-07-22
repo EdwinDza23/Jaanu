@@ -1,990 +1,1133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>23 &amp; HBD</title>
-<meta name="description" content="A cinematic love story from Edwin to Likhitha — her 23rd birthday, our 3rd anniversary.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>">
-<meta property="og:title" content="23 &amp; Three — A Story For Likhitha">
-<meta property="og:description" content="A cinematic love story from Edwin to Likhitha — her 23rd birthday, our 3rd anniversary.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1529636798458-92182e662485?w=1200&q=80&fit=crop">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 &amp; HBD</title>
+  <meta name="description"
+    content="A cinematic love story from Edwin to Likhitha — her 23rd birthday, our 3rd anniversary.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>">
+  <meta property="og:title" content="23 &amp; Three — A Story For Likhitha">
+  <meta property="og:description"
+    content="A cinematic love story from Edwin to Likhitha — her 23rd birthday, our 3rd anniversary.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1529636798458-92182e662485?w=1200&q=80&fit=crop">
 
-<!-- Fonts: Bodoni Moda (display serif, high-contrast editorial), Urbanist (body sans, warm geometric), Mrs Saint Delafield (handwritten), IBM Plex Mono (labels/dates) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Urbanist:wght@400;500;600;700;800&family=Mrs+Saint+Delafield&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fonts: Bodoni Moda (display serif, high-contrast editorial), Urbanist (body sans, warm geometric), Mrs Saint Delafield (handwritten), IBM Plex Mono (labels/dates) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Urbanist:wght@400;500;600;700;800&family=Mrs+Saint+Delafield&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<!-- ================= ICON SPRITE ================= -->
-<svg style="display:none" aria-hidden="true">
-  <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-    <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" stroke-linejoin="round"/>
-    <circle cx="12" cy="13.5" r="3.5"/>
-  </symbol>
-  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-    <circle cx="12" cy="12" r="9.5"/>
-    <path d="M10 8.5 16 12 10 15.5Z" fill="currentColor" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="icon-heart" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 20.2S3 14.6 3 8.9C3 5.9 5.3 4 8 4c1.7 0 3.2.9 4 2.3C12.8 4.9 14.3 4 16 4c2.7 0 5 1.9 5 4.9 0 5.7-9 10.8-9 11.3Z"/>
-  </symbol>
-  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-    <path d="M12 4v16M12 20l-6-6M12 20l6-6" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="icon-guitar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-    <circle cx="9" cy="16" r="5"/>
-    <path d="M11.8 12.2 18 6M18 6l3-1-1 3M18 6l1.6 1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
-    <path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13Z" stroke-linejoin="round"/>
-    <path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13Z" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-    <circle cx="12" cy="12" r="9.5"/>
-    <path d="M10 8.5v7M14 8.5v7" stroke-linecap="round"/>
-  </symbol>
-</svg>
+  <!-- ================= ICON SPRITE ================= -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"
+        stroke-linejoin="round" />
+      <circle cx="12" cy="13.5" r="3.5" />
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <circle cx="12" cy="12" r="9.5" />
+      <path d="M10 8.5 16 12 10 15.5Z" fill="currentColor" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12 20.2S3 14.6 3 8.9C3 5.9 5.3 4 8 4c1.7 0 3.2.9 4 2.3C12.8 4.9 14.3 4 16 4c2.7 0 5 1.9 5 4.9 0 5.7-9 10.8-9 11.3Z" />
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M12 4v16M12 20l-6-6M12 20l6-6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-guitar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <circle cx="9" cy="16" r="5" />
+      <path d="M11.8 12.2 18 6M18 6l3-1-1 3M18 6l1.6 1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13Z" stroke-linejoin="round" />
+      <path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13Z" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <circle cx="12" cy="12" r="9.5" />
+      <path d="M10 8.5v7M14 8.5v7" stroke-linecap="round" />
+    </symbol>
+  </svg>
 
-<!-- ================= NO-JS FALLBACK ================= -->
-<noscript>
-  <style>
-    .preloader { display: none !important; }
-    [data-reveal] { opacity: 1 !important; transform: none !important; }
-    .hero { min-height: auto; }
-    .bonus { display: block !important; }
-    body { overflow: auto !important; }
-    .noscript-banner {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: #2A241C; color: #EAE0CC; text-align: center;
-      font-family: ui-monospace, monospace; font-size: .8rem; padding: .75rem 1rem;
-      letter-spacing: .05em;
-    }
-  </style>
-  <p class="noscript-banner">JavaScript is turned off — some animations and interactive features are unavailable, but the story is still here to read.</p>
-</noscript>
+  <!-- ================= NO-JS FALLBACK ================= -->
+  <noscript>
+    <style>
+      .preloader {
+        display: none !important;
+      }
 
-<!-- ================= AMBIENT LAYERS ================= -->
-<div class="grain" aria-hidden="true"></div>
-<canvas id="particles" aria-hidden="true"></canvas>
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-<canvas id="confettiCanvas" aria-hidden="true"></canvas>
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
 
-<!-- ================= PRELOADER ================= -->
-<div class="preloader" id="preloader">
-  <div class="preloader__inner">
-    <p class="preloader__eyebrow">FOR YOU, JAANU</p>
-    <p class="preloader__names" role="heading" aria-level="2">Likhitha <span class="preloader__amp">&amp;</span> Edwin</p>
-    <p class="preloader__dates"><span>23·07·2026</span></p>
-    <div class="preloader__actions">
-      <button class="btn btn--primary" id="enterBtn" type="button">Begin the story, with sound <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="btn btn--ghost" id="skipBtn" type="button">skip, no sound</button>
-    </div>
-  </div>
-</div>
+      .hero {
+        min-height: auto;
+      }
 
-<!-- ================= PROGRESS + NAV ================= -->
-<div class="progress-rail" aria-hidden="true"><div class="progress-rail__fill" id="progressFill"></div></div>
+      .bonus {
+        display: block !important;
+      }
 
-<nav class="chapter-nav" aria-label="Story chapters" id="chapterNav">
-  <ol>
-    <li><a href="#hero" data-nav="hero" aria-label="Opening"><span>·</span></a></li>
-    <li><a href="#ch1" data-nav="ch1" aria-label="Chapter 1, Before You"><span>01</span></a></li>
-    <li><a href="#ch2" data-nav="ch2" aria-label="Chapter 2, College Days"><span>02</span></a></li>
-    <li><a href="#ch3" data-nav="ch3" aria-label="Chapter 3, Trips &amp; Adventures"><span>03</span></a></li>
-    <li><a href="#ch4" data-nav="ch4" aria-label="Chapter 4, Foodie Us"><span>04</span></a></li>
-    <li><a href="#ch5" data-nav="ch5" aria-label="Chapter 5, Bangalore Memories"><span>05</span></a></li>
-    <li><a href="#ch6" data-nav="ch6" aria-label="Chapter 6, Small Everyday Moments"><span>06</span></a></li>
-    <li><a href="#ch-reveal" data-nav="ch-reveal" aria-label="The Anniversary Reveal"><span>❤</span></a></li>
-    <li><a href="#ch7" data-nav="ch7" aria-label="Chapter 7, Three Years"><span>07</span></a></li>
-    <li><a href="#ch8" data-nav="ch8" aria-label="Chapter 8, The Proposal"><span>08</span></a></li>
-    <li><a href="#ch9" data-nav="ch9" aria-label="Chapter 9, 23 Reasons"><span>09</span></a></li>
-    <li><a href="#ch10" data-nav="ch10" aria-label="Chapter 10, The Future"><span>10</span></a></li>
-    <li><a href="#final" data-nav="final" aria-label="Final chapter"><span>✦</span></a></li>
-  </ol>
-</nav>
+      body {
+        overflow: auto !important;
+      }
 
-<div class="heart-counter" id="heartCounter" role="status" aria-live="polite">
-  <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-heart"/></svg>
-  <span><span id="heartCount">0</span>/3</span>
-</div>
+      .noscript-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: #2A241C;
+        color: #EAE0CC;
+        text-align: center;
+        font-family: ui-monospace, monospace;
+        font-size: .8rem;
+        padding: .75rem 1rem;
+        letter-spacing: .05em;
+      }
+    </style>
+    <p class="noscript-banner">JavaScript is turned off — some animations and interactive features are unavailable, but
+      the story is still here to read.</p>
+  </noscript>
 
-<button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play our song">
-  <span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-  <span class="music-toggle__label">our song</span>
-</button>
-<audio id="bgAudio" src="assets/Kabira.mp3" preload="auto" loop playsinline>
-  <source src="assets/Kabira.mp3" type="audio/mpeg">
-  <source src="./assets/Kabira.mp3" type="audio/mpeg">
-</audio>
+  <!-- ================= AMBIENT LAYERS ================= -->
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
-<!-- Hero fixed-position overlays (cursor + flash messages) -->
-<div class="hero-cursor" id="heroCursor" aria-hidden="true"></div>
-<div class="hero-cursor-ring" id="heroCursorRing" aria-hidden="true"></div>
-<div class="hero-love-message" id="heroLoveMsg" role="status" aria-live="polite">I love you ❤️</div>
-<div class="hero-long-press-msg" id="heroLongPressMsg" aria-live="polite">&ldquo;I&rsquo;ll always choose you.&rdquo;</div>
-
-<!-- ================= MAIN ================= -->
-<main id="top">
-
-  <!-- HERO — Luxury Love Journal -->
-  <section class="hero" id="hero" aria-label="Birthday hero">
-
-    <!-- Atmospheric background layers -->
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-vignette"></div>
-      <div class="hero-glow-radial"></div>
-      <div class="hero-aurora"></div>
-      <div class="hero-blob hero-blob--1"></div>
-      <div class="hero-blob hero-blob--2"></div>
-      <div class="hero-blob hero-blob--3"></div>
-      <div class="hero-light-rays"></div>
-      <div class="hero-grain"></div>
-    </div>
-
-    <!-- Particle canvas: stars, dust, bokeh -->
-    <canvas class="hero-particles-canvas" id="heroParticleCanvas" aria-hidden="true"></canvas>
-
-    <!-- Floating organic elements: hearts, petals, fireflies, bokeh -->
-    <div class="hero-floaters" id="heroFloaters" aria-hidden="true"></div>
-
-    <!-- Main cinematic content -->
-    <div class="hero-content" id="heroContent">
-      <span class="hero-label" id="heroLabel">FOR MY JAANU ❤️</span>
-
-      <h1 class="hero-heading" id="heroHeading">
-        <span class="hero-heading-line hero-heading-top" id="heroHeadingTop">Happy Birthday</span>
-        <span class="hero-heading-line hero-heading-name" id="heroHeadingName">Likhitha</span>
-      </h1>
-
-      <p class="hero-quote" id="heroQuote1">
-        &ldquo;Today isn&rsquo;t just your birthday.<br>
-        It&rsquo;s the day my favorite person came into this world.&rdquo;
+  <!-- ================= PRELOADER ================= -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <p class="preloader__eyebrow">FOR YOU, JAANU</p>
+      <p class="preloader__names" role="heading" aria-level="2">Likhitha <span class="preloader__amp">&amp;</span> Edwin
       </p>
-      <p class="hero-quote" id="heroQuote2">
-        &ldquo;Three years ago you became my love.<br>
-        Today you are still my safest place.&rdquo;
-      </p>
-
-      <div class="hero-stats" id="heroStats" aria-label="Key dates">
-        <span class="hero-stat">23 July 2026</span>
-        <span class="hero-stat-sep" aria-hidden="true">·</span>
-        <span class="hero-stat">23 Years</span>
-        <span class="hero-stat-sep" aria-hidden="true">·</span>
-        <span class="hero-stat">3 Years Together</span>
+      <p class="preloader__dates"><span>23·07·2026</span></p>
+      <div class="preloader__actions">
+        <button class="btn btn--primary" id="enterBtn" type="button">Begin the story, with sound <svg width="16"
+            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg></button>
+        <button class="btn btn--ghost" id="skipBtn" type="button">skip, no sound</button>
       </div>
-    </div>
-
-    <!-- Dual infinite photo marquee (populated by JS) -->
-    <div class="hero-marquee-wrap" id="heroMarquee" aria-hidden="true">
-      <div class="marquee-row marquee-row--left">
-        <div class="marquee-track" id="marqueeTrack1"></div>
-      </div>
-      <div class="marquee-row marquee-row--right">
-        <div class="marquee-track" id="marqueeTrack2"></div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="hero-cta" id="heroCta">
-      <button class="hero-btn-primary" id="heroPrimaryBtn" type="button" aria-label="Let's Relive Our Story — begins music and scrolls to the story">
-        Let&rsquo;s Relive Our Story
-        <span class="btn-arrow" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
-      </button>
-      <button class="hero-btn-secondary" id="heroSkipMusicBtn" type="button">Skip Music</button>
-    </div>
-
-    <!-- Music indicator (appears after Begin) -->
-    <div class="hero-music-indicator" id="heroMusicIndicator" aria-live="polite">
-      <div class="hero-vinyl" id="heroVinyl" aria-hidden="true"></div>
-      <div class="hero-waveform" id="heroWaveform" aria-hidden="true">
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-        <div class="hero-waveform-bar"></div>
-      </div>
-      <span class="hero-now-playing">Kabira &middot; playing</span>
-    </div>
-
-    <!-- Easter eggs container (hearts, roses — populated by JS) -->
-    <div class="hero-easter-eggs" id="heroEasterEggs" aria-hidden="true"></div>
-
-    <!-- Moon easter egg -->
-    <button class="hero-hidden-moon" id="heroMoon" type="button" aria-label="A hidden moon — click it" style="position:absolute;top:5%;right:7%;font-size:1.5rem;background:none;border:none;opacity:0.16;z-index:15;transition:opacity .3s ease;" title="🌙">🌙</button>
-
-  </section>
-
-  <!-- Lightbox (position:fixed) -->
-  <div class="hero-lightbox" id="heroLightbox" role="dialog" aria-modal="true" aria-label="Photo fullscreen view" tabindex="-1">
-    <button class="hero-lightbox-close" id="heroLightboxClose" type="button" aria-label="Close photo">✕</button>
-    <img id="heroLightboxImg" src="" alt="">
-    <p class="hero-lightbox-caption" id="heroLightboxCaption"></p>
-  </div>
-
-  <!-- Love note overlay (3 roses unlock) -->
-  <div class="hero-love-note-overlay" id="heroLoveNoteOverlay" role="dialog" aria-modal="true" aria-label="A hidden love note">
-    <div class="hero-love-note-card">
-      <p>You found all three roses. ✦</p>
-      <p>Some things only bloom when you pay close attention. This is for you — the one who notices everything quietly, remembers everything tenderly, and loves completely.</p>
-      <p>I love you more than any word I know.</p>
-      <p style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;opacity:.55;margin-bottom:1.4rem;">— Forever yours, Edwin ❤</p>
-      <button class="note-close" id="heroLoveNoteClose" type="button">Close this moment</button>
     </div>
   </div>
 
-  <!-- CHAPTER 1 — BEFORE YOU -->
-  <section class="chapter chapter--mono" id="ch1" data-chapter="1">
-    <div class="chapter__mark" aria-hidden="true">01</div>
-    <div class="chapter__content">
-      <p class="eyebrow" data-reveal>CHAPTER ONE</p>
-      <h2 class="chapter__title" data-reveal>Before You &amp; First Hello</h2>
-      <div class="chapter__body" data-reveal>
-        <p>There was a version of my days that ran on autopilot. Classes, mess food, the same walk back to the hostel. Nothing wrong with any of it. Just... grey at the edges.</p>
-        <p class="hidden-heart-holder">I didn't know I was waiting. Then you showed up on St. Philomena Day in August 2021, and I understood — I had been thinking of you before I even knew your name.<button class="hidden-heart" data-heart="1" type="button" aria-label="A small hidden heart. Click to find it.">
-          <svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-heart"/></svg>
-        </button></p>
+  <!-- ================= PROGRESS + NAV ================= -->
+  <div class="progress-rail" aria-hidden="true">
+    <div class="progress-rail__fill" id="progressFill"></div>
+  </div>
+
+  <nav class="chapter-nav" aria-label="Story chapters" id="chapterNav">
+    <ol>
+      <li><a href="#hero" data-nav="hero" aria-label="Opening"><span>·</span></a></li>
+      <li><a href="#ch1" data-nav="ch1" aria-label="Chapter 1, Before You"><span>01</span></a></li>
+      <li><a href="#ch2" data-nav="ch2" aria-label="Chapter 2, College Days"><span>02</span></a></li>
+      <li><a href="#ch3" data-nav="ch3" aria-label="Chapter 3, Trips &amp; Adventures"><span>03</span></a></li>
+      <li><a href="#ch4" data-nav="ch4" aria-label="Chapter 4, Foodie Us"><span>04</span></a></li>
+      <li><a href="#ch5" data-nav="ch5" aria-label="Chapter 5, Bangalore Memories"><span>05</span></a></li>
+      <li><a href="#ch6" data-nav="ch6" aria-label="Chapter 6, Small Everyday Moments"><span>06</span></a></li>
+      <li><a href="#ch-reveal" data-nav="ch-reveal" aria-label="The Anniversary Reveal"><span>❤</span></a></li>
+      <li><a href="#ch7" data-nav="ch7" aria-label="Chapter 7, Three Years"><span>07</span></a></li>
+      <li><a href="#ch8" data-nav="ch8" aria-label="Chapter 8, The Proposal"><span>08</span></a></li>
+      <li><a href="#ch9" data-nav="ch9" aria-label="Chapter 9, 23 Reasons"><span>09</span></a></li>
+      <li><a href="#ch10" data-nav="ch10" aria-label="Chapter 10, The Future"><span>10</span></a></li>
+      <li><a href="#final" data-nav="final" aria-label="Final chapter"><span>✦</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="heart-counter" id="heartCounter" role="status" aria-live="polite">
+    <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
+      <use href="#icon-heart" />
+    </svg>
+    <span><span id="heartCount">0</span>/3</span>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Play our song">
+    <span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music-toggle__label">our song</span>
+  </button>
+  <audio id="bgAudio" src="assets/Kabira.mp3" preload="auto" loop playsinline>
+    <source src="assets/Kabira.mp3" type="audio/mpeg">
+    <source src="./assets/Kabira.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hero fixed-position overlays (cursor + flash messages) -->
+  <div class="hero-cursor" id="heroCursor" aria-hidden="true"></div>
+  <div class="hero-cursor-ring" id="heroCursorRing" aria-hidden="true"></div>
+  <div class="hero-love-message" id="heroLoveMsg" role="status" aria-live="polite">I love you ❤️</div>
+  <div class="hero-long-press-msg" id="heroLongPressMsg" aria-live="polite">&ldquo;I&rsquo;ll always choose you.&rdquo;
+  </div>
+
+  <!-- ================= MAIN ================= -->
+  <main id="top">
+
+    <!-- HERO — Luxury Love Journal -->
+    <section class="hero" id="hero" aria-label="Birthday hero">
+
+      <!-- Atmospheric background layers -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-vignette"></div>
+        <div class="hero-glow-radial"></div>
+        <div class="hero-aurora"></div>
+        <div class="hero-blob hero-blob--1"></div>
+        <div class="hero-blob hero-blob--2"></div>
+        <div class="hero-blob hero-blob--3"></div>
+        <div class="hero-light-rays"></div>
+        <div class="hero-grain"></div>
       </div>
 
-      <div class="photo-pair" data-reveal style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem;">
-        <figure class="bento-card bento-card--portrait" data-tilt style="max-width:280px;width:100%;">
-          <img src="assets/The Beginning.jpg" alt="First photo shoot together" style="aspect-ratio:9/16;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">St. Philomena Day · Aug 2021</span>
-            <h3 class="bento-card__title">The First Hello</h3>
-            <p class="bento-card__desc">When an innocent college photo shoot started everything.</p>
-          </div>
-        </figure>
-        <figure class="bento-card bento-card--portrait" data-tilt style="max-width:280px;width:100%;">
-          <img src="assets/College/DSC_0154_1-PHOTO_FRAME.jpg" alt="St Philomena framed portrait" style="aspect-ratio:9/16;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">First Spark</span>
-            <h3 class="bento-card__title">St. Philomena Memories</h3>
-            <p class="bento-card__desc">Asking for your number just to send this photo.</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
+      <!-- Particle canvas: stars, dust, bokeh -->
+      <canvas class="hero-particles-canvas" id="heroParticleCanvas" aria-hidden="true"></canvas>
 
-  <!-- CHAPTER 2 — COLLEGE DAYS -->
-  <section class="chapter chapter--campus" id="ch2" data-chapter="2">
-    <div class="chapter__mark" aria-hidden="true">02</div>
-    <div class="chapter__content chapter__content--wide">
-      <p class="eyebrow" data-reveal>CHAPTER TWO</p>
-      <h2 class="chapter__title" data-reveal>College Days &amp; Campus Laughs</h2>
-      <p class="chapter__lede" data-reveal>You turned college into my favorite chapter. From daily classroom banter, fest day celebrations, and sports energy to quiet corridor talks.</p>
+      <!-- Floating organic elements: hearts, petals, fireflies, bokeh -->
+      <div class="hero-floaters" id="heroFloaters" aria-hidden="true"></div>
 
-      <div class="bento-grid" data-reveal>
-        <figure class="bento-card bento-card--hero" data-tilt>
-          <img src="assets/College/Classroom_.jpg" alt="Classroom laughs and lectures">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Campus Life · BCA Days</span>
-            <h3 class="bento-card__title">Classroom Lectures &amp; Laughs</h3>
-            <p class="bento-card__desc">Making even the longest classes unforgettable together.</p>
-          </div>
-        </figure>
+      <!-- Main cinematic content -->
+      <div class="hero-content" id="heroContent">
+        <span class="hero-label" id="heroLabel">FOR MY JAANU ❤️</span>
 
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/College/College last_.jpg" alt="Quiet corridor moment">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Corridor Talks</span>
-            <h3 class="bento-card__title">Between Classes</h3>
-            <p class="bento-card__desc">The quiet minutes before the bell rang.</p>
-          </div>
-        </figure>
+        <h1 class="hero-heading" id="heroHeading">
+          <span class="hero-heading-line hero-heading-top" id="heroHeadingTop">Happy Birthday</span>
+          <span class="hero-heading-line hero-heading-name" id="heroHeadingName">Likhitha</span>
+        </h1>
 
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/College/Clg day.jpg" alt="College Day Fest">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">College Fest</span>
-            <h3 class="bento-card__title">Fest Day Energy</h3>
-          </div>
-        </figure>
+        <p class="hero-quote" id="heroQuote1">
+          &ldquo;Today isn&rsquo;t just your birthday.<br>
+          It&rsquo;s the day my favorite person came into this world.&rdquo;
+        </p>
+        <p class="hero-quote" id="heroQuote2">
+          &ldquo;Three years ago you became my love.<br>
+          Today you are still my safest place.&rdquo;
+        </p>
 
-        <div class="bento-card bento-card--quote" data-tilt>
-          <p>&ldquo;You turned ordinary college afternoons into memories I still look back on and smile.&rdquo;</p>
-          <span>✦ Campus Diaries</span>
-        </div>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/College/College_.jpg" alt="Campus ground group memory">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Campus Ground</span>
-            <h3 class="bento-card__title">College Memories</h3>
-            <p class="bento-card__desc">Walking across the grounds together after class.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/College/Clg day 2.jpg" alt="College day smile">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Radiant Smile</span>
-            <h3 class="bento-card__title">Fest Day Joy</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/College/Last day of clg.jpg" alt="Last day of college">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Farewell · 2024</span>
-            <h3 class="bento-card__title">Last Day of College</h3>
-            <p class="bento-card__desc">Wrapping up college knowing our journey was just beginning.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Old img.jpg" alt="Early college days">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">1st Year Nostalgia</span>
-            <h3 class="bento-card__title">Where We Started</h3>
-            <p class="bento-card__desc">When every message was exciting and new.</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 3 — TRIPS & ADVENTURES -->
-  <section class="chapter chapter--color" id="ch3" data-chapter="3">
-    <div class="chapter__mark" aria-hidden="true">03</div>
-    <div class="chapter__content chapter__content--wide">
-      <p class="eyebrow" data-reveal>CHAPTER THREE</p>
-      <h2 class="chapter__title" data-reveal>Trips &amp; Beach Escapes</h2>
-      <p class="chapter__lede" data-reveal>That Mangalore trip will always have a special place in my heart — train ride from Puttur, Panambur beach sunset, Karinjeshwara Temple hill, and wind in our hair.</p>
-
-      <div class="bento-grid" data-reveal>
-        <figure class="bento-card bento-card--hero" data-tilt>
-          <img src="assets/Mangalore/Mangalore 1.jpg" alt="Panambur Beach Golden Hour">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Panambur Beach · Sunset</span>
-            <h3 class="bento-card__title">Where the Sea Touches the Sky</h3>
-            <p class="bento-card__desc">The warm waves and golden sunset horizon that defined our trip.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/Kochi 2.jpg" alt="Kochi port and streets">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Kochi Port</span>
-            <h3 class="bento-card__title">Kochi Street Walk</h3>
-            <p class="bento-card__desc">Exploring new streets together by the harbour.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Mangalore/Mangalore 3.jpg" alt="Golden hour moments">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Golden Hour</span>
-            <h3 class="bento-card__title">Sun-Kissed</h3>
-          </div>
-        </figure>
-
-        <div class="bento-card bento-card--quote" data-tilt>
-          <p>&ldquo;Fish curry, Bangada fry, coastal breezes &amp; late evening walks by the waves.&rdquo;</p>
-          <span>✦ Coastal Escapes</span>
-        </div>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Mangalore/Bike ride.jpg" alt="Coastal highway bike ride">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Coastal Highway</span>
-            <h3 class="bento-card__title">Bike Ride Escapes</h3>
-            <p class="bento-card__desc">Wind in our hair, endless roads, and no rush to get back.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Mangalore/Mansoon ride.jpg" alt="Monsoon rain ride">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Monsoon Ride</span>
-            <h3 class="bento-card__title">Rain &amp; Chai</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Mangalore/Karinjeshwara parvathi gudda_.jpg" alt="Karinjeshwara Parvathi Temple Hill">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Temple Hillside</span>
-            <h3 class="bento-card__title">Karinjeshwara Parvathi Temple</h3>
-            <p class="bento-card__desc">High above the forest canopy, peaceful and quiet.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Kabari katte.jpg" alt="Koragajjana Katte visit">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Blessings</span>
-            <h3 class="bento-card__title">Koragajjana Katte</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Wonderla.jpg" alt="Wonderla theme park trip">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Wonderla Trip</span>
-            <h3 class="bento-card__title">Rollercoasters &amp; Laughter</h3>
-            <p class="bento-card__desc">Screaming on water slides and holding hands on every ride.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Small Moments/Kochi trip.jpg" alt="Kochi sea breeze">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Sea Breeze</span>
-            <h3 class="bento-card__title">Kochi Horizon</h3>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 4 — FOODIE US -->
-  <section class="chapter chapter--dawn" id="ch4" data-chapter="4">
-    <div class="chapter__mark" aria-hidden="true">04</div>
-    <div class="chapter__content chapter__content--wide">
-      <p class="eyebrow" data-reveal>CHAPTER FOUR</p>
-      <h2 class="chapter__title" data-reveal>Foodie Us</h2>
-      <p class="chapter__lede" data-reveal>From sudden cravings to our favorite food dates, food has always been our love language and happiest little tradition.</p>
-
-      <div class="bento-grid" data-reveal>
-        <figure class="bento-card bento-card--hero" data-tilt>
-          <img src="assets/Foodie Us/Aramane biryani_.jpg" alt="Aramane biryani date">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Biryani Dates · Aramane</span>
-            <h3 class="bento-card__title">Aramane Biryani Tradition</h3>
-            <p class="bento-card__desc">Ordering biryani exactly right, every single time.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/Foodie Us/Arabian puttur_.jpg" alt="Arabian puttur evening treat">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Puttur Flavors</span>
-            <h3 class="bento-card__title">Arabian Puttur</h3>
-            <p class="bento-card__desc">Late evening food runs in Puttur.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Foodie Us/Kfc.jpg" alt="KFC chicken dates">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">KFC Dates</span>
-            <h3 class="bento-card__title">KFC Chicken Dates</h3>
-            <p class="bento-card__desc">The best part of our week when we needed a break.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Foodie Us/Mandi biryani 2.jpg" alt="Shared Mandi Biryani">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Mandi Feasts</span>
-            <h3 class="bento-card__title">Mandi Biryani</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Foodie Us/Lunch home.jpg" alt="Special home style lunch date">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Home-Style Feasts</span>
-            <h3 class="bento-card__title">Special Lunch Dates</h3>
-            <p class="bento-card__desc">Sharing big plates and making food taste ten times better.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/St Philomena day.jpg" alt="Master Bake pastries">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Master Bake</span>
-            <h3 class="bento-card__title">Pastry Sundays</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Bangalore/Empire hotel_.jpg" alt="Empire hotel midnight dates">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Midnight Eats</span>
-            <h3 class="bento-card__title">Empire Hotel Dates</h3>
-            <p class="bento-card__desc">Late night food runs when the city went quiet.</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 5 — BANGALORE MEMORIES -->
-  <section class="chapter chapter--color" id="ch5" data-chapter="5">
-    <div class="chapter__mark" aria-hidden="true">05</div>
-    <div class="chapter__content chapter__content--wide">
-      <p class="eyebrow" data-reveal>CHAPTER FIVE</p>
-      <h2 class="chapter__title" data-reveal>Bangalore Life &amp; Big City Dreams</h2>
-      <p class="chapter__lede" data-reveal>Bangalore, properly. Real jobs, real rent, real adulting — but also Mall of Asia date nights, Christmas 2024 celebrations, GB Palya walks, and running the 2026 Marathon together.</p>
-
-      <div class="bento-grid" data-reveal>
-        <figure class="bento-card bento-card--hero" data-tilt>
-          <img src="assets/Bangalore/Marathon_.jpg" alt="Crossing 2026 Marathon finish line">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Marathon 2026 · Finish Line</span>
-            <h3 class="bento-card__title">Crossing the Finish Line Together</h3>
-            <p class="bento-card__desc">Crossing 42 km still smiling at each other says everything.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/Bangalore/Us.png" alt="Bangalore couple portrait">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Bangalore Life</span>
-            <h3 class="bento-card__title">City Days</h3>
-            <p class="bento-card__desc">Building our routine in the big city.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--tall" data-tilt>
-          <img src="assets/Bangalore/Christmas 2024 w.jpg" alt="Christmas 2024 celebration">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Christmas 2024</span>
-            <h3 class="bento-card__title">Festive Glow</h3>
-            <p class="bento-card__desc">Warm holiday lights &amp; December memories.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Bangalore/Mall of asia.jpg" alt="Mall of Asia evening date">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Mall of Asia</span>
-            <h3 class="bento-card__title">Mall of Asia Evening</h3>
-            <p class="bento-card__desc">Shopping trips that somehow turned into 3-hour date nights.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/us 2.png" alt="Silly Bangalore moments">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Silly Moments</span>
-            <h3 class="bento-card__title">Pure Joy</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Christmas 24.7" alt="Christmas party setup">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Dec 2024</span>
-            <h3 class="bento-card__title">Holiday Cheers</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Bangalore/GB Palya.jpg" alt="GB Palya evening walk">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">GB Palya</span>
-            <h3 class="bento-card__title">GB Palya Evening Strolls</h3>
-            <p class="bento-card__desc">Unwinding after long workdays on our regular walk path.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/GB Palya 2.jpg" alt="GB Palya park moment">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Evening Breeze</span>
-            <h3 class="bento-card__title">Quiet Walks</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Mall of Asia 2.jpg" alt="Mall of Asia festive lights">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">City Lights</span>
-            <h3 class="bento-card__title">Mall Nights</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Bangalore/Marathon 2.jpg" alt="Holding Marathon medals">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Marathon Medals</span>
-            <h3 class="bento-card__title">Finishers Together</h3>
-            <p class="bento-card__desc">Proudly holding our medals after running 42 km.</p>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Marathon 3.jpg" alt="Marathon morning energy">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Race Morning</span>
-            <h3 class="bento-card__title">Pre-Race Energy</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Marathon 4.jpg" alt="Race day smiles">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Km 25</span>
-            <h3 class="bento-card__title">Still Smiling</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Marathon 5.jpg" alt="Full marathon celebration">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Victory</span>
-            <h3 class="bento-card__title">We Did It!</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--square" data-tilt>
-          <img src="assets/Bangalore/Marathon 6.jpg" alt="Post-race victory smile">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">2026 Memory</span>
-            <h3 class="bento-card__title">Marathon Pride</h3>
-          </div>
-        </figure>
-
-        <figure class="bento-card bento-card--wide" data-tilt>
-          <img src="assets/Bangalore/Near pg.jpg" alt="Night talks near PG">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Near PG</span>
-            <h3 class="bento-card__title">Night Talks Near PG</h3>
-            <p class="bento-card__desc">Standing outside saying goodnight for another 30 minutes.</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 6 — SMALL EVERYDAY MOMENTS -->
-  <section class="chapter chapter--scrapbook" id="ch6" data-chapter="6">
-    <div class="chapter__mark" aria-hidden="true">06</div>
-    <div class="chapter__content">
-      <p class="eyebrow" data-reveal>CHAPTER SIX</p>
-      <h2 class="chapter__title" data-reveal>Our Small Everyday Moments</h2>
-      <p class="chapter__lede" data-reveal>The big ones are easy to remember. It's the small ones I actually miss — losing every race to finish the panipuri before you, the park bench in Balavana we quietly claimed as ours, the silver bangles, matching watches, and bus rides home.</p>
-
-      <div class="scrapbook" data-reveal>
-        <figure class="polaroid polaroid--rot1" data-tilt>
-          <img src="assets/Small Moments/Balavana.jpg" alt="Balavana park bench" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Balavana Park Bench</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot2" data-tilt>
-          <img src="assets/Small Moments/At Darbe.jpg" alt="At Darbe afternoon" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>At Darbe</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot3" data-tilt>
-          <img src="assets/Small Moments/Bharat mall.jpg" alt="Bharat Mall movie date" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Bharat Mall Movies</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot4" data-tilt>
-          <img src="assets/Small Moments/Chawthi.jpg" alt="Chawthi festival outfit" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Chawthi Festival</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot5" data-tilt>
-          <img src="assets/Small Moments/Going home_.jpg" alt="Bus window seat going home" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Bus Rides Home</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot6" data-tilt>
-          <img src="assets/Small Moments/Holy rosary_.jpg" alt="Holy Rosary Church visit" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Holy Rosary Church</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot7" data-tilt>
-          <img src="assets/Small Moments/JP Nagar ground_.jpg" alt="Sunset at JP Nagar ground" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>JP Nagar Ground</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot1" data-tilt>
-          <img src="assets/Small Moments/Park.jpg" alt="Quiet park afternoon" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Park Afternoon</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot3" data-tilt>
-          <img src="assets/Small Moments/Reliance puttur_.jpg" alt="Reliance Puttur shopping" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Reliance Puttur</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot5" data-tilt>
-          <img src="assets/Small Moments/Sai cafe_.jpg" alt="Sai Cafe tea date" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Sai Cafe Tea Date</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot2" data-tilt>
-          <img src="assets/Small Moments/The bangle.jpg" alt="The silver bangle gift" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>The Silver Bangle</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot4" data-tilt>
-          <img src="assets/Small Moments/The ring_.jpg" alt="The proposal ring close-up" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>The Ring</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot6" data-tilt>
-          <img src="assets/Same watch_.jpg" alt="Matching wrist watches" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Matching Watches</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot1" data-tilt>
-          <img src="assets/Small Moments/SAVE_20240502_021619.jpg" alt="Random quiet selfie" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Quiet Selfie</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot7" data-tilt>
-          <img src="assets/Small Moments/SAVE_20250511_200419.jpg" alt="Sunlit afternoon" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Sunlit Afternoon</figcaption>
-        </figure>
-        <figure class="polaroid polaroid--rot3" data-tilt>
-          <img src="assets/Small Moments/file_00000000a95471f8b55e93b551f335ab.png" alt="Candid smile" style="width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
-          <figcaption>Candid Radiance</figcaption>
-        </figure>
-      </div>
-
-      <!-- MEMORY MATCH MINI GAME -->
-      <div class="memory-game" data-reveal>
-        <div class="memory-game__header">
-          <h3>A little game — match the memories</h3>
-          <p class="memory-game__status" id="gameStatus">Moves: 0 · Matches: 0/6</p>
-        </div>
-        <div class="memory-game__grid" id="gameGrid" role="group" aria-label="Memory matching game"></div>
-        <div class="memory-game__footer">
-          <p class="memory-game__win" id="gameWin" hidden>You matched every memory — just like us. ✦</p>
-          <button class="btn btn--ghost btn--small" id="gameReset" type="button">shuffle again</button>
+        <div class="hero-stats" id="heroStats" aria-label="Key dates">
+          <span class="hero-stat">23 July 2026</span>
+          <span class="hero-stat-sep" aria-hidden="true">·</span>
+          <span class="hero-stat">23 Years</span>
+          <span class="hero-stat-sep" aria-hidden="true">·</span>
+          <span class="hero-stat">3 Years Together</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ANNIVERSARY REVEAL — The emotional turning point -->
-  <section class="chapter chapter--proposal" id="ch-reveal" data-chapter="reveal">
-    <div class="chapter__content chapter__content--center">
-      <p class="eyebrow" data-reveal>But wait...</p>
-      <p class="proposal-date" data-reveal>23<span>·</span>07<span>·</span>2023</p>
-      <h2 class="chapter__title" data-reveal>Three years ago, on this very birthday&hellip;</h2>
-      <p class="chapter__lede" data-reveal>This day has never just been about turning another year older. Three years ago today, on your birthday, something else began too — something that quietly changed everything.</p>
-      <p style="font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);font-style:italic;color:var(--gold-light);margin-top:1.6rem;margin-bottom:1.6rem;" data-reveal>23 ❤ 3</p>
-      <p class="chapter__lede" data-reveal>Your birthday and our anniversary are the same day. And it's been the most beautiful coincidence of my life.</p>
-      <a href="#ch7" class="hero__cue" style="margin-top:2rem;" aria-label="Continue to three years">
-        <span>three years</span>
-        <svg width="14" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- CHAPTER 7 — THREE YEARS, UNFOLDING -->
-  <section class="chapter chapter--timeline" id="ch7" data-chapter="7">
-    <div class="chapter__mark" aria-hidden="true">07</div>
-    <div class="chapter__content">
-      <p class="eyebrow" data-reveal>CHAPTER SEVEN</p>
-      <h2 class="chapter__title" data-reveal>Three Years, Unfolding</h2>
-      <p class="chapter__lede" data-reveal>Not every year looked the same. Some were loud and full of firsts. Some were quieter. All of them were ours. Tap a year to open it.</p>
-
-      <div class="photo-pair" data-reveal style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.6rem;">
-        <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
-          <img src="assets/2024.jpg" alt="7th Heaven date 2024" style="aspect-ratio:4/3;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">2024</span>
-            <h3 class="bento-card__title">7th Heaven</h3>
-          </div>
-        </figure>
-        <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
-          <img src="assets/Bangalore/Reunion_.jpg" alt="Every reunion celebration" style="aspect-ratio:4/3;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Reunion</span>
-            <h3 class="bento-card__title">Reunion Feasts</h3>
-          </div>
-        </figure>
-        <figure class="bento-card bento-card--portrait" data-tilt style="max-width:220px;width:100%;">
-          <img src="assets/We.jpg" alt="Us standing together" style="aspect-ratio:9/16;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Us</span>
-            <h3 class="bento-card__title">Standing Strong</h3>
-          </div>
-        </figure>
-        <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
-          <img src="assets/Jaanu.jpg" alt="My beautiful Jaanu" style="aspect-ratio:4/3;object-fit:cover;">
-          <div class="bento-card__overlay">
-            <span class="bento-card__tag">Jaanu</span>
-            <h3 class="bento-card__title">Always Smiling</h3>
-          </div>
-        </figure>
-      </div>
-
-      <div class="years" data-reveal>
-        <details class="year">
-          <summary><span class="year__num">2023</span><span class="year__hint">unfold</span></summary>
-          <p>Panambur Beach. The ring. The sunset fading into gold while the waves crashed. The moment neither of us fully remembers clearly because everything was moving too fast and too slow at the same time. The beginning of after.</p>
-        </details>
-        <details class="year">
-          <summary><span class="year__num">2024</span><span class="year__hint">unfold</span></summary>
-          <p>Bangalore, properly. Real job, real rent, real adulting. But also the shopping trips that became three-hour adventures, Balavana Park becoming ours, and the boiled rice we shared that somehow tasted better than anything either of us had made on our own.</p>
-        </details>
-        <details class="year">
-          <summary><span class="year__num">2025</span><span class="year__hint">unfold</span></summary>
-          <p>Harder, quieter, and somehow the year I understood what staying actually means — not the easy kind, the real kind. We grew roots where it mattered and held on where it counted.</p>
-        </details>
-        <details class="year">
-          <summary><span class="year__num">2026</span><span class="year__hint">unfold</span></summary>
-          <p>You turned twenty-three and somehow also convinced me to run a full marathon. We crossed that finish line still smiling at each other, which says everything. Three years strong, Jaanu — and this birthday is the one I'm most proud to celebrate.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 8 — THE PROPOSAL -->
-  <section class="chapter chapter--proposal" id="ch8" data-chapter="8">
-    <div class="chapter__mark" aria-hidden="true">08</div>
-    <div class="chapter__content chapter__content--center">
-      <p class="eyebrow" data-reveal>CHAPTER EIGHT · THE MOMENT</p>
-      <p class="proposal-date" data-reveal>23<span>·</span>07<span>·</span>2023</p>
-      <h2 class="chapter__title" data-reveal>The Proposal</h2>
-      <p class="chapter__lede" data-reveal>Panambur Beach. The waves were louder than I remembered. The light was going gold — the kind of gold you only get for about twenty minutes before it disappears. You were looking at the sea and I was looking at you, and I thought: now. It has to be now.</p>
-      <p class="chapter__lede" data-reveal>One knee. One question. One answer that quietly rewrote everything that came after it.</p>
-
-      <figure class="letterbox" data-reveal style="margin:0 auto 1.6rem;max-width:22rem;">
-        <video controls preload="none" poster="assets/Mangalore 1.jpg" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:var(--radius-m);display:block;" aria-label="The Proposal video">
-          <source src="assets/The Proposal.mp4" type="video/mp4">
-          Your browser does not support the video element.
-        </video>
-      </figure>
-
-      <button class="hidden-heart hidden-heart--proposal" data-heart="2" type="button" aria-label="A small hidden heart. Click to find it.">
-        <svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-heart"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- CHAPTER 9 — 23 REASONS -->
-  <section class="chapter chapter--envelopes" id="ch9" data-chapter="9">
-    <div class="chapter__mark" aria-hidden="true">09</div>
-    <div class="chapter__content chapter__content--wide">
-      <p class="eyebrow" data-reveal>CHAPTER NINE</p>
-      <h2 class="chapter__title" data-reveal>23 Reasons</h2>
-      <p class="chapter__lede" data-reveal>One for every year of you. Open an envelope — Chennag idiya, Jaanu.</p>
-
-      <div class="envelopes" id="envelopeGrid" role="group" aria-label="23 reasons, one per envelope"></div>
-    </div>
-  </section>
-
-  <!-- CHAPTER 10 — THE FUTURE -->
-  <section class="chapter chapter--tree" id="ch10" data-chapter="10">
-    <div class="chapter__mark" aria-hidden="true">10</div>
-    <div class="chapter__content chapter__content--center">
-      <p class="eyebrow" data-reveal>CHAPTER TEN</p>
-      <h2 class="chapter__title" data-reveal>The Future</h2>
-      <p class="chapter__lede" data-reveal>We haven't written most of our story yet. We've barely started. Here's what I'm hoping to grow — with you, only with you.</p>
-
-      <div class="tree-wrap" id="treeWrap" data-reveal>
-        <div class="tree-ground" aria-hidden="true"></div>
-        <svg viewBox="0 0 800 620" class="tree-svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="branchGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#A9814A"/>
-              <stop offset="100%" stop-color="#C99089"/>
-            </linearGradient>
-          </defs>
-          <path class="tree-root" pathLength="1" d="M400,610 C388,614 368,617 345,619"/>
-          <path class="tree-root" pathLength="1" d="M400,610 C412,614 432,617 455,619"/>
-          <path class="tree-trunk" pathLength="1" d="M400,610 C393,520 407,470 400,380"/>
-          <path class="tree-branch" data-branch="1" pathLength="1" d="M400,420 C350,380 300,340 252,300"/>
-          <path class="tree-branch" data-branch="2" pathLength="1" d="M400,400 C452,362 500,330 542,290"/>
-          <path class="tree-branch" data-branch="3" pathLength="1" d="M400,462 C342,432 292,412 242,392"/>
-          <path class="tree-branch" data-branch="4" pathLength="1" d="M400,448 C460,420 510,402 560,382"/>
-          <path class="tree-branch" data-branch="5" pathLength="1" d="M400,382 C355,325 305,270 270,225"/>
-          <path class="tree-branch" data-branch="6" pathLength="1" d="M400,382 C450,325 490,270 520,222"/>
-          <path class="tree-branch" data-branch="7" pathLength="1" d="M400,382 C400,320 400,240 400,168"/>
-        </svg>
-        <div class="tree-sparkles" id="treeSparkles" aria-hidden="true"></div>
-        <span class="tree-label" data-branch-label="1" style="left:31.5%; top:48.4%; --pop-delay:2.15s;">Dreams</span>
-        <span class="tree-label" data-branch-label="2" style="left:67.8%; top:46.8%; --pop-delay:2.3s;">Marriage</span>
-        <span class="tree-label" data-branch-label="3" style="left:30.3%; top:63.2%; --pop-delay:2.45s;">Home</span>
-        <span class="tree-label" data-branch-label="4" style="left:70%; top:61.6%; --pop-delay:2.6s;">Travelling</span>
-        <span class="tree-label" data-branch-label="5" style="left:33.8%; top:36.3%; --pop-delay:2.75s;">Growing old</span>
-        <span class="tree-label" data-branch-label="6" style="left:65%; top:35.8%; --pop-delay:2.9s;">Supporting each other</span>
-        <span class="tree-label" data-branch-label="7" style="left:50%; top:27.1%; --pop-delay:3.05s;">Never giving up</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CHAPTER -->
-  <section class="final" id="final">
-    <div class="final__quiet" data-reveal>
-      <p class="eyebrow">Everything goes quiet.</p>
-    </div>
-
-    <div class="letter" id="letterBlock">
-      <button class="letter__trigger" id="letterTrigger" type="button" aria-expanded="false" aria-controls="letterPaper">
-        Open the letter
-      </button>
-      <div class="letter__paper" id="letterPaper" hidden>
-        <p class="letter__salutation">My Jaanu,</p>
-        <p>I wrote this late at night. After everyone was asleep. Because that's the only time it felt quiet enough to say what I actually wanted to say.</p>
-        <p>There was a version of me before you — fine, ordinary, a little grey around the edges. He didn't know what was missing until you showed up and suddenly everything had a reason. I wasn't waiting. I just hadn't met you yet.</p>
-        <p>Three years hasn't been a straight line. Some of it was hard in ways I didn't see coming. But you never once made me feel like we weren't going to figure it out. Not once. That's not nothing, Jaanu. That's everything.</p>
-        <p>I still lose every race to finish the panipuri before you. I don't think boiled rice has ever tasted as good as when we shared it together. I don't think a park bench has ever felt more like home than the one we call ours. These are the things I didn't know I'd love about us — but I love them more than most big things.</p>
-        <p class="letter__typewriter" id="typewriterLine" data-full-text="No matter how life changes us — I&rsquo;ll keep choosing you. Every day. On purpose."></p>
-        <p>Happy 23rd birthday, my Jaanu. And happy three years to us — the most beautiful coincidence of my life. Preethi.</p>
-        <p class="letter__sign">— Yours, always, Edwin ❤</p>
-      </div>
-    </div>
-
-    <div class="wishes" data-reveal>
-      <h2>Happy 23rd Birthday, my Jaanu. ❤</h2>
-      <p>Happy 3 Years to us.</p>
-      <p style="color:var(--fog-light);font-size:.95rem;margin-top:-.8rem;margin-bottom:4rem;">We've written three beautiful chapters together... and I can't wait to see what the next ones look like.</p>
-    </div>
-
-    <div class="hunt-gate" id="huntGate" data-reveal>
-      <p class="hunt-gate__title">There are two more chapters waiting for you&hellip;</p>
-      <p class="hunt-gate__hint">Somewhere in this story, three small hearts are hiding. Find all three to unlock them.</p>
-      <p class="hunt-gate__progress">Hearts found: <span id="huntProgressText">0</span>/3</p>
-      <button class="hunt-gate__fallback" id="huntFallback" type="button">&hellip;or open them now</button>
-    </div>
-  </section>
-
-  <!-- BONUS: TWO MORE CHAPTERS -->
-  <section class="bonus" id="bonus" hidden>
-    <div class="bonus__intro" data-reveal>
-      <div class="bonus__flourish" aria-hidden="true">
-        <svg width="120" height="20" viewBox="0 0 120 20"><path pathLength="1" d="M2 10 H50 M70 10 H118 M60 4 L64 10 L60 16 L56 10 Z"/></svg>
-      </div>
-      <p class="eyebrow">You found them.</p>
-      <h2>Two more chapters.</h2>
-    </div>
-
-    <div class="bonus__grid">
-      <article class="bonus__card" data-reveal data-tilt style="position:relative;overflow:hidden;">
-        <!-- Floating notes & hidden initials L + E ambient accent -->
-        <span aria-hidden="true" style="position:absolute;right:1rem;top:1rem;font-family:var(--font-hand);font-size:1.1rem;color:var(--gold);opacity:0.35;pointer-events:none;">L + E ✦</span>
-        <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);">
-          <img src="assets/The Guitar.png" alt="The Intern Guitar" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-        </figure>
-        <h3>The Guitar</h3>
-        <p>Because the future we're going to write together deserves its own soundtrack. An Intern guitar — for the songs you hum without knowing, the ones I'll learn just to play for you, and the music we haven't made yet.</p>
-
-        <div class="bonus__player">
-          <button class="bonus__player-btn" id="bonusPlayerBtn" type="button" aria-pressed="false" aria-label="Play our song">
-            <svg id="bonusIconPlay" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-play"/></svg>
-            <svg id="bonusIconPause" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><use href="#icon-pause"/></svg>
-          </button>
-          <div class="bonus__player-info">
-            <p class="bonus__player-label">now playing</p>
-            <p class="bonus__player-title">Kabira</p>
-          </div>
-          <canvas class="bonus__player-viz" id="bonusViz" width="78" height="28" aria-hidden="true"></canvas>
+      <!-- Dual infinite photo marquee (populated by JS) -->
+      <div class="hero-marquee-wrap" id="heroMarquee" aria-hidden="true">
+        <div class="marquee-row marquee-row--left">
+          <div class="marquee-track" id="marqueeTrack1"></div>
         </div>
-      </article>
+        <div class="marquee-row marquee-row--right">
+          <div class="marquee-track" id="marqueeTrack2"></div>
+        </div>
+      </div>
 
-      <article class="bonus__card" data-reveal data-tilt>
-        <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);">
-          <img src="assets/The Book.png" alt="The Book" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-        </figure>
-        <h3>The Book</h3>
-        <p>Because you've always believed in looking at hard days differently — not pretending they're easy, just choosing the angle that lets you move through them. This book is for that belief. A reminder, from me to you, that the way you see things has carried us further than you know.</p>
-      </article>
+      <!-- CTA -->
+      <div class="hero-cta" id="heroCta">
+        <button class="hero-btn-primary" id="heroPrimaryBtn" type="button"
+          aria-label="Let's Relive Our Story — begins music and scrolls to the story">
+          Let&rsquo;s Relive Our Story
+          <span class="btn-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </button>
+        <button class="hero-btn-secondary" id="heroSkipMusicBtn" type="button">Skip Music</button>
+      </div>
+
+      <!-- Music indicator (appears after Begin) -->
+      <div class="hero-music-indicator" id="heroMusicIndicator" aria-live="polite">
+        <div class="hero-vinyl" id="heroVinyl" aria-hidden="true"></div>
+        <div class="hero-waveform" id="heroWaveform" aria-hidden="true">
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+          <div class="hero-waveform-bar"></div>
+        </div>
+        <span class="hero-now-playing">Kabira &middot; playing</span>
+      </div>
+
+      <!-- Easter eggs container (hearts, roses — populated by JS) -->
+      <div class="hero-easter-eggs" id="heroEasterEggs" aria-hidden="true"></div>
+
+      <!-- Moon easter egg -->
+      <button class="hero-hidden-moon" id="heroMoon" type="button" aria-label="A hidden moon — click it"
+        style="position:absolute;top:5%;right:7%;font-size:1.5rem;background:none;border:none;opacity:0.16;z-index:15;transition:opacity .3s ease;"
+        title="🌙">🌙</button>
+
+    </section>
+
+    <!-- Lightbox (position:fixed) -->
+    <div class="hero-lightbox" id="heroLightbox" role="dialog" aria-modal="true" aria-label="Photo fullscreen view"
+      tabindex="-1">
+      <button class="hero-lightbox-close" id="heroLightboxClose" type="button" aria-label="Close photo">✕</button>
+      <img id="heroLightboxImg" src="" alt="">
+      <p class="hero-lightbox-caption" id="heroLightboxCaption"></p>
     </div>
-  </section>
 
-</main>
+    <!-- Love note overlay (3 roses unlock) -->
+    <div class="hero-love-note-overlay" id="heroLoveNoteOverlay" role="dialog" aria-modal="true"
+      aria-label="A hidden love note">
+      <div class="hero-love-note-card">
+        <p>You found all three roses. ✦</p>
+        <p>Some things only bloom when you pay close attention. This is for you — the one who notices everything
+          quietly, remembers everything tenderly, and loves completely.</p>
+        <p>I love you more than any word I know.</p>
+        <p style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;opacity:.55;margin-bottom:1.4rem;">
+          — Forever yours, Edwin ❤</p>
+        <button class="note-close" id="heroLoveNoteClose" type="button">Close this moment</button>
+      </div>
+    </div>
 
-<footer class="site-footer">
-  <p>Made with love, for Likhitha — my Jaanu. Photos, videos, and our song go here — Edwin, 2026.</p>
-</footer>
+    <!-- CHAPTER 1 — BEFORE YOU -->
+    <section class="chapter chapter--mono" id="ch1" data-chapter="1">
+      <div class="chapter__mark" aria-hidden="true">01</div>
+      <div class="chapter__content">
+        <p class="eyebrow" data-reveal>CHAPTER ONE</p>
+        <h2 class="chapter__title" data-reveal>Before You &amp; First Hello</h2>
+        <div class="chapter__body" data-reveal>
+          <p>There was a version of my days that ran on autopilot. Classes, mess food, the same walk back to the hostel.
+            Nothing wrong with any of it. Just... grey at the edges.</p>
+          <p class="hidden-heart-holder">I didn't know I was waiting. Then you showed up on St. Philomena Day in August
+            2021, and I understood — I had been thinking of you before I even knew your name.<button
+              class="hidden-heart" data-heart="1" type="button" aria-label="A small hidden heart. Click to find it.">
+              <svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#icon-heart" />
+              </svg>
+            </button></p>
+        </div>
 
-<script src="js/script.js" defer></script>
+        <div class="photo-pair" data-reveal
+          style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem;">
+          <figure class="bento-card bento-card--portrait" data-tilt style="max-width:280px;width:100%;">
+            <img src="assets/The Beginning.jpg" alt="First photo shoot together"
+              style="aspect-ratio:9/16;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">St. Philomena Day · Aug 2021</span>
+              <h3 class="bento-card__title">The First Hello</h3>
+              <p class="bento-card__desc">When an innocent college photo shoot started everything.</p>
+            </div>
+          </figure>
+          <!-- <figure class="bento-card bento-card--portrait" data-tilt style="max-width:280px;width:100%;">
+            <img src="assets/College/DSC_0154_1-PHOTO_FRAME.jpg" alt="St Philomena framed portrait"
+              style="aspect-ratio:9/16;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">First Spark</span>
+              <h3 class="bento-card__title">St. Philomena Memories</h3>
+              <p class="bento-card__desc">Asking for your number just to send this photo.</p>
+            </div>
+          </figure> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2 — COLLEGE DAYS -->
+    <section class="chapter chapter--campus" id="ch2" data-chapter="2">
+      <div class="chapter__mark" aria-hidden="true">02</div>
+      <div class="chapter__content chapter__content--wide">
+        <p class="eyebrow" data-reveal>CHAPTER TWO</p>
+        <h2 class="chapter__title" data-reveal>College Days &amp; Campus Laughs</h2>
+        <p class="chapter__lede" data-reveal>You turned college into my favorite chapter. From daily classroom banter,
+          fest day celebrations, and sports energy to quiet corridor talks.</p>
+
+        <div class="bento-grid" data-reveal>
+          <figure class="bento-card bento-card--hero" data-tilt>
+            <img src="assets/College/Classroom_.jpg" alt="Classroom laughs and lectures">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Campus Life · BCA Days</span>
+              <h3 class="bento-card__title">Between Classes</h3>
+              <p class="bento-card__desc">Making even the longest classes unforgettable together.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/College/College last_.jpg" alt="Quiet corridor moment">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Last Day</span>
+              <h3 class="bento-card__title">Between College and Career</h3>
+              <p class="bento-card__desc">The quiet minutes before the real life starts.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/College/Clg day.jpg" alt="College Day Fest">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">College Fest</span>
+              <h3 class="bento-card__title">Fest Day Energy</h3>
+            </div>
+          </figure>
+
+          <div class="bento-card bento-card--quote" data-tilt>
+            <p>&ldquo;You turned ordinary college afternoons into memories I still look back on and smile.&rdquo;</p>
+            <span>✦ Campus Diaries</span>
+          </div>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/College/College_.jpg" alt="Campus ground group memory">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Campus Ground</span>
+              <h3 class="bento-card__title">College Memories</h3>
+              <p class="bento-card__desc">Walking across the grounds together after class.</p>
+            </div>
+          </figure>
+
+          <!-- <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/College/Clg day 2.jpg" alt="College day smile">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Radiant Smile</span>
+              <h3 class="bento-card__title">Fest Day Joy</h3>
+            </div>
+          </figure> -->
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/College/Last day of clg.jpg" alt="Last day of college">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Farewell · 2024</span>
+              <h3 class="bento-card__title">Last Day of College</h3>
+              <p class="bento-card__desc">Wrapping up college knowing our journey was just beginning.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Old img.jpg" alt="Early college days">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Cute Jaanu in School</span>
+              <h3 class="bento-card__title">Where you Started</h3>
+              <p class="bento-card__desc">When every day was exciting and new.</p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3 — TRIPS & ADVENTURES -->
+    <section class="chapter chapter--color" id="ch3" data-chapter="3">
+      <div class="chapter__mark" aria-hidden="true">03</div>
+      <div class="chapter__content chapter__content--wide">
+        <p class="eyebrow" data-reveal>CHAPTER THREE</p>
+        <h2 class="chapter__title" data-reveal>Trips &amp; Beach Escapes</h2>
+        <p class="chapter__lede" data-reveal>That Mangalore trip will always have a special place in my heart — train
+          ride from Puttur, Panambur beach sunset, Karinjeshwara Temple hill, and wind in our hair.</p>
+
+        <div class="bento-grid" data-reveal>
+          <figure class="bento-card bento-card--hero" data-tilt>
+            <img src="assets/Mangalore/Mangalore 1.jpg" alt="Panambur Beach Golden Hour">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Floral bouquets · Church</span>
+              <h3 class="bento-card__title">Flowers and you</h3>
+              <p class="bento-card__desc">That was the first day I was convinced I was in love with you</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/Kochi 2.jpg" alt="Kochi port and streets">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Kochi Port</span>
+              <h3 class="bento-card__title">Kochi Street Walk</h3>
+              <p class="bento-card__desc">Exploring new streets together by the harbour.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Mangalore/Mangalore 3.jpg" alt="Golden hour moments">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Golden Hour</span>
+              <h3 class="bento-card__title">Sun-Kissed</h3>
+            </div>
+          </figure>
+
+          <div class="bento-card bento-card--quote" data-tilt>
+            <p>&ldquo;Fish curry, Bangada fry, coastal breezes &amp; late evening walks by the waves.&rdquo;</p>
+            <span>✦ Coastal Escapes</span>
+          </div>
+
+          <!-- <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Mangalore/Bike ride.jpg" alt="Coastal highway bike ride">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Coastal Highway</span>
+              <h3 class="bento-card__title">Bike Ride Escapes</h3>
+              <p class="bento-card__desc">Wind in our hair, endless roads, and no rush to get back.</p>
+            </div>
+          </figure> -->
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Mangalore/Mansoon ride.jpg" alt="Monsoon rain ride">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Monsoon Ride</span>
+              <h3 class="bento-card__title">Bike Ride Escapes</h3>
+              <p class="bento-card__desc">Wind in our hair, endless roads, and no rush to get back.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Mangalore/Karinjeshwara parvathi gudda_.jpg" alt="Karinjeshwara Parvathi Temple Hill">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Temple Hillside</span>
+              <h3 class="bento-card__title">Karinjeshwara Parvathi Temple</h3>
+              <p class="bento-card__desc">High above the forest canopy, peaceful and quiet.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Kabari katte.jpg" alt="Koragajjana Katte visit">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Off College</span>
+              <h3 class="bento-card__title">Kavari Katte</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Wonderla.jpg" alt="Wonderla theme park trip">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Wonderla Trip</span>
+              <h3 class="bento-card__title">Rollercoasters &amp; Laughter</h3>
+              <p class="bento-card__desc">Screaming on water slides and holding hands on every ride.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Small Moments/Kochi trip.jpg" alt="Kochi sea breeze">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Trip Night</span>
+              <h3 class="bento-card__title">Kochi Horizon</h3>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4 — FOODIE US -->
+    <section class="chapter chapter--dawn" id="ch4" data-chapter="4">
+      <div class="chapter__mark" aria-hidden="true">04</div>
+      <div class="chapter__content chapter__content--wide">
+        <p class="eyebrow" data-reveal>CHAPTER FOUR</p>
+        <h2 class="chapter__title" data-reveal>Foodie Us</h2>
+        <p class="chapter__lede" data-reveal>From sudden cravings to our favorite food dates, food has always been our
+          love language and happiest little tradition.</p>
+
+        <div class="bento-grid" data-reveal>
+          <figure class="bento-card bento-card--hero" data-tilt>
+            <img src="assets/Foodie Us/Aramane biryani_.jpg" alt="Aramane biryani date">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Biryani Dates · Aramane</span>
+              <h3 class="bento-card__title">Aramane Biryani Tradition</h3>
+              <p class="bento-card__desc">Ordering biryani exactly right, every single time.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Foodie Us/Kfc.jpg" alt="KFC chicken dates">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">KFC Dates</span>
+              <h3 class="bento-card__title">KFC Chicken Dates</h3>
+              <p class="bento-card__desc">The best part of our week when we needed a break.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Foodie Us/Mandi biryani 2.jpg" alt="Shared Mandi Biryani">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Mandi Feasts</span>
+              <h3 class="bento-card__title">Mandi Biryani</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Foodie Us/Lunch home.jpg" alt="Special home style lunch date">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Home-Style Feasts</span>
+              <h3 class="bento-card__title">Special Lunch Dates</h3>
+              <p class="bento-card__desc">Sharing big plates and making food taste ten times better.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/Foodie Us/Arabian puttur_.jpg" alt="Arabian puttur evening treat">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Puttur Flavors</span>
+              <h3 class="bento-card__title">Arabian Puttur</h3>
+              <p class="bento-card__desc">Late evening food runs in Puttur.</p>
+            </div>
+          </figure>
+          
+          <!-- <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/St Philomena day.jpg" alt="Master Bake pastries">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Master Bake</span>
+              <h3 class="bento-card__title">Pastry Sundays</h3>
+            </div>
+          </figure> -->
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Bangalore/Empire hotel_.jpg" alt="Empire hotel midnight dates">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Midnight Eats</span>
+              <h3 class="bento-card__title">Empire Hotel Dates</h3>
+              <p class="bento-card__desc">Late night food runs when the city went quiet.</p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5 — BANGALORE MEMORIES -->
+    <section class="chapter chapter--color" id="ch5" data-chapter="5">
+      <div class="chapter__mark" aria-hidden="true">05</div>
+      <div class="chapter__content chapter__content--wide">
+        <p class="eyebrow" data-reveal>CHAPTER FIVE</p>
+        <h2 class="chapter__title" data-reveal>Bangalore Life &amp; Big City Dreams</h2>
+        <p class="chapter__lede" data-reveal>Bangalore, properly. Real jobs, real rent, real adulting — but also Mall of
+          Asia date nights, Christmas 2024 celebrations, GB Palya walks, and running the 2026 Marathon together.</p>
+
+        <div class="bento-grid" data-reveal>
+          <figure class="bento-card bento-card--hero" data-tilt>
+            <img src="assets/Bangalore/Marathon_.jpg" alt="Crossing 2026 Marathon finish line">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Marathon 2026 · U R my Medal</span>
+              <h3 class="bento-card__title">Crossing the Finish Line for Frist time</h3>
+              <p class="bento-card__desc">Crossing miles still smiling at each other says everything.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/Bangalore/Us.png" alt="Bangalore couple portrait">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Bangalore Life</span>
+              <h3 class="bento-card__title">City Days</h3>
+              <p class="bento-card__desc">Building our routine in the big city.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--tall" data-tilt>
+            <img src="assets/Bangalore/Christmas 2024 w.jpg" alt="Christmas 2024 celebration">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Christmas 2024</span>
+              <h3 class="bento-card__title">Festive Glow</h3>
+              <p class="bento-card__desc">Warm holiday lights &amp; December memories.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Bangalore/Mall of asia.jpg" alt="Mall of Asia evening date">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Mall of Asia</span>
+              <h3 class="bento-card__title">Mall of Asia Evening</h3>
+              <p class="bento-card__desc">Shopping trips that somehow turned into 3-hour date nights.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/us 2.png" alt="Silly Bangalore moments">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Silly Moments</span>
+              <h3 class="bento-card__title">Pure Joy</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Christmas 24.7" alt="Christmas party setup">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Dec 2024</span>
+              <h3 class="bento-card__title">Holiday Cheers</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Bangalore/GB Palya.jpg" alt="GB Palya evening walk">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">GB Palya</span>
+              <h3 class="bento-card__title">GB Palya Evening Strolls</h3>
+              <p class="bento-card__desc">Unwinding after long workdays on our regular walk path.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/GB Palya 2.jpg" alt="GB Palya park moment">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Evening Breeze</span>
+              <h3 class="bento-card__title">Quiet Walks</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Mall of Asia 2.jpg" alt="Mall of Asia festive lights">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">City Lights</span>
+              <h3 class="bento-card__title">Mall Nights</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Bangalore/Marathon 2.jpg" alt="Holding Marathon medals">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Marathon Medals</span>
+              <h3 class="bento-card__title">Finishers Together</h3>
+              <p class="bento-card__desc">Proudly holding our medals after running 42 km.</p>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Marathon 3.jpg" alt="Marathon morning energy">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Race Morning</span>
+              <h3 class="bento-card__title">Pre-Race Energy</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Marathon 4.jpg" alt="Race day smiles">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Km 25</span>
+              <h3 class="bento-card__title">Still Smiling</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Marathon 5.jpg" alt="Full marathon celebration">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Victory</span>
+              <h3 class="bento-card__title">We Did It!</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--square" data-tilt>
+            <img src="assets/Bangalore/Marathon 6.jpg" alt="Post-race victory smile">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">2026 Memory</span>
+              <h3 class="bento-card__title">Marathon Pride</h3>
+            </div>
+          </figure>
+
+          <figure class="bento-card bento-card--wide" data-tilt>
+            <img src="assets/Bangalore/Near pg.jpg" alt="Morning Talks near PG">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Near PG</span>
+              <h3 class="bento-card__title">Morning Talks Near PG</h3>
+              <p class="bento-card__desc">Standing outside saying goodnight for another 30 minutes.</p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6 — SMALL EVERYDAY MOMENTS -->
+    <section class="chapter chapter--scrapbook" id="ch6" data-chapter="6">
+      <div class="chapter__mark" aria-hidden="true">06</div>
+      <div class="chapter__content">
+        <p class="eyebrow" data-reveal>CHAPTER SIX</p>
+        <h2 class="chapter__title" data-reveal>Our Small Everyday Moments</h2>
+        <p class="chapter__lede" data-reveal>The big ones are easy to remember. It's the small ones I actually miss —
+          losing every race to finish the panipuri before you, the park bench in Balavana we quietly claimed as ours,
+          the silver bangles, matching watches, and bus rides home.</p>
+
+        <div class="scrapbook" data-reveal>
+          <figure class="polaroid polaroid--rot1" data-tilt>
+            <img src="assets/Small Moments/Balavana.jpg" alt="Balavana park bench"
+              style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Balavana Park Bench</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot2" data-tilt>
+            <img src="assets/Small Moments/At Darbe.jpg" alt="At Darbe afternoon"
+              style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>At Darbe</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot3" data-tilt>
+            <img src="assets/Small Moments/Bharat mall.jpg" alt="Bharat Mall movie date"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Bharat Mall Movies</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot4" data-tilt>
+            <img src="assets/Small Moments/Chawthi.jpg" alt="Chawthi festival outfit"
+              style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Chawthi Festival</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot5" data-tilt>
+            <img src="assets/Small Moments/Going home_.jpg" alt="Bus window seat going home"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Bus Rides Home</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot6" data-tilt>
+            <img src="assets/Small Moments/Holy rosary_.jpg" alt="Holy Rosary Church visit"
+              style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Holy Rosary Church</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot7" data-tilt>
+            <img src="assets/Small Moments/JP Nagar ground_.jpg" alt="Sunset at JP Nagar ground"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>JP Nagar Ground</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot1" data-tilt>
+            <img src="assets/Small Moments/Park.jpg" alt="Quiet park afternoon"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Park Afternoon</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot3" data-tilt>
+            <img src="assets/Small Moments/Reliance puttur_.jpg" alt="Reliance Puttur shopping"
+              style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Reliance Puttur</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot5" data-tilt>
+            <img src="assets/Small Moments/Sai cafe_.jpg" alt="Sai Cafe tea date"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Sai Cafe Tea Date</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot2" data-tilt>
+            <img src="assets/Small Moments/The bangle.jpg" alt="The silver bangle gift"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>The Silver Bangle</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot4" data-tilt>
+            <img src="assets/Small Moments/The ring_.jpg" alt="The proposal ring close-up"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>The Ring</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot6" data-tilt>
+            <img src="assets/Same watch_.jpg" alt="Matching wrist watches"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Matching Watches</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot1" data-tilt>
+            <img src="assets/Small Moments/SAVE_20240502_021619.jpg" alt="Random quiet selfie"
+              style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Quiet Selfie</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot7" data-tilt>
+            <img src="assets/Small Moments/SAVE_20250511_200419.jpg" alt="Sunlit afternoon"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Sunlit Afternoon</figcaption>
+          </figure>
+          <figure class="polaroid polaroid--rot3" data-tilt>
+            <img src="assets/Small Moments/file_00000000a95471f8b55e93b551f335ab.png" alt="Candid smile"
+              style="width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:.7rem;">
+            <figcaption>Candid Radiance</figcaption>
+          </figure>
+        </div>
+
+        <!-- MEMORY MATCH MINI GAME -->
+        <div class="memory-game" data-reveal>
+          <div class="memory-game__header">
+            <h3>A little game — match the memories</h3>
+            <p class="memory-game__status" id="gameStatus">Moves: 0 · Matches: 0/6</p>
+          </div>
+          <div class="memory-game__grid" id="gameGrid" role="group" aria-label="Memory matching game"></div>
+          <div class="memory-game__footer">
+            <p class="memory-game__win" id="gameWin" hidden>You matched every memory — just like us. ✦</p>
+            <button class="btn btn--ghost btn--small" id="gameReset" type="button">shuffle again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANNIVERSARY REVEAL — The emotional turning point -->
+    <section class="chapter chapter--proposal" id="ch-reveal" data-chapter="reveal">
+      <div class="chapter__content chapter__content--center">
+        <p class="eyebrow" data-reveal>But wait...</p>
+        <p class="proposal-date" data-reveal>23<span>·</span>07<span>·</span>2023</p>
+        <h2 class="chapter__title" data-reveal>Three years ago, on this very birthday&hellip;</h2>
+        <p class="chapter__lede" data-reveal>This day has never just been about turning another year older. Three years
+          ago today, on your birthday, something else began too — something that quietly changed everything.</p>
+        <p style="font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);font-style:italic;color:var(--gold-light);margin-top:1.6rem;margin-bottom:1.6rem;"
+          data-reveal>23 ❤ 3</p>
+        <p class="chapter__lede" data-reveal>Your birthday and our anniversary are the same day. And it's been the most
+          beautiful coincidence of my life.</p>
+        <a href="#ch7" class="hero__cue" style="margin-top:2rem;" aria-label="Continue to three years">
+          <span>three years</span>
+          <svg width="14" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#icon-arrow" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CHAPTER 7 — THREE YEARS, UNFOLDING -->
+    <section class="chapter chapter--timeline" id="ch7" data-chapter="7">
+      <div class="chapter__mark" aria-hidden="true">07</div>
+      <div class="chapter__content">
+        <p class="eyebrow" data-reveal>CHAPTER SEVEN</p>
+        <h2 class="chapter__title" data-reveal>Three Years, Unfolding</h2>
+        <p class="chapter__lede" data-reveal>Not every year looked the same. Some were loud and full of firsts. Some
+          were quieter. All of them were ours. Tap a year to open it.</p>
+
+        <div class="photo-pair" data-reveal
+          style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.6rem;">
+          <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
+            <img src="assets/2024.jpg" alt="7th Heaven date 2024" style="aspect-ratio:4/3;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">2024</span>
+              <h3 class="bento-card__title">7th Heaven</h3>
+            </div>
+          </figure>
+          <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
+            <img src="assets/Bangalore/Reunion_.jpg" alt="Every reunion celebration"
+              style="aspect-ratio:4/3;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Reunion</span>
+              <h3 class="bento-card__title">Reunion Feasts</h3>
+            </div>
+          </figure>
+          <figure class="bento-card bento-card--portrait" data-tilt style="max-width:220px;width:100%;">
+            <img src="assets/We.jpg" alt="Us standing together" style="aspect-ratio:9/16;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Us</span>
+              <h3 class="bento-card__title">Standing Strong</h3>
+            </div>
+          </figure>
+          <figure class="bento-card bento-card--square" data-tilt style="max-width:240px;width:100%;">
+            <img src="assets/Jaanu.jpg" alt="My beautiful Jaanu" style="aspect-ratio:4/3;object-fit:cover;">
+            <div class="bento-card__overlay">
+              <span class="bento-card__tag">Jaanu</span>
+              <h3 class="bento-card__title">Always Smiling</h3>
+            </div>
+          </figure>
+        </div>
+
+        <div class="years" data-reveal>
+          <details class="year">
+            <summary><span class="year__num">2023</span><span class="year__hint">unfold</span></summary>
+            <p>Panambur Beach. The ring. The sunset fading into gold while the waves crashed. The moment neither of us
+              fully remembers clearly because everything was moving too fast and too slow at the same time. The
+              beginning of after.</p>
+          </details>
+          <details class="year">
+            <summary><span class="year__num">2024</span><span class="year__hint">unfold</span></summary>
+            <p>Bangalore, properly. Real job, real rent, real adulting. But also the shopping trips that became
+              three-hour adventures, Balavana Park becoming ours, and the boiled rice we shared that somehow tasted
+              better than anything either of us had made on our own.</p>
+          </details>
+          <details class="year">
+            <summary><span class="year__num">2025</span><span class="year__hint">unfold</span></summary>
+            <p>Harder, quieter, and somehow the year I understood what staying actually means — not the easy kind, the
+              real kind. We grew roots where it mattered and held on where it counted.</p>
+          </details>
+          <details class="year">
+            <summary><span class="year__num">2026</span><span class="year__hint">unfold</span></summary>
+            <p>You turned twenty-three and somehow also convinced me to run a full marathon. We crossed that finish line
+              still smiling at each other, which says everything. Three years strong, Jaanu — and this birthday is the
+              one I'm most proud to celebrate.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 8 — THE PROPOSAL -->
+    <section class="chapter chapter--proposal" id="ch8" data-chapter="8">
+      <div class="chapter__mark" aria-hidden="true">08</div>
+      <div class="chapter__content chapter__content--center">
+        <p class="eyebrow" data-reveal>CHAPTER EIGHT · THE MOMENT</p>
+        <p class="proposal-date" data-reveal>23<span>·</span>07<span>·</span>2023</p>
+        <h2 class="chapter__title" data-reveal>The Proposal</h2>
+        <p class="chapter__lede" data-reveal>Panambur Beach. The waves were louder than I remembered. The light was
+          going gold — the kind of gold you only get for about twenty minutes before it disappears. You were looking at
+          the sea and I was looking at you, and I thought: now. It has to be now.</p>
+        <p class="chapter__lede" data-reveal>One knee. One question. One answer that quietly rewrote everything that
+          came after it.</p>
+
+        <figure class="letterbox" data-reveal style="margin:0 auto 1.6rem;max-width:22rem;">
+          <video controls preload="none" poster="assets/Mangalore 1.jpg"
+            style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:var(--radius-m);display:block;"
+            aria-label="The Proposal video">
+            <source src="assets/The Proposal.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+        </figure>
+
+        <button class="hidden-heart hidden-heart--proposal" data-heart="2" type="button"
+          aria-label="A small hidden heart. Click to find it.">
+          <svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#icon-heart" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 9 — 23 REASONS -->
+    <section class="chapter chapter--envelopes" id="ch9" data-chapter="9">
+      <div class="chapter__mark" aria-hidden="true">09</div>
+      <div class="chapter__content chapter__content--wide">
+        <p class="eyebrow" data-reveal>CHAPTER NINE</p>
+        <h2 class="chapter__title" data-reveal>23 Reasons</h2>
+        <p class="chapter__lede" data-reveal>One for every year of you. Open an envelope — Chennag idiya, Jaanu.</p>
+
+        <div class="envelopes" id="envelopeGrid" role="group" aria-label="23 reasons, one per envelope"></div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 10 — THE FUTURE -->
+    <section class="chapter chapter--tree" id="ch10" data-chapter="10">
+      <div class="chapter__mark" aria-hidden="true">10</div>
+      <div class="chapter__content chapter__content--center">
+        <p class="eyebrow" data-reveal>CHAPTER TEN</p>
+        <h2 class="chapter__title" data-reveal>The Future</h2>
+        <p class="chapter__lede" data-reveal>We haven't written most of our story yet. We've barely started. Here's what
+          I'm hoping to grow — with you, only with you.</p>
+
+        <div class="tree-wrap" id="treeWrap" data-reveal>
+          <div class="tree-ground" aria-hidden="true"></div>
+          <svg viewBox="0 0 800 620" class="tree-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="branchGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#A9814A" />
+                <stop offset="100%" stop-color="#C99089" />
+              </linearGradient>
+            </defs>
+            <path class="tree-root" pathLength="1" d="M400,610 C388,614 368,617 345,619" />
+            <path class="tree-root" pathLength="1" d="M400,610 C412,614 432,617 455,619" />
+            <path class="tree-trunk" pathLength="1" d="M400,610 C393,520 407,470 400,380" />
+            <path class="tree-branch" data-branch="1" pathLength="1" d="M400,420 C350,380 300,340 252,300" />
+            <path class="tree-branch" data-branch="2" pathLength="1" d="M400,400 C452,362 500,330 542,290" />
+            <path class="tree-branch" data-branch="3" pathLength="1" d="M400,462 C342,432 292,412 242,392" />
+            <path class="tree-branch" data-branch="4" pathLength="1" d="M400,448 C460,420 510,402 560,382" />
+            <path class="tree-branch" data-branch="5" pathLength="1" d="M400,382 C355,325 305,270 270,225" />
+            <path class="tree-branch" data-branch="6" pathLength="1" d="M400,382 C450,325 490,270 520,222" />
+            <path class="tree-branch" data-branch="7" pathLength="1" d="M400,382 C400,320 400,240 400,168" />
+          </svg>
+          <div class="tree-sparkles" id="treeSparkles" aria-hidden="true"></div>
+          <span class="tree-label" data-branch-label="1" style="left:31.5%; top:48.4%; --pop-delay:2.15s;">Dreams</span>
+          <span class="tree-label" data-branch-label="2"
+            style="left:67.8%; top:46.8%; --pop-delay:2.3s;">Marriage</span>
+          <span class="tree-label" data-branch-label="3" style="left:30.3%; top:63.2%; --pop-delay:2.45s;">Home</span>
+          <span class="tree-label" data-branch-label="4"
+            style="left:70%; top:61.6%; --pop-delay:2.6s;">Travelling</span>
+          <span class="tree-label" data-branch-label="5" style="left:33.8%; top:36.3%; --pop-delay:2.75s;">Growing
+            old</span>
+          <span class="tree-label" data-branch-label="6" style="left:65%; top:35.8%; --pop-delay:2.9s;">Supporting each
+            other</span>
+          <span class="tree-label" data-branch-label="7" style="left:50%; top:27.1%; --pop-delay:3.05s;">Never giving
+            up</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CHAPTER -->
+    <section class="final" id="final">
+      <div class="final__quiet" data-reveal>
+        <p class="eyebrow">Everything goes quiet.</p>
+      </div>
+
+      <div class="letter" id="letterBlock">
+        <button class="letter__trigger" id="letterTrigger" type="button" aria-expanded="false"
+          aria-controls="letterPaper">
+          Open the letter
+        </button>
+        <div class="letter__paper" id="letterPaper" hidden>
+          <p class="letter__salutation">My Jaanu,</p>
+          <p>I wrote this late at night. After everyone was asleep. Because that's the only time it felt quiet enough to
+            say what I actually wanted to say.</p>
+          <p>There was a version of me before you — fine, ordinary, a little grey around the edges. He didn't know what
+            was missing until you showed up and suddenly everything had a reason. I wasn't waiting. I just hadn't met
+            you yet.</p>
+          <p>Three years hasn't been a straight line. Some of it was hard in ways I didn't see coming. But you never
+            once made me feel like we weren't going to figure it out. Not once. That's not nothing, Jaanu. That's
+            everything.</p>
+          <p>I still lose every race to finish the panipuri before you. I don't think boiled rice has ever tasted as
+            good as when we shared it together. I don't think a park bench has ever felt more like home than the one we
+            call ours. These are the things I didn't know I'd love about us — but I love them more than most big things.
+          </p>
+          <p class="letter__typewriter" id="typewriterLine"
+            data-full-text="No matter how life changes us — I&rsquo;ll keep choosing you. Every day. On purpose."></p>
+          <p>Happy 23rd birthday, my Jaanu. And happy three years to us — the most beautiful coincidence of my life.
+            Preethi.</p>
+          <p class="letter__sign">— Yours, always, Edwin ❤</p>
+        </div>
+      </div>
+
+      <div class="wishes" data-reveal>
+        <h2>Happy 23rd Birthday, my Jaanu. ❤</h2>
+        <p>Happy 3 Years to us.</p>
+        <p style="color:var(--fog-light);font-size:.95rem;margin-top:-.8rem;margin-bottom:4rem;">We've written three
+          beautiful chapters together... and I can't wait to see what the next ones look like.</p>
+      </div>
+
+      <div class="hunt-gate" id="huntGate" data-reveal>
+        <p class="hunt-gate__title">There are two more chapters waiting for you&hellip;</p>
+        <p class="hunt-gate__hint">Somewhere in this story, three small hearts are hiding. Find all three to unlock
+          them.</p>
+        <p class="hunt-gate__progress">Hearts found: <span id="huntProgressText">0</span>/3</p>
+        <button class="hunt-gate__fallback" id="huntFallback" type="button">&hellip;or open them now</button>
+      </div>
+    </section>
+
+    <!-- BONUS: TWO MORE CHAPTERS -->
+    <section class="bonus" id="bonus" hidden>
+      <div class="bonus__intro" data-reveal>
+        <div class="bonus__flourish" aria-hidden="true">
+          <svg width="120" height="20" viewBox="0 0 120 20">
+            <path pathLength="1" d="M2 10 H50 M70 10 H118 M60 4 L64 10 L60 16 L56 10 Z" />
+          </svg>
+        </div>
+        <p class="eyebrow">You found them.</p>
+        <h2>Two more chapters.</h2>
+      </div>
+
+      <div class="bonus__grid">
+        <article class="bonus__card" data-reveal data-tilt style="position:relative;overflow:hidden;">
+          <!-- Floating notes & hidden initials L + E ambient accent -->
+          <span aria-hidden="true"
+            style="position:absolute;right:1rem;top:1rem;font-family:var(--font-hand);font-size:1.1rem;color:var(--gold);opacity:0.35;pointer-events:none;">L
+            + E ✦</span>
+          <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);">
+            <img src="assets/The Guitar.png" alt="The Intern Guitar"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+          </figure>
+          <h3>The Guitar</h3>
+          <p>Because the future we're going to write together deserves its own soundtrack. An Intern guitar — for the
+            songs you hum without knowing, the ones I'll learn just to play for you, and the music we haven't made yet.
+          </p>
+
+          <div class="bonus__player">
+            <button class="bonus__player-btn" id="bonusPlayerBtn" type="button" aria-pressed="false"
+              aria-label="Play our song">
+              <svg id="bonusIconPlay" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#icon-play" />
+              </svg>
+              <svg id="bonusIconPause" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"
+                style="display:none">
+                <use href="#icon-pause" />
+              </svg>
+            </button>
+            <div class="bonus__player-info">
+              <p class="bonus__player-label">now playing</p>
+              <p class="bonus__player-title">Kabira</p>
+            </div>
+            <canvas class="bonus__player-viz" id="bonusViz" width="78" height="28" aria-hidden="true"></canvas>
+          </div>
+        </article>
+
+        <article class="bonus__card" data-reveal data-tilt>
+          <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);">
+            <img src="assets/The Book.png" alt="The Book"
+              style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+          </figure>
+          <h3>The Book</h3>
+          <p>Because you've always believed in looking at hard days differently — not pretending they're easy, just
+            choosing the angle that lets you move through them. This book is for that belief. A reminder, from me to
+            you, that the way you see things has carried us further than you know.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with love, for Likhitha — my Jaanu. Photos, videos, and our song go here — Edwin, 2026.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
 </body>
+
 </html>
