@@ -49,10 +49,43 @@
 }
 
 /* ==========================================================================
-   RESET
+   ACCESSIBILITY & RESET
    ========================================================================== */
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
+
+/* Focus Indicators — WCAG 2.2 AA */
+:focus-visible {
+  outline: 3px solid var(--gold-light) !important;
+  outline-offset: 3px !important;
+}
+
+/* Skip Link — WCAG 2.2 AA */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1.5rem;
+  z-index: 99999;
+  background: var(--gold-light);
+  color: var(--charcoal-deep);
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: top 0.25s var(--ease);
+}
+.skip-link:focus {
+  top: 1.2rem;
+}
+
+/* Touch Targets — WCAG 2.2 AA (Minimum 44x44px) */
+button, a, input, select, textarea, [role="button"] {
+  touch-action: manipulation;
+}
+
 body{
   margin:0;
   background: var(--ivory);
@@ -471,11 +504,21 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:foc
 .hero-marquee-wrap.is-revealed{ opacity:1; transform:translateY(0); }
 .marquee-row{ display:flex; gap:1rem; }
 .marquee-row:hover .marquee-track{ animation-play-state:paused; }
-.marquee-track{ display:flex; gap:1rem; flex-shrink:0; will-change:transform; }
-.marquee-row--left  .marquee-track{ animation:marquee-rtl 44s linear infinite; }
-.marquee-row--right .marquee-track{ animation:marquee-ltr 56s linear infinite; }
-@keyframes marquee-rtl{ 0%{transform:translateX(0)}   100%{transform:translateX(-50%)} }
-@keyframes marquee-ltr{ 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+.marquee-track{
+  display:flex; gap:1rem; flex-shrink:0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  contain: layout paint style;
+}
+.marquee-row--left  .marquee-track{ animation:marquee-rtl 48s linear infinite; }
+.marquee-row--right .marquee-track{ animation:marquee-ltr 54s linear infinite; }
+@keyframes marquee-rtl{ 0%{transform:translate3d(0, 0, 0)} 100%{transform:translate3d(-50%, 0, 0)} }
+@keyframes marquee-ltr{ 0%{transform:translate3d(-50%, 0, 0)} 100%{transform:translate3d(0, 0, 0)} }
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation-play-state: paused !important; }
+}
 .marquee-photo{ position:relative; flex-shrink:0; width:170px; cursor:pointer; }
 .marquee-photo__inner{
   width:100%; height:210px; position:relative;
@@ -1526,6 +1569,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:foc
   animation: inputShake 0.4s ease;
   border-color: #ff6b81 !important;
   box-shadow: 0 0 20px rgba(255, 107, 129, 0.45) !important;
+}
+
+.secret-gift-input.success {
+  border-color: #2ed573 !important;
+  box-shadow: 0 0 22px rgba(46, 213, 115, 0.5) !important;
+  color: #2ed573 !important;
 }
 
 @keyframes inputShake {

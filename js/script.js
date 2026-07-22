@@ -1178,6 +1178,7 @@ function initHeroCursor() {
 }
 
 /* --- Build dual infinite image marquees --- */
+/* --- Build dual infinite image marquees --- */
 function buildHeroMarquee() {
   const allPhotos = [
     { src: 'assets/The Beginning.jpg', cap: 'First Hello' },
@@ -1189,7 +1190,6 @@ function buildHeroMarquee() {
     { src: 'assets/College/College last_.jpg', cap: 'Corridor Talks' },
     { src: 'assets/College/Last day of clg.jpg', cap: 'Last Day of College' },
     { src: 'assets/Old img.jpg', cap: 'Early Days' },
-    { src: 'assets/Old collage_.jpg', cap: 'College Collage' },
     { src: 'assets/St Philomena day.jpg', cap: 'Photo Shoot Day' },
     { src: 'assets/Mangalore/Mangalore 1.jpg', cap: 'Panambur Sunset' },
     { src: 'assets/Mangalore/Mangalore 2.jpg', cap: 'Coastal Breeze' },
@@ -1197,10 +1197,8 @@ function buildHeroMarquee() {
     { src: 'assets/Mangalore/Bike ride.jpg', cap: 'Coastal Highway Ride' },
     { src: 'assets/Mangalore/Mansoon ride.jpg', cap: 'Monsoon Ride' },
     { src: 'assets/Mangalore/Karinjeshwara parvathi gudda_.jpg', cap: 'Karinjeshwara Temple' },
-    { src: 'assets/Kabari katte.jpg', cap: 'Koragajjana Katte' },
     { src: 'assets/Wonderla.jpg', cap: 'Wonderla Trip' },
     { src: 'assets/Small Moments/Kochi trip.jpg', cap: 'Kochi Sea Breeze' },
-    { src: 'assets/Kochi 2.jpg', cap: 'Kochi Streets' },
     { src: 'assets/Foodie Us/Aramane biryani_.jpg', cap: 'Aramane Biryani' },
     { src: 'assets/Foodie Us/Arabian puttur_.jpg', cap: 'Arabian Puttur Treats' },
     { src: 'assets/Foodie Us/Kfc.jpg', cap: 'KFC Chicken Dates' },
@@ -1209,59 +1207,38 @@ function buildHeroMarquee() {
     { src: 'assets/Small Moments/JP Nagar ground_.jpg', cap: 'JP Nagar Ground Sunset' },
     { src: 'assets/Bangalore/Empire hotel_.jpg', cap: 'Empire Hotel Midnight' },
     { src: 'assets/Bangalore/Us.png', cap: 'Bangalore Life' },
-    { src: 'assets/Bangalore/us 2.png', cap: 'Silly Bangalore Moments' },
     { src: 'assets/Bangalore/Mall of asia.jpg', cap: 'Mall of Asia Evening' },
-    { src: 'assets/Bangalore/Mall of Asia 2.jpg', cap: 'Mall of Asia Lights' },
     { src: 'assets/Bangalore/Christmas 2024 w.jpg', cap: 'Christmas 2024' },
-    { src: 'assets/Bangalore/Christmas 24.7', cap: 'Christmas Party' },
     { src: 'assets/Bangalore/GB Palya.jpg', cap: 'GB Palya Walk' },
-    { src: 'assets/Bangalore/GB Palya 2.jpg', cap: 'GB Palya Stroll' },
-    { src: 'assets/Bangalore/Bangalore_.jpg', cap: 'City Outing' },
-    { src: 'assets/Bangalore/Near pg.jpg', cap: 'Near PG Morning Talks' },
     { src: 'assets/Bangalore/Marathon_.jpg', cap: 'Marathon 2026 Finish' },
-    { src: 'assets/Bangalore/Marathon 2.jpg', cap: 'Marathon Medals' },
-    { src: 'assets/Bangalore/Marathon 3.jpg', cap: 'Marathon Energy' },
-    { src: 'assets/Bangalore/Marathon 4.jpg', cap: 'Race Day Smiles' },
-    { src: 'assets/Bangalore/Marathon 5.jpg', cap: 'Full Marathon Celebration' },
-    { src: 'assets/Bangalore/Marathon 6.jpg', cap: 'Victory Smile' },
     { src: 'assets/Small Moments/Balavana.jpg', cap: 'Balavana Park Bench' },
     { src: 'assets/Small Moments/At Darbe.jpg', cap: 'At Darbe Hangout' },
     { src: 'assets/Small Moments/Bharat mall.jpg', cap: 'Bharat Mall Movies' },
     { src: 'assets/Small Moments/Chawthi.jpg', cap: 'Chawthi Festival' },
     { src: 'assets/Small Moments/Going home_.jpg', cap: 'Bus Seat Heading Home' },
-    { src: 'assets/Small Moments/Holy rosary_.jpg', cap: 'Holy Rosary Church' },
-    { src: 'assets/Small Moments/Park.jpg', cap: 'Park Breeze' },
-    { src: 'assets/Small Moments/Reliance puttur_.jpg', cap: 'Reliance Puttur Outing' },
-    { src: 'assets/Small Moments/Sai cafe_.jpg', cap: 'Sai Cafe Tea Date' },
-    { src: 'assets/Small Moments/The bangle.jpg', cap: 'The Silver Bangle' },
-    { src: 'assets/Small Moments/The ring_.jpg', cap: 'The Ring' },
-    { src: 'assets/Same watch_.jpg', cap: 'Matching Watches' },
-    { src: 'assets/Small Moments/SAVE_20240502_021619.jpg', cap: 'Random Quiet Selfie' },
-    { src: 'assets/Small Moments/SAVE_20250511_200419.jpg', cap: 'Sunlit Afternoon' },
-    { src: 'assets/2024.jpg', cap: '7th Heaven 2024' },
-    { src: 'assets/Bangalore/Reunion_.jpg', cap: 'Reunion Celebration' },
-    { src: 'assets/We.jpg', cap: 'Us Together' },
-    { src: 'assets/Jaanu.jpg', cap: 'My Jaanu' },
-    { src: 'assets/Small Moments/file_00000000a95471f8b55e93b551f335ab.png', cap: 'Candid Radiance' }
+    { src: 'assets/Small Moments/Holy rosary_.jpg', cap: 'Holy Rosary Church' }
   ];
 
-  // Assign random rotation between -3 and 3 deg
+  // Assign random rotation between -2 and 2 deg
   allPhotos.forEach(p => {
-    p.rot = Number(((Math.random() * 6) - 3).toFixed(1));
+    p.rot = Number(((Math.random() * 4) - 2).toFixed(1));
   });
 
-  // Split photos into two even rows
-  const row1 = allPhotos.slice(0, Math.ceil(allPhotos.length / 2));
-  const row2 = allPhotos.slice(Math.ceil(allPhotos.length / 2));
+  const half = Math.ceil(allPhotos.length / 2);
+  const row1 = allPhotos.slice(0, half);
+  const row2 = allPhotos.slice(half);
 
   function makeTrack(photos) {
-    const photos2x = [...photos, ...photos]; // duplicate for seamless -50% infinite loop
-    return photos2x.map(p => {
+    const photos2x = [...photos, ...photos];
+    return photos2x.map((p, idx) => {
       const fig = document.createElement('figure');
       fig.className = 'marquee-photo';
       fig.style.setProperty('--rot', (p.rot || 0) + 'deg');
       fig.dataset.caption = p.cap;
-      fig.innerHTML = `<div class="marquee-photo__inner"><img src="${p.src}" alt="${p.cap}" loading="lazy"></div><figcaption>${p.cap}</figcaption>`;
+      
+      const isEager = idx < 6;
+      const loadingAttr = isEager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+      fig.innerHTML = `<div class="marquee-photo__inner"><img src="${p.src}" alt="Edwin and Likhitha memory: ${p.cap}" width="170" height="210" decoding="async" ${loadingAttr}></div><figcaption>${p.cap}</figcaption>`;
       return fig;
     });
   }
@@ -1652,9 +1629,11 @@ function initSecretGiftChallenge() {
     feedback.style.opacity = '1';
     feedback.textContent = message;
 
+    // Effortless UX: Auto clear input & refocus cursor after shake completes
     setTimeout(() => {
+      input.value = '';
       input.focus();
-    }, 2000);
+    }, 420);
   }
 
   function processSubmission(e) {
@@ -1688,18 +1667,24 @@ function initSecretGiftChallenge() {
     }
 
     if (checkIsCorrectGuess(rawVal)) {
-      // Step 1: Disable input & show correct status
+      // Step 1: Green glow, disable input, morph button to '❤️ Correct!'
       isSubmitting = true;
       input.disabled = true;
+      input.classList.remove('shake');
+      input.classList.add('success');
       submitBtn.disabled = true;
       submitBtn.innerHTML = '❤️ Correct!';
       feedback.style.opacity = '0';
 
-      // Step 2: Show Prompt
+      // Keep correct answer visible for ~1 second so user sees success, then fade into unlock prompt
       setTimeout(() => {
-        formZone.style.display = 'none';
-        unlockPrompt.style.display = 'block';
-      }, 500);
+        formZone.style.transition = 'opacity 0.4s ease';
+        formZone.style.opacity = '0';
+        setTimeout(() => {
+          formZone.style.display = 'none';
+          unlockPrompt.style.display = 'block';
+        }, 400);
+      }, 1000);
     } else {
       // Random response (different from last)
       let idx;
