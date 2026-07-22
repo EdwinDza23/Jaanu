@@ -1547,19 +1547,11 @@ function initSecretGiftChallenge() {
   let lastResponseIndex = -1;
   let isSubmitting = false;
 
-  // Check persistence on load
-  if (localStorage.getItem(STORAGE_KEY) === 'unlocked') {
-    renderUnlockedStateDirectly();
-    return;
-  }
-
-  function renderUnlockedStateDirectly() {
-    if (formZone) formZone.style.display = 'none';
-    if (unlockPrompt) unlockPrompt.style.display = 'none';
-    if (chest) chest.style.display = 'none';
-    if (unlockedItem) unlockedItem.style.display = 'block';
-    if (finalMessage) finalMessage.style.display = 'block';
-    if (metaUnlockText) metaUnlockText.innerHTML = '✨ Unlocked!';
+  // Always reset to locked state on page refresh
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (err) {
+    // Ignore storage restrictions
   }
 
   function computeLevenshtein(a, b) {
@@ -1766,9 +1758,6 @@ function initSecretGiftChallenge() {
       if (metaUnlockText) {
         metaUnlockText.innerHTML = '✨ Unlocked!';
       }
-
-      // Persist state
-      localStorage.setItem(STORAGE_KEY, 'unlocked');
     }, 4800);
   }
 }
