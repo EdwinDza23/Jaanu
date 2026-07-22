@@ -5,6 +5,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('hero-entered');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   initPreloader();
