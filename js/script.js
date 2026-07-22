@@ -90,7 +90,7 @@ function initRevealOnScroll(){
 function initProgressAndNav(){
   const fill = document.getElementById('progressFill');
   const navLinks = document.querySelectorAll('.chapter-nav a');
-  const sections = ['hero','ch1','ch2','ch3','ch4','ch5','ch-reveal','ch6','ch7','ch8','ch9','final']
+  const sections = ['hero','ch1','ch2','ch3','ch4','ch5','ch6','ch-reveal','ch7','ch8','ch9','ch10','final']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -1149,41 +1149,97 @@ function initHeroCursor(){
 
 /* --- Build dual infinite image marquees --- */
 function buildHeroMarquee(){
-  const row1=[
-    {src:'assets/The Beginning.jpg',      rot:-2,  cap:'The Beginning'},
-    {src:'assets/Mangalore 1.jpg',          rot:2.5, cap:'Panambur Beach'},
-    {src:'assets/Every reunion .jpg',       rot:-1.5,cap:'Every Reunion'},
-    {src:'assets/Wonderla.jpg',             rot:3,   cap:'Wonderla'},
-    {src:'assets/Mangalore 2.jpg',          rot:-3,  cap:'Coastal Dreams'},
-    {src:'assets/2024.jpg',                 rot:1.5, cap:'2024'},
-    {src:'assets/food.jpg',                 rot:-2,  cap:'The Lunch'},
-  ];
-  const row2=[
-    {src:'assets/The Beginning 2.jpg',                rot:2,   cap:'Master Bake Sundays'},
-    {src:'assets/Mangalore 3.jpg',                    rot:-2,  cap:'Golden Hour'},
-    {src:'assets/Karinjeshwara parvathi temple.jpg',  rot:1,   cap:'Karinjeshwara Temple'},
-    {src:'assets/Marathon.jpg',                       rot:-3,  cap:'Marathon 2026'},
-    {src:'assets/Mangalore 1.jpg',                    rot:2.5, cap:'By the Sea'},
-    {src:'assets/The Beginning.jpg',                  rot:-1,  cap:'Where it Began'},
-    {src:'assets/Wonderla.jpg',                       rot:2.5, cap:'Happiest Day'},
+  const allPhotos = [
+    { src: 'assets/The Beginning.jpg', cap: 'First Hello' },
+    { src: 'assets/College/DSC_0154_1-PHOTO_FRAME.jpg', cap: 'St. Philomena Day' },
+    { src: 'assets/College/Classroom_.jpg', cap: 'Classroom Days' },
+    { src: 'assets/College/Clg day.jpg', cap: 'College Fest Day' },
+    { src: 'assets/College/Clg day 2.jpg', cap: 'College Day Smile' },
+    { src: 'assets/College/College_.jpg', cap: 'Campus Memories' },
+    { src: 'assets/College/College last_.jpg', cap: 'Corridor Talks' },
+    { src: 'assets/College/Last day of clg.jpg', cap: 'Last Day of College' },
+    { src: 'assets/Old img.jpg', cap: 'Early Days' },
+    { src: 'assets/Old collage_.jpg', cap: 'College Collage' },
+    { src: 'assets/St Philomena day.jpg', cap: 'Photo Shoot Day' },
+    { src: 'assets/Mangalore/Mangalore 1.jpg', cap: 'Panambur Sunset' },
+    { src: 'assets/Mangalore/Mangalore 2.jpg', cap: 'Coastal Breeze' },
+    { src: 'assets/Mangalore/Mangalore 3.jpg', cap: 'Golden Hour' },
+    { src: 'assets/Mangalore/Bike ride.jpg', cap: 'Coastal Highway Ride' },
+    { src: 'assets/Mangalore/Mansoon ride.jpg', cap: 'Monsoon Ride' },
+    { src: 'assets/Mangalore/Karinjeshwara parvathi gudda_.jpg', cap: 'Karinjeshwara Temple' },
+    { src: 'assets/Kabari katte.jpg', cap: 'Koragajjana Katte' },
+    { src: 'assets/Wonderla.jpg', cap: 'Wonderla Trip' },
+    { src: 'assets/Small Moments/Kochi trip.jpg', cap: 'Kochi Sea Breeze' },
+    { src: 'assets/Kochi 2.jpg', cap: 'Kochi Streets' },
+    { src: 'assets/Foodie Us/Aramane biryani_.jpg', cap: 'Aramane Biryani' },
+    { src: 'assets/Foodie Us/Arabian puttur_.jpg', cap: 'Arabian Puttur Treats' },
+    { src: 'assets/Foodie Us/Kfc.jpg', cap: 'KFC Chicken Dates' },
+    { src: 'assets/Foodie Us/Mandi biryani 2.jpg', cap: 'Mandi Biryani' },
+    { src: 'assets/Foodie Us/Lunch home.jpg', cap: 'Special Lunch Date' },
+    { src: 'assets/Small Moments/JP Nagar ground_.jpg', cap: 'JP Nagar Ground Sunset' },
+    { src: 'assets/Bangalore/Empire hotel_.jpg', cap: 'Empire Hotel Midnight' },
+    { src: 'assets/Bangalore/Us.png', cap: 'Bangalore Life' },
+    { src: 'assets/Bangalore/us 2.png', cap: 'Silly Bangalore Moments' },
+    { src: 'assets/Bangalore/Mall of asia.jpg', cap: 'Mall of Asia Evening' },
+    { src: 'assets/Bangalore/Mall of Asia 2.jpg', cap: 'Mall of Asia Lights' },
+    { src: 'assets/Bangalore/Christmas 2024 w.jpg', cap: 'Christmas 2024' },
+    { src: 'assets/Bangalore/Christmas 24.7', cap: 'Christmas Party' },
+    { src: 'assets/Bangalore/GB Palya.jpg', cap: 'GB Palya Walk' },
+    { src: 'assets/Bangalore/GB Palya 2.jpg', cap: 'GB Palya Stroll' },
+    { src: 'assets/Bangalore/Bangalore_.jpg', cap: 'City Outing' },
+    { src: 'assets/Bangalore/Near pg.jpg', cap: 'Near PG Night Talks' },
+    { src: 'assets/Bangalore/Marathon_.jpg', cap: 'Marathon 2026 Finish' },
+    { src: 'assets/Bangalore/Marathon 2.jpg', cap: 'Marathon Medals' },
+    { src: 'assets/Bangalore/Marathon 3.jpg', cap: 'Marathon Energy' },
+    { src: 'assets/Bangalore/Marathon 4.jpg', cap: 'Race Day Smiles' },
+    { src: 'assets/Bangalore/Marathon 5.jpg', cap: 'Full Marathon Celebration' },
+    { src: 'assets/Bangalore/Marathon 6.jpg', cap: 'Victory Smile' },
+    { src: 'assets/Small Moments/Balavana.jpg', cap: 'Balavana Park Bench' },
+    { src: 'assets/Small Moments/At Darbe.jpg', cap: 'At Darbe Hangout' },
+    { src: 'assets/Small Moments/Bharat mall.jpg', cap: 'Bharat Mall Movies' },
+    { src: 'assets/Small Moments/Chawthi.jpg', cap: 'Chawthi Festival' },
+    { src: 'assets/Small Moments/Going home_.jpg', cap: 'Bus Seat Heading Home' },
+    { src: 'assets/Small Moments/Holy rosary_.jpg', cap: 'Holy Rosary Church' },
+    { src: 'assets/Small Moments/Park.jpg', cap: 'Park Breeze' },
+    { src: 'assets/Small Moments/Reliance puttur_.jpg', cap: 'Reliance Puttur Outing' },
+    { src: 'assets/Small Moments/Sai cafe_.jpg', cap: 'Sai Cafe Tea Date' },
+    { src: 'assets/Small Moments/The bangle.jpg', cap: 'The Silver Bangle' },
+    { src: 'assets/Small Moments/The ring_.jpg', cap: 'The Ring' },
+    { src: 'assets/Same watch_.jpg', cap: 'Matching Watches' },
+    { src: 'assets/Small Moments/SAVE_20240502_021619.jpg', cap: 'Random Quiet Selfie' },
+    { src: 'assets/Small Moments/SAVE_20250511_200419.jpg', cap: 'Sunlit Afternoon' },
+    { src: 'assets/2024.jpg', cap: '7th Heaven 2024' },
+    { src: 'assets/Bangalore/Reunion_.jpg', cap: 'Reunion Celebration' },
+    { src: 'assets/We.jpg', cap: 'Us Together' },
+    { src: 'assets/Jaanu.jpg', cap: 'My Jaanu' },
+    { src: 'assets/Small Moments/file_00000000a95471f8b55e93b551f335ab.png', cap: 'Candid Radiance' }
   ];
 
+  // Assign random rotation between -3 and 3 deg
+  allPhotos.forEach(p => {
+    p.rot = Number(((Math.random() * 6) - 3).toFixed(1));
+  });
+
+  // Split photos into two even rows
+  const row1 = allPhotos.slice(0, Math.ceil(allPhotos.length / 2));
+  const row2 = allPhotos.slice(Math.ceil(allPhotos.length / 2));
+
   function makeTrack(photos){
-    const photos2x=[...photos,...photos]; // duplicate for seamless -50% loop
-    return photos2x.map(p=>{
-      const fig=document.createElement('figure');
-      fig.className='marquee-photo';
-      fig.style.setProperty('--rot',p.rot+'deg');
-      fig.dataset.caption=p.cap;
-      fig.innerHTML=`<div class="marquee-photo__inner"><img src="${p.src}" alt="${p.cap}" loading="lazy"></div><figcaption>${p.cap}</figcaption>`;
+    const photos2x = [...photos, ...photos]; // duplicate for seamless -50% infinite loop
+    return photos2x.map(p => {
+      const fig = document.createElement('figure');
+      fig.className = 'marquee-photo';
+      fig.style.setProperty('--rot', (p.rot || 0) + 'deg');
+      fig.dataset.caption = p.cap;
+      fig.innerHTML = `<div class="marquee-photo__inner"><img src="${p.src}" alt="${p.cap}" loading="lazy"></div><figcaption>${p.cap}</figcaption>`;
       return fig;
     });
   }
 
-  const t1=document.getElementById('marqueeTrack1');
-  const t2=document.getElementById('marqueeTrack2');
-  if(t1) makeTrack(row1).forEach(f=>t1.appendChild(f));
-  if(t2) makeTrack(row2).forEach(f=>t2.appendChild(f));
+  const t1 = document.getElementById('marqueeTrack1');
+  const t2 = document.getElementById('marqueeTrack2');
+  if(t1) makeTrack(row1).forEach(f => t1.appendChild(f));
+  if(t2) makeTrack(row2).forEach(f => t2.appendChild(f));
 }
 
 /* --- Fullscreen lightbox for marquee photos --- */
