@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLetter();
   initHeartHunt();
   initMusicControls();
+  initAudioManager();
   initTopHeroBadge();
   initSecretGiftChallenge();
   if (!reduceMotion) initTiltEffect('[data-tilt]', { lift: -5, maxTilt: 7 });
@@ -999,6 +1000,135 @@ function initMusicControls() {
 }
 
 /* ==========================================================================
+   AUDIO MANAGER & VIDEO COORDINATOR
+   DEDICATED CONTROLLER: Enforces single-audio source playback rule. Seamlessly
+   pauses background music when Proposal video plays, preserves music timestamp,
+   and intelligently resumes music only if it was previously playing before video started.
+   ========================================================================== */
+const AudioManager = {
+  audio: null,
+  videos: [],
+  wasBgMusicPlaying: false,
+  isInterruptedByVideo: false,
+  resumeTimeout: null,
+
+  init() {
+    this.audio = document.getElementById('bgAudio');
+    this.videos = Array.from(document.querySelectorAll('video'));
+    if (!this.audio) return;
+
+    this.bindVideoEvents();
+    this.bindAudioEvents();
+  },
+
+  bindVideoEvents() {
+    this.videos.forEach(video => {
+      if (video._audioMgrBound) return;
+      video._audioMgrBound = true;
+
+      const handlePlay = () => this.onVideoPlay(video);
+      const handlePause = () => this.onVideoPause(video);
+      const handleEnded = () => this.onVideoEnded(video);
+      const handleSeeking = () => this.onVideoSeeking(video);
+
+      video.addEventListener('play', handlePlay);
+      video.addEventListener('playing', handlePlay);
+      video.addEventListener('pause', handlePause);
+      video.addEventListener('ended', handleEnded);
+      video.addEventListener('seeking', handleSeeking);
+    });
+  },
+
+  bindAudioEvents() {
+    if (!this.audio || this.audio._audioMgrBound) return;
+    this.audio._audioMgrBound = true;
+
+    this.audio.addEventListener('play', () => {
+      // Pause any playing videos when background audio starts
+      this.videos.forEach(video => {
+        if (!video.paused && !video.ended) {
+          video.pause();
+        }
+      });
+
+      // Clear interruption flags if user explicitly started music while video is stopped
+      const anyVideoActive = this.videos.some(v => !v.paused && !v.ended);
+      if (!anyVideoActive) {
+        this.isInterruptedByVideo = false;
+        this.wasBgMusicPlaying = false;
+      }
+    });
+  },
+
+  onVideoPlay(activeVideo) {
+    if (this.resumeTimeout) {
+      clearTimeout(this.resumeTimeout);
+      this.resumeTimeout = null;
+    }
+
+    // Pause all other videos
+    this.videos.forEach(video => {
+      if (video !== activeVideo && !video.paused) {
+        video.pause();
+      }
+    });
+
+    const isAudioPlaying = !!(this.audio && !this.audio.paused && !this.audio.ended && this.audio.currentTime > 0);
+
+    if (isAudioPlaying && !this.isInterruptedByVideo) {
+      this.wasBgMusicPlaying = true;
+      this.isInterruptedByVideo = true;
+      this.audio.pause();
+    }
+  },
+
+  onVideoSeeking() {
+    if (this.resumeTimeout) {
+      clearTimeout(this.resumeTimeout);
+      this.resumeTimeout = null;
+    }
+  },
+
+  onVideoPause(activeVideo) {
+    if (this.resumeTimeout) clearTimeout(this.resumeTimeout);
+
+    // 120ms debounce to handle seeking or rapid play/pause without audio stutter
+    this.resumeTimeout = setTimeout(() => {
+      this.resumeTimeout = null;
+      if (activeVideo.paused && !activeVideo.seeking) {
+        this.evaluateResume();
+      }
+    }, 120);
+  },
+
+  onVideoEnded() {
+    if (this.resumeTimeout) clearTimeout(this.resumeTimeout);
+    this.evaluateResume();
+  },
+
+  evaluateResume() {
+    const anyVideoPlaying = this.videos.some(v => !v.paused && !v.ended);
+    if (anyVideoPlaying) return;
+
+    if (this.isInterruptedByVideo && this.wasBgMusicPlaying) {
+      this.isInterruptedByVideo = false;
+      this.wasBgMusicPlaying = false;
+
+      if (this.audio && this.audio.paused) {
+        const promise = this.audio.play();
+        if (promise !== undefined) {
+          promise.catch(err => console.warn('AudioManager resume catch:', err));
+        }
+      }
+    }
+  }
+};
+
+function initAudioManager() {
+  AudioManager.init();
+}
+
+/* ==========================================================================
    HERO LUXURY — Full interactive love journal hero
    ========================================================================== */
 function initHeroLuxury() {
@@ -1186,20 +1316,20 @@ function buildHeroMarquee() {
     { src: 'assets/College/Classroom_.jpg', cap: 'Classroom Days' },
     { src: 'assets/College/Clg day.jpg', cap: 'College Fest Day' },
     { src: 'assets/College/Clg day 2.jpg', cap: 'College Day Smile' },
-    { src: 'assets/College/College_.jpg', cap: 'Campus Memories' },
+    { src: 'assets/College/College.png', cap: 'Campus Memories' },
     { src: 'assets/College/College last_.jpg', cap: 'Corridor Talks' },
     { src: 'assets/College/Last day of clg.jpg', cap: 'Last Day of College' },
-    { src: 'assets/Old img.jpg', cap: 'Early Days' },
+    { src: 'assets/Old img.png', cap: 'Early Days' },
     { src: 'assets/St Philomena day.jpg', cap: 'Photo Shoot Day' },
     { src: 'assets/Mangalore/Mangalore 1.jpg', cap: 'Panambur Sunset' },
     { src: 'assets/Mangalore/Mangalore 2.jpg', cap: 'Coastal Breeze' },
-    { src: 'assets/Mangalore/Mangalore 3.jpg', cap: 'Golden Hour' },
+    { src: 'assets/Mangalore/Mangalore 3.png', cap: 'Golden Hour' },
     { src: 'assets/Mangalore/Bike ride.jpg', cap: 'Coastal Highway Ride' },
     { src: 'assets/Mangalore/Mansoon ride.jpg', cap: 'Monsoon Ride' },
-    { src: 'assets/Mangalore/Karinjeshwara parvathi gudda_.jpg', cap: 'Karinjeshwara Temple' },
-    { src: 'assets/Wonderla.jpg', cap: 'Wonderla Trip' },
+    { src: 'assets/Mangalore/Karinjeshwara parvathi temple.png', cap: 'Karinjeshwara Temple' },
+    { src: 'assets/wonderla.png', cap: 'Wonderla Trip' },
     { src: 'assets/Small Moments/Kochi trip.jpg', cap: 'Kochi Sea Breeze' },
-    { src: 'assets/Foodie Us/Aramane biryani_.jpg', cap: 'Aramane Biryani' },
+    { src: 'assets/Foodie Us/Aramane biryani_.png', cap: 'Aramane Biryani' },
     { src: 'assets/Foodie Us/Arabian puttur_.jpg', cap: 'Arabian Puttur Treats' },
     { src: 'assets/Foodie Us/Kfc.jpg', cap: 'KFC Chicken Dates' },
     { src: 'assets/Foodie Us/Mandi biryani 2.jpg', cap: 'Mandi Biryani' },
@@ -1207,9 +1337,9 @@ function buildHeroMarquee() {
     { src: 'assets/Small Moments/JP Nagar ground_.jpg', cap: 'JP Nagar Ground Sunset' },
     { src: 'assets/Bangalore/Empire hotel_.jpg', cap: 'Empire Hotel Midnight' },
     { src: 'assets/Bangalore/Us.png', cap: 'Bangalore Life' },
-    { src: 'assets/Bangalore/Mall of asia.jpg', cap: 'Mall of Asia Evening' },
+    { src: 'assets/Bangalore/Mall of asia.png', cap: 'Mall of Asia Evening' },
     { src: 'assets/Bangalore/Christmas 2024 w.jpg', cap: 'Christmas 2024' },
-    { src: 'assets/Bangalore/GB Palya.jpg', cap: 'GB Palya Walk' },
+    { src: 'assets/Bangalore/GB Palya.png', cap: 'GB Palya Walk' },
     { src: 'assets/Bangalore/Marathon_.jpg', cap: 'Marathon 2026 Finish' },
     { src: 'assets/Small Moments/Balavana.jpg', cap: 'Balavana Park Bench' },
     { src: 'assets/Small Moments/At Darbe.jpg', cap: 'At Darbe Hangout' },
