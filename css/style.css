@@ -1245,7 +1245,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:foc
 }
 [data-reveal].is-visible .bonus__flourish path{ stroke-dashoffset: 0; }
 .bonus__intro h2{ font-family: var(--font-display); font-size: clamp(2rem,5vw,3rem); font-weight:500; margin-top:.4rem; margin-bottom: 3rem; }
-.bonus__grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 2.4rem; max-width: 50rem; margin: 0 auto; text-align:left; perspective: 1200px; }
+.bonus__grid{ display:flex; flex-direction:column; gap: 2.4rem; max-width: 44rem; margin: 0 auto; text-align:left; perspective: 1200px; }
 .bonus__card{
   border-radius: var(--radius-m); padding: 1.6rem 1.6rem 1.8rem; background: rgba(253,251,244,.6);
   border: 1px solid rgba(169,129,74,.22);
@@ -1661,8 +1661,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:foc
 
 .final-msg-heart { font-size: 2rem; margin-bottom: 0.4rem; }
 .secret-gift-final-message h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold-light); margin-bottom: 0.6rem; }
-.final-msg-lead { font-size: 1.05rem; font-weight: 600; color: var(--ivory); margin-bottom: 1rem; }
-.final-msg-footer { font-size: 0.95rem; color: var(--gold-light); font-style: italic; margin-top: 1rem; }
+.secret-gift-final-message p { color: var(--ivory) !important; font-size: 1rem; line-height: 1.65; margin-bottom: 0.8rem; opacity: 1 !important; }
+.final-msg-lead { font-size: 1.08rem; font-weight: 600; color: var(--ivory) !important; margin-bottom: 1rem; }
+.final-msg-footer { font-size: 0.98rem; color: var(--gold-light) !important; font-style: italic; margin-top: 1.2rem; }
 
 /* Fullscreen Cinematic Overlay */
 .cinematic-reveal-overlay {
