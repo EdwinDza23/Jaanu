@@ -4,8 +4,22 @@
    missing elements so the page never throws if something is edited out.
    ========================================================================== */
 
+// Force browser to always start from top (Hero) on page refresh
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
   document.body.classList.add('hero-entered');
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   initPreloader();
@@ -24,9 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initLetter();
   initHeartHunt();
   initMusicControls();
+  initTopHeroBadge();
+  initSecretGiftChallenge();
   if (!reduceMotion) initTiltEffect('[data-tilt]', { lift: -5, maxTilt: 7 });
   if (!reduceMotion) initMagneticButtons('.btn--primary, .letter__trigger', { lift: -2 });
 });
+
+function initTopHeroBadge() {
+  const badge = document.getElementById('topHeroBadge');
+  const backTopBtn = document.getElementById('backToTopBtn');
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (badge) badge.addEventListener('click', scrollToTop);
+  if (backTopBtn) backTopBtn.addEventListener('click', scrollToTop);
+}
 
 /* ==========================================================================
    PRELOADER
@@ -1478,4 +1507,283 @@ function initHeroScrollEffect() {
       tick = false;
     });
   }, { passive: true });
+}
+
+/* ==========================================================================
+   SECRET GIFT CHALLENGE — Guessing System & Cinematic Reveal
+   ========================================================================== */
+function initSecretGiftChallenge() {
+  const form = document.getElementById('secretGiftForm');
+  const input = document.getElementById('secretGiftInput');
+  const submitBtn = document.getElementById('secretGiftSubmitBtn');
+  const feedback = document.getElementById('secretGiftFeedback');
+  const unlockPrompt = document.getElementById('secretGiftUnlockPrompt');
+  const openBtn = document.getElementById('secretGiftOpenBtn');
+  const lockWrapper = document.getElementById('secretGiftLockWrapper');
+  const lock = document.getElementById('secretGiftLock');
+  const lid = document.getElementById('secretGiftLid');
+  const lightRays = document.getElementById('secretGiftLightRays');
+  const unlockedItem = document.getElementById('secretGiftUnlockedItem');
+  const chest = document.getElementById('secretGiftChest');
+  const formZone = document.getElementById('secretGiftFormZone');
+  const finalMessage = document.getElementById('secretGiftFinalMessage');
+  const metaUnlockText = document.getElementById('metaUnlockText');
+
+  if (!form || !input || !submitBtn) return;
+
+  const STORAGE_KEY = 'secret_gift_unlocked_state';
+
+  // 30+ Random playful wrong-guess responses
+  const WRONG_RESPONSES = [
+    "Hehe... not this one 🤭",
+    "You're making me smile 😄",
+    "That's actually a cute guess ❤️",
+    "Nope... try again detective 🕵️",
+    "You're getting warmer... maybe 👀",
+    "I knew you'd guess that 😂",
+    "Keep guessing Jaanu ❤️",
+    "Almost... or maybe I'm just teasing 😜",
+    "Hmmm... interesting guess.",
+    "You'll know soon enough ❤️",
+    "Still locked 🔒",
+    "Not today detective 😆",
+    "Wrong answer... but very adorable ❤️",
+    "Keep thinking 😊",
+    "You've got this!",
+    "I'm not giving up that easily 😏",
+    "Your next guess might be the one 👀",
+    "I'm enjoying watching you guess 😂",
+    "A for effort! But try again 🙈",
+    "Close... but the secret stays safe for now 🤫",
+    "Ooh, creative! But nope 💫",
+    "Nice try Jaanu, guess again! 💕",
+    "The lock didn't budge... yet! 🔑",
+    "Keep that imagination going! ✨",
+    "Haha, I love how your mind works 🧠❤️",
+    "Not quite, but I love your enthusiasm! 🌟",
+    "Try one more time... you can do it! 🎯",
+    "Nope! But here's a virtual hug for trying 🤗",
+    "So close... or are you? 🤭",
+    "Haha, keep guessing my love! ❤️"
+  ];
+
+  let lastResponseIndex = -1;
+  let isSubmitting = false;
+
+  // Check persistence on load
+  if (localStorage.getItem(STORAGE_KEY) === 'unlocked') {
+    renderUnlockedStateDirectly();
+    return;
+  }
+
+  function renderUnlockedStateDirectly() {
+    if (formZone) formZone.style.display = 'none';
+    if (unlockPrompt) unlockPrompt.style.display = 'none';
+    if (chest) chest.style.display = 'none';
+    if (unlockedItem) unlockedItem.style.display = 'block';
+    if (finalMessage) finalMessage.style.display = 'block';
+    if (metaUnlockText) metaUnlockText.innerHTML = '✨ Unlocked!';
+  }
+
+  function computeLevenshtein(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+      for (let j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          );
+        }
+      }
+    }
+    return matrix[b.length][a.length];
+  }
+
+  function checkIsCorrectGuess(userText) {
+    if (!userText) return false;
+    // Strip emojis, punctuation, symbols, whitespace
+    const cleaned = userText
+      .toLowerCase()
+      .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
+      .replace(/[^\w\s]/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!cleaned) return false;
+
+    const targetVariants = [
+      'guitar', 'guiter', 'gutiar', 'gitar', 'guiitar', 'guitarr', 'gutar', 'getar',
+      'acoustic guitar', 'my guitar', 'the guitar', 'a guitar', 'intern guitar',
+      'music guitar', 'guitara', 'gitara'
+    ];
+
+    if (targetVariants.includes(cleaned)) return true;
+
+    const words = cleaned.split(' ');
+    for (const w of words) {
+      if (targetVariants.includes(w)) return true;
+      if (w.length >= 4 && computeLevenshtein(w, 'guitar') <= 2) return true;
+      if (w.length >= 4 && computeLevenshtein(w, 'guiter') <= 2) return true;
+      if (w.length >= 4 && computeLevenshtein(w, 'gutiar') <= 2) return true;
+    }
+
+    return false;
+  }
+
+  function handleWrongAttempt(message) {
+    input.classList.remove('shake');
+    void input.offsetWidth; // trigger reflow
+    input.classList.add('shake');
+
+    // Pop a little heart
+    const popHeart = document.createElement('span');
+    popHeart.className = 'pop-heart';
+    popHeart.textContent = '❤️';
+    formZone.appendChild(popHeart);
+    setTimeout(() => popHeart.remove(), 1000);
+
+    feedback.style.opacity = '1';
+    feedback.textContent = message;
+
+    setTimeout(() => {
+      input.focus();
+    }, 2000);
+  }
+
+  function processSubmission(e) {
+    if (e) e.preventDefault();
+    if (isSubmitting) return;
+
+    const rawVal = input.value.trim();
+
+    // Edge Cases
+    if (!rawVal) {
+      handleWrongAttempt("Come on Jaanu... make your first guess ❤️");
+      return;
+    }
+
+    // Numbers only check
+    if (/^\d+$/.test(rawVal)) {
+      handleWrongAttempt("That would be a funny gift 😂");
+      return;
+    }
+
+    // Symbols only check
+    if (/^[^\w\s]+$/.test(rawVal) && !/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu.test(rawVal)) {
+      handleWrongAttempt("No secret hidden there 🤭");
+      return;
+    }
+
+    // Emoji only check
+    if (/^[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\s]+$/gu.test(rawVal)) {
+      handleWrongAttempt("Cute... but try words ❤️");
+      return;
+    }
+
+    if (checkIsCorrectGuess(rawVal)) {
+      // Step 1: Disable input & show correct status
+      isSubmitting = true;
+      input.disabled = true;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '❤️ Correct!';
+      feedback.style.opacity = '0';
+
+      // Step 2: Show Prompt
+      setTimeout(() => {
+        formZone.style.display = 'none';
+        unlockPrompt.style.display = 'block';
+      }, 500);
+    } else {
+      // Random response (different from last)
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * WRONG_RESPONSES.length);
+      } while (idx === lastResponseIndex && WRONG_RESPONSES.length > 1);
+      lastResponseIndex = idx;
+
+      handleWrongAttempt(WRONG_RESPONSES[idx]);
+    }
+  }
+
+  form.addEventListener('submit', processSubmission);
+
+  // Opening sequence handler
+  if (openBtn) {
+    openBtn.addEventListener('click', startCinematicReveal);
+  }
+
+  function startCinematicReveal() {
+    openBtn.disabled = true;
+
+    // Create fullscreen cinematic overlay
+    let overlay = document.querySelector('.cinematic-reveal-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'cinematic-reveal-overlay';
+      document.body.appendChild(overlay);
+    }
+    overlay.innerHTML = `
+      <div class="cinematic-container" id="cinematicContainer">
+        <div style="font-size:2rem;margin-bottom:1rem;">✨</div>
+        <p style="font-family:var(--font-display);font-size:1.5rem;color:var(--gold-light);margin-bottom:0.5rem;">Unlocking Your Birthday Surprise...</p>
+        <p style="color:var(--fog-light);font-size:0.9rem;">Hold on Jaanu ❤️</p>
+      </div>
+    `;
+
+    // 1. Darken background
+    setTimeout(() => {
+      overlay.classList.add('active');
+    }, 50);
+
+    // 2. Lock starts glowing & shaking
+    setTimeout(() => {
+      if (lock) lock.classList.add('shake-lock');
+    }, 1500);
+
+    // 3. Lock unlocks & falls off
+    setTimeout(() => {
+      if (lock) lock.classList.remove('shake-lock');
+      if (lockWrapper) lockWrapper.classList.add('unlock-lock');
+    }, 3000);
+
+    // 4. Chest lid opens & light rays beam out
+    setTimeout(() => {
+      if (lid) lid.classList.add('open-lid');
+      if (lightRays) lightRays.classList.add('active');
+    }, 3800);
+
+    // 5. Confetti burst & reveal final gift
+    setTimeout(() => {
+      if (typeof window.triggerConfetti === 'function') {
+        window.triggerConfetti();
+      }
+
+      // Hide overlay cleanly
+      overlay.classList.remove('active');
+
+      // Update card UI
+      if (chest) chest.style.display = 'none';
+      if (unlockPrompt) unlockPrompt.style.display = 'none';
+      if (unlockedItem) {
+        unlockedItem.style.display = 'block';
+        unlockedItem.style.animation = 'promptFadeIn 1s ease';
+      }
+      if (finalMessage) {
+        finalMessage.style.display = 'block';
+      }
+      if (metaUnlockText) {
+        metaUnlockText.innerHTML = '✨ Unlocked!';
+      }
+
+      // Persist state
+      localStorage.setItem(STORAGE_KEY, 'unlocked');
+    }, 4800);
+  }
 }
