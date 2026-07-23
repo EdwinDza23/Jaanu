@@ -1082,28 +1082,54 @@
             <span class="secret-gift-badge">🎁 One More Surprise...</span>
             <p class="secret-gift-desc">
               I wanted everything I planned for today to be with you.<br>
-              One special surprise is still finding its way to me, and I couldn't wait any longer to celebrate you.<br>
-              <strong style="color:var(--gold-light);display:block;margin-top:0.5rem;">Think you know what it is? Make your guess below. ❤️</strong>
+              One special surprise is still finding its way to me, and I couldn't wait any longer to celebrate you.
             </p>
+
+            <!-- LIVE COUNTDOWN TIMER -->
+            <div class="secret-gift-countdown" id="secretGiftCountdown" aria-label="Countdown to unlock">
+              <div class="countdown-title">⏳ Unlocks automatically in:</div>
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cdDays">00</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cdHours">00</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cdMins">00</span>
+                  <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-num" id="cdSecs">00</span>
+                  <span class="countdown-label">Secs</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- THE LOCKED GIFT BOX INTERFACE -->
           <div class="secret-gift-visual-box" id="secretGiftVisualBox">
             <div class="secret-gift-float-container">
               <!-- Particle / sparkle accent layer -->
-              <div class="secret-gift-sparkles" aria-hidden="true"></div>
+              <div class="secret-gift-sparkles" id="secretGiftSparkles" aria-hidden="true"></div>
 
               <!-- Luxury Wrapped Gift Box -->
               <div class="secret-gift-chest" id="secretGiftChest">
-                <div class="secret-gift-lid" id="secretGiftLid"></div>
+                <div class="secret-gift-lid" id="secretGiftLid">
+                  <div class="secret-gift-ribbon-bow">
+                    <span></span><span></span>
+                  </div>
+                </div>
                 <div class="secret-gift-box-body">
-                  <div class="secret-gift-ribbon-v"></div>
-                  <div class="secret-gift-ribbon-h"></div>
+                  <div class="secret-gift-ribbon-v" id="secretRibbonV"></div>
+                  <div class="secret-gift-ribbon-h" id="secretRibbonH"></div>
                 </div>
                 <!-- 🔒 Lock Element -->
                 <div class="secret-gift-lock-wrapper" id="secretGiftLockWrapper">
                   <div class="secret-gift-lock" id="secretGiftLock">
-                    <span class="lock-icon">🔒</span>
+                    <span class="lock-icon" id="lockIcon">🔒</span>
                   </div>
                 </div>
                 <!-- Light rays inside chest -->
@@ -1112,8 +1138,8 @@
 
               <!-- Unlocked Item Container (shown when unlocked) -->
               <div class="secret-gift-unlocked-item" id="secretGiftUnlockedItem" style="display:none;width:100%;">
-                <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);">
-                  <img src="assets/The Guitar.png" alt="Special Birthday Surprise" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+                <figure style="margin:0;overflow:hidden;border-radius:var(--radius-m);box-shadow:0 15px 35px rgba(0,0,0,0.5);">
+                  <img src="assets/The Guitar.png" alt="Special Birthday Surprise - Guitar" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
                 </figure>
                 <div class="secret-gift-player-wrapper" style="margin-top:1rem;">
                   <div class="bonus__player">
@@ -1140,37 +1166,61 @@
               <div class="meta-row"><span>🔒 Secret Gift</span></div>
               <div class="meta-row"><span>Status:</span> <strong>🚚 On the Way</strong></div>
               <div class="meta-row"><span>Use Case:</span> <strong>🤫 To Learn</strong></div>
-              <div class="meta-row"><span>Unlock:</span> <strong id="metaUnlockText">Guess to Reveal</strong></div>
+              <div class="meta-row"><span>Unlock:</span> <strong id="metaUnlockText">24 July 2026, 10:00 AM</strong></div>
             </div>
           </div>
 
           <!-- GUESS FORM SECTION -->
           <div class="secret-gift-form-zone" id="secretGiftFormZone">
             <form id="secretGiftForm" onsubmit="return false;" autocomplete="off">
+              <label for="secretGiftInput" class="secret-gift-question">
+                What do you think I'm gifting you?
+              </label>
               <div class="secret-input-wrapper">
-                <input type="text" id="secretGiftInput" class="secret-gift-input" placeholder="What do you think it is?" aria-label="Guess your surprise">
-                <button type="submit" id="secretGiftSubmitBtn" class="secret-gift-btn">Guess ❤️</button>
+                <input type="text" id="secretGiftInput" class="secret-gift-input" placeholder="Type your guess..." aria-label="What do you think I'm gifting you?">
+                <button type="submit" id="secretGiftSubmitBtn" class="secret-gift-btn" data-magnetic>Unlock ❤️</button>
               </div>
             </form>
             <div class="secret-gift-feedback" id="secretGiftFeedback" role="status" aria-live="polite"></div>
+
+            <!-- INTERACTIVE CUTE & TEMPTING HINTS DECK -->
+            <div class="secret-gift-hints-container" id="secretGiftHintsContainer">
+              <div class="hints-bar-header">
+                <span class="hints-badge">💡 Tap for a Hint</span>
+                <span class="hints-count" id="hintsCount">Hint 1 of 4</span>
+              </div>
+              <div class="hints-nav" id="hintsNav">
+                <button type="button" class="hint-nav-btn active" data-hint-idx="0" data-magnetic>Hint 1 🛍️</button>
+                <button type="button" class="hint-nav-btn" data-hint-idx="1" data-magnetic>Hint 2 📚</button>
+                <button type="button" class="hint-nav-btn" data-hint-idx="2" data-magnetic>Hint 3 🎶</button>
+                <button type="button" class="hint-nav-btn" data-hint-idx="3" data-magnetic>Hint 4 ❤️</button>
+              </div>
+              <div class="hint-card-box" id="hintCardBox">
+                <div class="hint-card-icon" id="hintCardIcon">✨</div>
+                <p class="hint-card-text" id="hintCardText">"Remember when you asked me to buy it for you? 🤭"</p>
+              </div>
+            </div>
           </div>
 
-          <!-- UNLOCK PROMPT (Step 2 after guessing correctly) -->
+          <!-- UNLOCK PROMPT (Step 2 after guessing correctly or countdown complete) -->
           <div class="secret-gift-unlock-prompt" id="secretGiftUnlockPrompt" style="display:none;">
             <p class="unlock-sparkle">✨</p>
             <p class="unlock-text">You actually guessed it...</p>
             <p class="unlock-subtext">Ready to unlock your surprise?</p>
-            <button type="button" id="secretGiftOpenBtn" class="btn btn--primary secret-open-btn">Open My Surprise ❤️</button>
+            <button type="button" id="secretGiftOpenBtn" class="btn btn--primary secret-open-btn" data-magnetic>Open My Surprise ❤️</button>
           </div>
 
           <!-- FINAL MESSAGE (after cinematic reveal) -->
           <div class="secret-gift-final-message" id="secretGiftFinalMessage" style="display:none;">
             <div class="final-msg-heart">❤️</div>
             <h3>You found it.</h3>
-            <p class="final-msg-lead">Yes Jaanu... It really is your surprise.</p>
-            <p>I wanted this to be in your hands today.<br>It's already on its way to me, and very soon it'll be yours.</p>
-            <p>Some surprises are worth waiting for.</p>
-            <p class="final-msg-footer">This isn't the end of your birthday...<br>It's another beautiful memory waiting for us. ❤️</p>
+            <p class="final-msg-lead">Yes Jaanu... It really is your surprise 🎸</p>
+            <p class="final-msg-body">
+              This isn't just a guitar. It's a reminder that whenever life feels loud, music will remind you that you'll never face it alone.
+            </p>
+            <p class="final-msg-highlight">
+              <strong>Now go find your real gift... It's waiting for you ❤️</strong>
+            </p>
           </div>
 
         </article>

@@ -1623,7 +1623,7 @@ function initHeroScrollEffect() {
 }
 
 /* ==========================================================================
-   SECRET GIFT CHALLENGE — Guessing System & Cinematic Reveal
+   SECRET GIFT CHALLENGE — Luxury Interactive Surprise Card Engine
    ========================================================================== */
 function initSecretGiftChallenge() {
   const form = document.getElementById('secretGiftForm');
@@ -1635,61 +1635,164 @@ function initSecretGiftChallenge() {
   const lockWrapper = document.getElementById('secretGiftLockWrapper');
   const lock = document.getElementById('secretGiftLock');
   const lid = document.getElementById('secretGiftLid');
+  const ribbonV = document.getElementById('secretRibbonV');
+  const ribbonH = document.getElementById('secretRibbonH');
   const lightRays = document.getElementById('secretGiftLightRays');
   const unlockedItem = document.getElementById('secretGiftUnlockedItem');
   const chest = document.getElementById('secretGiftChest');
   const formZone = document.getElementById('secretGiftFormZone');
   const finalMessage = document.getElementById('secretGiftFinalMessage');
   const metaUnlockText = document.getElementById('metaUnlockText');
+  const card = document.getElementById('secretGiftCard');
+  const visualBox = document.getElementById('secretGiftVisualBox');
+  const sparklesContainer = document.getElementById('secretGiftSparkles');
 
   if (!form || !input || !submitBtn) return;
 
   const STORAGE_KEY = 'secret_gift_unlocked_state';
 
-  // 30+ Random playful wrong-guess responses
-  const WRONG_RESPONSES = [
-    "Hehe... not this one 🤭",
-    "You're making me smile 😄",
-    "That's actually a cute guess ❤️",
-    "Nope... try again detective 🕵️",
-    "You're getting warmer... maybe 👀",
-    "I knew you'd guess that 😂",
-    "Keep guessing Jaanu ❤️",
-    "Almost... or maybe I'm just teasing 😜",
-    "Hmmm... interesting guess.",
-    "You'll know soon enough ❤️",
-    "Still locked 🔒",
-    "Not today detective 😆",
-    "Wrong answer... but very adorable ❤️",
-    "Keep thinking 😊",
-    "You've got this!",
-    "I'm not giving up that easily 😏",
-    "Your next guess might be the one 👀",
-    "I'm enjoying watching you guess 😂",
-    "A for effort! But try again 🙈",
-    "Close... but the secret stays safe for now 🤫",
-    "Ooh, creative! But nope 💫",
-    "Nice try Jaanu, guess again! 💕",
-    "The lock didn't budge... yet! 🔑",
-    "Keep that imagination going! ✨",
-    "Haha, I love how your mind works 🧠❤️",
-    "Not quite, but I love your enthusiasm! 🌟",
-    "Try one more time... you can do it! 🎯",
-    "Nope! But here's a virtual hug for trying 🤗",
-    "So close... or are you? 🤭",
-    "Haha, keep guessing my love! ❤️"
+  // Target unlock date: 24 July 2026, 10:00 AM (local time)
+  const TARGET_DATE = new Date(2026, 6, 24, 10, 0, 0);
+
+  const cdDays = document.getElementById('cdDays');
+  const cdHours = document.getElementById('cdHours');
+  const cdMins = document.getElementById('cdMins');
+  const cdSecs = document.getElementById('cdSecs');
+
+  let isSubmitting = false;
+  let autoUnlocked = false;
+  let wrongAttemptCount = 0;
+
+  // 4 Serious, cute, and tempting hints
+  const INTERACTIVE_HINTS = [
+    {
+      icon: "🛍️",
+      text: `"Remember when you asked me to buy it for you? 🤭"`,
+      hintLabel: "Hint 1 of 4"
+    },
+    {
+      icon: "📚",
+      text: `"It's something brand new for you to learn... 🤫"`,
+      hintLabel: "Hint 2 of 4"
+    },
+    {
+      icon: "🎶",
+      text: `"It has no voice of its own... yet it can say everything your heart cannot. ❤️"`,
+      hintLabel: "Hint 3 of 4"
+    },
+    {
+      icon: "❤️",
+      text: `"It speaks the language of your heart when words aren't enough... ❤️"`,
+      hintLabel: "Hint 4 of 4"
+    }
   ];
 
-  let lastResponseIndex = -1;
-  let isSubmitting = false;
+  const hintNavBtns = document.querySelectorAll('.hint-nav-btn');
+  const hintCardIcon = document.getElementById('hintCardIcon');
+  const hintCardText = document.getElementById('hintCardText');
+  const hintsCount = document.getElementById('hintsCount');
 
-  // Always reset to locked state on page refresh
+  let currentActiveHintIdx = 0;
+
+  function selectHint(index) {
+    if (index < 0 || index >= INTERACTIVE_HINTS.length) return;
+    currentActiveHintIdx = index;
+
+    hintNavBtns.forEach((btn, i) => {
+      if (i === index) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    const hintData = INTERACTIVE_HINTS[index];
+    if (hintsCount) hintsCount.textContent = hintData.hintLabel;
+
+    const hintBox = document.getElementById('hintCardBox');
+    if (hintBox) {
+      hintBox.style.animation = 'none';
+      void hintBox.offsetWidth;
+      hintBox.style.animation = 'hintCardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+
+    if (hintCardIcon) hintCardIcon.textContent = hintData.icon;
+    if (hintCardText) hintCardText.textContent = hintData.text;
+  }
+
+  hintNavBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      selectHint(idx);
+    });
+  });
+
+  // Spawn floating sparkles inside gift visual box
+  if (sparklesContainer) {
+    sparklesContainer.innerHTML = '';
+    for (let i = 0; i < 12; i++) {
+      const p = document.createElement('div');
+      p.className = 'gift-particle';
+      p.style.left = `${Math.random() * 90 + 5}%`;
+      p.style.bottom = `${Math.random() * 40}%`;
+      p.style.animationDelay = `${Math.random() * 3}s`;
+      p.style.animationDuration = `${3 + Math.random() * 2}s`;
+      sparklesContainer.appendChild(p);
+    }
+  }
+
+  // Always reset storage on fresh loads for full surprise experience
   try {
     localStorage.removeItem(STORAGE_KEY);
   } catch (err) {
-    // Ignore storage restrictions
+    // Ignore storage errors
   }
 
+  // Live Countdown updating every second
+  function updateCountdown() {
+    const now = new Date();
+    const diff = TARGET_DATE.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      if (cdDays) cdDays.textContent = '00';
+      if (cdHours) cdHours.textContent = '00';
+      if (cdMins) cdMins.textContent = '00';
+      if (cdSecs) cdSecs.textContent = '00';
+      if (metaUnlockText) metaUnlockText.textContent = '✨ Ready to Unlock!';
+
+      if (!autoUnlocked && !isSubmitting) {
+        autoUnlocked = true;
+        triggerAutoUnlock();
+      }
+      return;
+    }
+
+    const seconds = Math.floor((diff / 1000) % 60);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    if (cdDays) cdDays.textContent = String(days).padStart(2, '0');
+    if (cdHours) cdHours.textContent = String(hours).padStart(2, '0');
+    if (cdMins) cdMins.textContent = String(minutes).padStart(2, '0');
+    if (cdSecs) cdSecs.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  const countdownTimer = setInterval(updateCountdown, 1000);
+
+  function triggerAutoUnlock() {
+    isSubmitting = true;
+    if (formZone) {
+      formZone.style.transition = 'opacity 0.4s ease';
+      formZone.style.opacity = '0';
+      setTimeout(() => {
+        formZone.style.display = 'none';
+        if (unlockPrompt) unlockPrompt.style.display = 'block';
+      }, 400);
+    }
+  }
+
+  // Levenshtein fuzzy match helper
   function computeLevenshtein(a, b) {
     const matrix = [];
     for (let i = 0; i <= b.length; i++) matrix[i] = [i];
@@ -1711,9 +1814,9 @@ function initSecretGiftChallenge() {
     return matrix[b.length][a.length];
   }
 
+  // Flexible case-insensitive secret word checker ("guitar", "Guitar", "GUITAR", "guiter", etc.)
   function checkIsCorrectGuess(userText) {
     if (!userText) return false;
-    // Strip emojis, punctuation, symbols, whitespace
     const cleaned = userText
       .toLowerCase()
       .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
@@ -1726,7 +1829,7 @@ function initSecretGiftChallenge() {
     const targetVariants = [
       'guitar', 'guiter', 'gutiar', 'gitar', 'guiitar', 'guitarr', 'gutar', 'getar',
       'acoustic guitar', 'my guitar', 'the guitar', 'a guitar', 'intern guitar',
-      'music guitar', 'guitara', 'gitara'
+      'music guitar', 'guitara', 'gitara', 'guitars'
     ];
 
     if (targetVariants.includes(cleaned)) return true;
@@ -1747,7 +1850,7 @@ function initSecretGiftChallenge() {
     void input.offsetWidth; // trigger reflow
     input.classList.add('shake');
 
-    // Pop a little heart
+    // Pop floating heart
     const popHeart = document.createElement('span');
     popHeart.className = 'pop-heart';
     popHeart.textContent = '❤️';
@@ -1757,11 +1860,10 @@ function initSecretGiftChallenge() {
     feedback.style.opacity = '1';
     feedback.textContent = message;
 
-    // Effortless UX: Auto clear input & refocus cursor after shake completes
     setTimeout(() => {
       input.value = '';
       input.focus();
-    }, 420);
+    }, 450);
   }
 
   function processSubmission(e) {
@@ -1770,32 +1872,12 @@ function initSecretGiftChallenge() {
 
     const rawVal = input.value.trim();
 
-    // Edge Cases
     if (!rawVal) {
-      handleWrongAttempt("Come on Jaanu... make your first guess ❤️");
-      return;
-    }
-
-    // Numbers only check
-    if (/^\d+$/.test(rawVal)) {
-      handleWrongAttempt("That would be a funny gift 😂");
-      return;
-    }
-
-    // Symbols only check
-    if (/^[^\w\s]+$/.test(rawVal) && !/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu.test(rawVal)) {
-      handleWrongAttempt("No secret hidden there 🤭");
-      return;
-    }
-
-    // Emoji only check
-    if (/^[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\s]+$/gu.test(rawVal)) {
-      handleWrongAttempt("Cute... but try words ❤️");
+      handleWrongAttempt("What do you think it is, Jaanu? Give it a try ❤️");
       return;
     }
 
     if (checkIsCorrectGuess(rawVal)) {
-      // Step 1: Green glow, disable input, morph button to '❤️ Correct!'
       isSubmitting = true;
       input.disabled = true;
       input.classList.remove('shake');
@@ -1804,7 +1886,6 @@ function initSecretGiftChallenge() {
       submitBtn.innerHTML = '❤️ Correct!';
       feedback.style.opacity = '0';
 
-      // Keep correct answer visible for ~1 second so user sees success, then fade into unlock prompt
       setTimeout(() => {
         formZone.style.transition = 'opacity 0.4s ease';
         formZone.style.opacity = '0';
@@ -1812,30 +1893,25 @@ function initSecretGiftChallenge() {
           formZone.style.display = 'none';
           unlockPrompt.style.display = 'block';
         }, 400);
-      }, 1000);
+      }, 900);
     } else {
-      // Random response (different from last)
-      let idx;
-      do {
-        idx = Math.floor(Math.random() * WRONG_RESPONSES.length);
-      } while (idx === lastResponseIndex && WRONG_RESPONSES.length > 1);
-      lastResponseIndex = idx;
-
-      handleWrongAttempt(WRONG_RESPONSES[idx]);
+      wrongAttemptCount++;
+      const hintIdx = (wrongAttemptCount - 1) % INTERACTIVE_HINTS.length;
+      selectHint(hintIdx);
+      handleWrongAttempt(INTERACTIVE_HINTS[hintIdx].text);
     }
   }
 
   form.addEventListener('submit', processSubmission);
 
-  // Opening sequence handler
   if (openBtn) {
     openBtn.addEventListener('click', startCinematicReveal);
   }
 
+  // 3D Cinematic Opening Sequence
   function startCinematicReveal() {
     openBtn.disabled = true;
 
-    // Create fullscreen cinematic overlay
     let overlay = document.querySelector('.cinematic-reveal-overlay');
     if (!overlay) {
       overlay = document.createElement('div');
@@ -1843,14 +1919,14 @@ function initSecretGiftChallenge() {
       document.body.appendChild(overlay);
     }
     overlay.innerHTML = `
-      <div class="cinematic-container" id="cinematicContainer">
-        <div style="font-size:2rem;margin-bottom:1rem;">✨</div>
-        <p style="font-family:var(--font-display);font-size:1.5rem;color:var(--gold-light);margin-bottom:0.5rem;">Unlocking Your Birthday Surprise...</p>
-        <p style="color:var(--fog-light);font-size:0.9rem;">Hold on Jaanu ❤️</p>
+      <div class="cinematic-container" id="cinematicContainer" style="text-align:center;">
+        <div style="font-size:2.2rem;margin-bottom:1rem;animation:pulse 1s infinite alternate;">✨</div>
+        <p style="font-family:var(--font-display);font-size:1.6rem;color:var(--gold-light);margin-bottom:0.5rem;">Unlocking Your Birthday Surprise...</p>
+        <p style="color:var(--fog-light);font-size:0.95rem;">Hold on Jaanu ❤️</p>
       </div>
     `;
 
-    // 1. Darken background
+    // 1. Darken background overlay
     setTimeout(() => {
       overlay.classList.add('active');
     }, 50);
@@ -1858,30 +1934,57 @@ function initSecretGiftChallenge() {
     // 2. Lock starts glowing & shaking
     setTimeout(() => {
       if (lock) lock.classList.add('shake-lock');
-    }, 1500);
+    }, 1200);
 
-    // 3. Lock unlocks & falls off
+    // 3. Ribbon unties naturally
+    setTimeout(() => {
+      if (ribbonV) ribbonV.classList.add('untie');
+      if (ribbonH) ribbonH.classList.add('untie');
+    }, 2200);
+
+    // 4. Lock breaks apart & falls away
     setTimeout(() => {
       if (lock) lock.classList.remove('shake-lock');
       if (lockWrapper) lockWrapper.classList.add('unlock-lock');
     }, 3000);
 
-    // 4. Chest lid opens & light rays beam out
+    // 5. 3D Chest lid opens & light rays beam out
     setTimeout(() => {
       if (lid) lid.classList.add('open-lid');
       if (lightRays) lightRays.classList.add('active');
     }, 3800);
 
-    // 5. Confetti burst & reveal final gift
+    // 6. Confetti & floating hearts burst, reveal guitar
     setTimeout(() => {
       if (typeof window.triggerConfetti === 'function') {
         window.triggerConfetti();
       }
 
-      // Hide overlay cleanly
+      // Burst floating hearts
+      for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+          const h = document.createElement('div');
+          h.textContent = Math.random() > 0.4 ? '❤️' : '✨';
+          h.style.position = 'fixed';
+          h.style.left = `${20 + Math.random() * 60}%`;
+          h.style.bottom = `${10 + Math.random() * 20}%`;
+          h.style.fontSize = `${1.2 + Math.random() * 1.5}rem`;
+          h.style.zIndex = '10000';
+          h.style.pointerEvents = 'none';
+          h.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
+          document.body.appendChild(h);
+
+          requestAnimationFrame(() => {
+            h.style.transform = `translateY(-${150 + Math.random() * 200}px) scale(${1.2 + Math.random() * 0.5})`;
+            h.style.opacity = '0';
+          });
+
+          setTimeout(() => h.remove(), 2100);
+        }, i * 120);
+      }
+
       overlay.classList.remove('active');
 
-      // Update card UI
       if (chest) chest.style.display = 'none';
       if (unlockPrompt) unlockPrompt.style.display = 'none';
       if (unlockedItem) {
@@ -1894,6 +1997,37 @@ function initSecretGiftChallenge() {
       if (metaUnlockText) {
         metaUnlockText.innerHTML = '✨ Unlocked!';
       }
-    }, 4800);
+    }, 4900);
   }
+
+  // Micro-interactions: Magnetic buttons & Subtle 3D Card Parallax
+  if (card && visualBox) {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      visualBox.style.transform = `rotateY(${x * 0.02}deg) rotateX(${-y * 0.02}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      visualBox.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+
+  // Magnetic button effect
+  const magneticBtns = document.querySelectorAll('[data-magnetic]');
+  magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.03)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0) scale(1)';
+    });
+  });
 }
+
